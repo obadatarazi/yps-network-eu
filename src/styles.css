@@ -186,6 +186,11 @@
     border-color: var(--color-action-hover);
   }
 
+  .btn:disabled {
+    opacity: 0.65;
+    cursor: wait;
+  }
+
   .btn-header {
     min-height: 2.75rem;
     padding-inline: 1rem;

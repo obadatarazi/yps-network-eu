@@ -51,6 +51,7 @@ import {
   sanitizeText,
   wasFilledTooFast,
 } from "@/lib/form-security";
+import { JOIN_CHANNEL_IDS, JOIN_CHANNELS } from "@/lib/join-channels";
 import { trackEvent } from "@/lib/umami";
 import { BridgeField } from "@/components/motion/bridge-field";
 import { CountUp } from "@/components/motion/count-up";
@@ -75,7 +76,26 @@ const socialIcons: Record<SocialId, typeof Linkedin> = {
 export type { SitePageId };
 
 type Scale = 0 | 1 | 2;
-type FormErrors = ("name" | "email" | "region" | "message" | "consent" | "rate")[];
+type FormErrors = ("name" | "email" | "region" | "message" | "consent" | "captcha" | "rate" | "send" | "unconfigured")[];
+
+const HCAPTCHA_SITE_KEY = import.meta.env.VITE_HCAPTCHA_SITE_KEY ?? "";
+
+type HCaptchaApi = {
+  render: (
+    element: HTMLElement,
+    options: {
+      sitekey: string;
+      callback: (token: string) => void;
+      "expired-callback": () => void;
+    },
+  ) => string;
+};
+
+declare global {
+  interface Window {
+    hcaptcha?: HCaptchaApi;
+  }
+}
 
 const pillarIcons: Record<PillarId, typeof Users> = {
   participation: Users,
@@ -1294,6 +1314,48 @@ function Resources({
   );
 }
 
+function CaptchaBox({ onToken }: { onToken: (token: string) => void }) {
+  const holder = useRef<HTMLDivElement>(null);
+  const onTokenRef = useRef(onToken);
+  onTokenRef.current = onToken;
+
+  useEffect(() => {
+    if (!HCAPTCHA_SITE_KEY || !holder.current) return;
+    let cancelled = false;
+    const element = holder.current;
+
+    function render() {
+      if (cancelled || !element || !window.hcaptcha) return;
+      window.hcaptcha.render(element, {
+        sitekey: HCAPTCHA_SITE_KEY,
+        callback: (token) => onTokenRef.current(token),
+        "expired-callback": () => onTokenRef.current(""),
+      });
+    }
+
+    if (window.hcaptcha) {
+      render();
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    const existing = document.querySelector<HTMLScriptElement>("script[data-hcaptcha='1']");
+    const script = existing ?? document.createElement("script");
+    script.src = "https://js.hcaptcha.com/1/api.js?render=explicit";
+    script.async = true;
+    script.dataset.hcaptcha = "1";
+    script.addEventListener("load", render, { once: true });
+    if (!existing) document.head.appendChild(script);
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  if (!HCAPTCHA_SITE_KEY) return null;
+  return <div id="join-captcha" ref={holder} className="mt-4 min-h-16" />;
+}
+
 function Join({
   c,
   lang,
@@ -1305,7 +1367,6 @@ function Join({
 }) {
   const base = useId();
   const summaryRef = useRef<HTMLDivElement>(null);
-  const messageRef = useRef<HTMLTextAreaElement>(null);
   const startedAt = useRef(Date.now());
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -1316,39 +1377,33 @@ function Join({
   const [message, setMessage] = useState("");
   const [consent, setConsent] = useState(false);
   const [honeypot, setHoneypot] = useState("");
+  const [captchaToken, setCaptchaToken] = useState("");
   const [errors, setErrors] = useState<FormErrors>([]);
-  const [ready, setReady] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null);
 
   function fieldError(key: FormErrors[number]) {
     return errors.includes(key);
   }
 
-  function buildBody() {
-    return [
-      `${c.form.name}: ${sanitizeText(name, FIELD_LIMITS.name).trim()}`,
-      `${c.form.email}: ${sanitizeText(email, FIELD_LIMITS.email).trim()}`,
-      `${c.form.organisation}: ${sanitizeText(organisation, FIELD_LIMITS.organisation).trim() || c.form.noneStated}`,
-      `${c.form.place}: ${sanitizeText(place, FIELD_LIMITS.place).trim() || c.form.noneStated}`,
-      `${c.form.region}: ${region}`,
-      `${c.form.access}: ${sanitizeText(access, FIELD_LIMITS.access).trim() || c.form.noneStated}`,
-      "",
-      sanitizeText(message, FIELD_LIMITS.message).trim(),
-    ].join("\n");
+  function focusErrors() {
+    window.setTimeout(() => summaryRef.current?.focus(), 40);
   }
 
-  function onSubmit(event: FormEvent) {
+  async function onSubmit(event: FormEvent) {
     event.preventDefault();
-    // Bots that fill the hidden field: stop quietly (no mailto prepare).
+    if (sending) return;
     if (isHoneypotTripped(honeypot) || wasFilledTooFast(startedAt.current)) {
       setErrors([]);
-      setReady("");
+      setSent(false);
       return;
     }
     if (isJoinRateLimited()) {
       setErrors(["rate"]);
-      setReady("");
+      setSent(false);
       announce(c.form.errors.rate);
-      window.setTimeout(() => summaryRef.current?.focus(), 40);
+      focusErrors();
       return;
     }
     const next: FormErrors = [];
@@ -1359,32 +1414,76 @@ function Join({
     if (!region) next.push("region");
     if (sanitizeText(message, FIELD_LIMITS.message).trim().length < 8) next.push("message");
     if (!consent) next.push("consent");
+    if (HCAPTCHA_SITE_KEY && !captchaToken) next.push("captcha");
     setErrors(next);
     if (next.length) {
-      setReady("");
+      setSent(false);
       announce(fill(c.form.errorCount, next.length));
-      window.setTimeout(() => summaryRef.current?.focus(), 40);
+      focusErrors();
       return;
     }
-    recordJoinPrepare();
-    setReady(buildBody());
-    announce(c.form.successTitle);
-    trackEvent("join-prepare", { region, language: lang });
-  }
 
-  async function copyMessage() {
+    setSending(true);
     try {
-      await navigator.clipboard.writeText(ready);
-      announce(c.form.copied);
-      trackEvent("join-copy-message");
+      const response = await fetch("/api/join", {
+        method: "POST",
+        headers: { "content-type": "application/json", accept: "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          organisation,
+          place,
+          region,
+          access,
+          message,
+          consent,
+          lang,
+          website: honeypot,
+          captchaToken,
+        }),
+      });
+      const data = (await response.json().catch(() => ({}))) as {
+        ok?: boolean;
+        error?: string;
+        fields?: FormErrors;
+        whatsappUrl?: string | null;
+      };
+      if (!response.ok || !data.ok) {
+        const serverFields = Array.isArray(data.fields) ? data.fields.filter((field) => field !== "captcha" || HCAPTCHA_SITE_KEY) : [];
+        if (data.error === "captcha") setErrors(["captcha"]);
+        else if (data.error === "rate" || response.status === 429) setErrors(["rate"]);
+        else if (data.error === "unconfigured") setErrors(["unconfigured"]);
+        else if (serverFields.length) setErrors(serverFields);
+        else setErrors(["send"]);
+        setSent(false);
+        const notice =
+          data.error === "captcha"
+            ? c.form.errors.captcha
+            : data.error === "unconfigured"
+              ? c.form.errors.unconfigured
+              : data.error === "rate" || response.status === 429
+                ? c.form.errors.rate
+                : serverFields.length
+                  ? fill(c.form.errorCount, serverFields.length)
+                  : c.form.errors.send;
+        announce(notice);
+        focusErrors();
+        return;
+      }
+      recordJoinPrepare();
+      setWhatsappUrl(typeof data.whatsappUrl === "string" ? data.whatsappUrl : null);
+      setSent(true);
+      announce(c.form.successTitle);
+      trackEvent("join-submit", { region, language: lang });
     } catch {
-      messageRef.current?.focus();
-      messageRef.current?.select();
-      announce(c.form.copyManually);
+      setErrors(["send"]);
+      setSent(false);
+      announce(c.form.errors.send);
+      focusErrors();
+    } finally {
+      setSending(false);
     }
   }
-
-  const mailto = `mailto:${NETWORK_EMAIL}?subject=${encodeURIComponent(c.form.subject)}&body=${encodeURIComponent(ready)}`;
 
   return (
     <section id="join" className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12 lg:py-16" aria-labelledby="join-title">
@@ -1402,43 +1501,21 @@ function Join({
           </p>
         </div>
         <div className="min-w-0 rounded-xl border border-line bg-surface p-4 sm:p-6 lg:col-span-8">
-          {ready ? (
+          {sent ? (
             <div role="status">
               <h3 className="text-xl sm:text-2xl">{c.form.successTitle}</h3>
-              <p className="mt-3 max-w-prose">{c.form.successBody}</p>
-              <div className="mt-5 flex flex-col gap-2 sm:flex-row">
+              <p className="mt-3 max-w-prose">{whatsappUrl ? c.form.successBody : c.form.successNoLink}</p>
+              {whatsappUrl ? (
                 <a
-                  className="btn btn-primary w-full sm:w-auto"
-                  href={mailto}
-                  onClick={() => trackEvent("join-open-email", { region })}
+                  className="btn btn-primary mt-5 w-full sm:w-auto"
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => trackEvent("join-open-whatsapp", { region })}
                 >
-                  <Mail aria-hidden="true" className="size-4" />
-                  {c.form.emailAction}
+                  {c.form.whatsappAction}
                 </a>
-                <button type="button" className="btn btn-secondary w-full sm:w-auto" onClick={copyMessage}>
-                  {c.form.copyAction}
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-secondary w-full sm:w-auto"
-                  onClick={() => {
-                    setReady("");
-                  }}
-                >
-                  {c.form.edit}
-                </button>
-              </div>
-              <label className="mt-5 block font-semibold" htmlFor={`${base}-ready`}>
-                {c.form.message}
-              </label>
-              <textarea
-                ref={messageRef}
-                id={`${base}-ready`}
-                className="field mt-2"
-                readOnly
-                value={ready}
-                lang={lang}
-              />
+              ) : null}
             </div>
           ) : (
             <form className="relative" noValidate onSubmit={onSubmit} autoComplete="on">
@@ -1450,18 +1527,18 @@ function Join({
                   className="mb-5 rounded-lg border-2 border-danger p-4"
                 >
                   <h3 id={`${base}-errors`} className="text-lg">
-                    {c.form.errorHeading}
+                    {errors.length === 1 && (errors[0] === "rate" || errors[0] === "send" || errors[0] === "unconfigured")
+                      ? c.form.errors[errors[0]]
+                      : c.form.errorHeading}
                   </h3>
-                  <p className="mt-1">
-                    {errors.includes("rate") && errors.length === 1
-                      ? c.form.errors.rate
-                      : fill(c.form.errorCount, errors.length)}
-                  </p>
+                  {errors.length === 1 && (errors[0] === "rate" || errors[0] === "send" || errors[0] === "unconfigured") ? null : (
+                    <>
+                  <p className="mt-1">{fill(c.form.errorCount, errors.length)}</p>
                   <ul className="mt-2 grid gap-1 ps-5">
                     {errors.map((key) => (
                       <li key={key} className="list-disc">
-                        {key === "rate" ? (
-                          c.form.errors.rate
+                        {key === "rate" || key === "send" || key === "unconfigured" ? (
+                          c.form.errors[key]
                         ) : (
                           <a className="text-accent underline" href={`#${base}-${key}`}>
                             {c.form.errors[key]}
@@ -1470,6 +1547,8 @@ function Join({
                       </li>
                     ))}
                   </ul>
+                    </>
+                  )}
                 </div>
               )}
               <div className="absolute -left-[10000px] h-0 w-0 overflow-hidden" aria-hidden="true">
@@ -1556,6 +1635,7 @@ function Join({
                   label={c.form.region}
                   note={c.form.required}
                   needed
+                  hint={c.form.regionHint}
                   error={fieldError("region") ? c.form.errors.region : ""}
                 >
                   <select
@@ -1564,13 +1644,17 @@ function Join({
                     name="region"
                     value={region}
                     aria-invalid={fieldError("region")}
-                    aria-describedby={fieldError("region") ? `${base}-region-error` : undefined}
+                    aria-describedby={
+                      fieldError("region")
+                        ? `${base}-region-hint ${base}-region-error`
+                        : `${base}-region-hint`
+                    }
                     onChange={(event) => setRegion(event.target.value)}
                   >
                     <option value="">{c.form.regionPlaceholder}</option>
-                    {c.form.regions.map((item) => (
-                      <option key={item} value={item}>
-                        {item}
+                    {JOIN_CHANNEL_IDS.map((id) => (
+                      <option key={id} value={id}>
+                        {JOIN_CHANNELS[id][lang]}
                       </option>
                     ))}
                   </select>
@@ -1639,8 +1723,17 @@ function Join({
                   </p>
                 )}
               </div>
-              <button type="submit" className="btn btn-primary mt-5 w-full sm:w-auto">
-                {c.form.submit}
+              <div id={`${base}-captcha`}>
+                <CaptchaBox onToken={setCaptchaToken} />
+                {fieldError("captcha") && (
+                  <p id={`${base}-captcha-error`} className="mt-2 flex items-start gap-2 text-danger">
+                    <CircleAlert aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
+                    {c.form.errors.captcha}
+                  </p>
+                )}
+              </div>
+              <button type="submit" className="btn btn-primary mt-5 w-full sm:w-auto" disabled={sending}>
+                {sending ? c.form.sending : c.form.submit}
               </button>
             </form>
           )}

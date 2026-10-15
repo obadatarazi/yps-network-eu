@@ -129,24 +129,21 @@ export type Copy = {
     accessHint: string;
     message: string;
     messageHint: string;
+    regionHint: string;
     consent: string;
     required: string;
     optional: string;
     submit: string;
+    sending: string;
     regionPlaceholder: string;
-    regions: string[];
-    errors: Record<"name" | "email" | "region" | "message" | "consent" | "rate", string>;
+    errors: Record<"name" | "email" | "region" | "message" | "consent" | "captcha" | "rate" | "send" | "unconfigured", string>;
     errorHeading: string;
     errorCount: string;
     successTitle: string;
     successBody: string;
-    emailAction: string;
-    copyAction: string;
-    copied: string;
-    copyManually: string;
-    edit: string;
+    successNoLink: string;
+    whatsappAction: string;
     noneStated: string;
-    subject: string;
     popups: string;
   };
   footerBlurb: string;
@@ -498,7 +495,7 @@ const en: Copy = {
   ],
   joinTitle: "Join or write to the network",
   joinIntro:
-    "This page does not upload your details to a server. It checks the form, then prepares an email to the network. You send it from your own mail app. A copy stays on screen so you can select it if mail does not open.",
+    "Send a message to the network. A confirmation email comes back to you, with the WhatsApp group for the region you choose.",
   form: {
     name: "Full name",
     email: "Email",
@@ -510,40 +507,33 @@ const en: Copy = {
       "Optional. Examples: step-free rooms, captions, screen-reader formats, sign language, quieter spaces, or more time.",
     message: "Why you want to connect",
     messageHint: "A few sentences is enough. Say whether you are writing as a person or for an organisation.",
-    consent: "I agree to open this message in my email app, addressed to the network.",
+    regionHint: "The confirmation email includes the WhatsApp group for this region.",
+    consent: "I agree to send this message to the network and to receive a confirmation email.",
     required: "required",
     optional: "optional",
-    submit: "Prepare message",
+    submit: "Send message",
+    sending: "Sending…",
     regionPlaceholder: "Choose a region",
-    regions: [
-      "Asia and the Middle East",
-      "Europe",
-      "West Africa",
-      "Central Africa",
-      "Eastern and Southern Africa",
-      "Latin America and the Caribbean",
-      "More than one region",
-    ],
     errors: {
       name: "Enter your name.",
       email: "Enter an email address like name@example.com.",
       region: "Choose a region.",
       message: "Write a short message so the network knows why you are writing.",
-      consent: "Confirm that your email app may open with this message.",
-      rate: "Please wait a few minutes before preparing another message from this browser.",
+      consent: "Confirm that the network may email you about this message.",
+      captcha: "Complete the captcha before sending.",
+      rate: "Please wait a few minutes before sending another message.",
+      send: "The message could not be sent. Try again in a moment, or email the network directly.",
+      unconfigured: "Email is not connected yet. Write to the address above for now.",
     },
     errorHeading: "Fix these fields",
-    errorCount: "{n} fields need attention before the message can be prepared.",
-    successTitle: "Your message is ready to send",
+    errorCount: "{n} fields need attention before the message can be sent.",
+    successTitle: "Message sent",
     successBody:
-      "Nothing was stored on a server. Use the email button, or copy the text below and send it yourself.",
-    emailAction: "Open email to the network",
-    copyAction: "Copy message",
-    copied: "Message copied.",
-    copyManually: "Copy did not run. The message is selected so you can copy it.",
-    edit: "Edit message",
+      "Check your email. It includes the WhatsApp group for the region you chose.",
+    successNoLink:
+      "We received your message. The regional team will email the WhatsApp group link for this region.",
+    whatsappAction: "Open the WhatsApp group",
     noneStated: "None stated",
-    subject: "Join the EU YPS Network",
     popups: "The print window was blocked. Allow pop-ups or use download instead.",
   },
   footerBlurb:
@@ -556,7 +546,7 @@ const en: Copy = {
   },
   privacyTitle: "Privacy",
   privacy:
-    "Text size, contrast, plain language, and language choice are saved only in this browser. The join form is not sent anywhere until you choose to email it. Do not include passwords or identity document numbers in your message.",
+    "Text size, contrast, plain language, and language choice are saved only in this browser. The join form is emailed to the network and a confirmation is emailed to you. Do not include passwords or identity document numbers in your message.",
   contactTitle: "Inquiries",
   backToTop: "Back to top",
   sitemapLabel: "Sitemap",
@@ -1119,7 +1109,7 @@ const ar: Copy = {
   ],
   joinTitle: "انضم أو راسل الشبكة",
   joinIntro:
-    "هذه الصفحة لا ترفع بياناتك إلى خادم. تتحقق من النموذج ثم تجهّز رسالة إلى الشبكة. أنت ترسلها من تطبيق بريدك. تبقى نسخة على الشاشة لتحددها إذا لم يُفتح البريد.",
+    "أرسل رسالة إلى الشبكة. يصلك بريد تأكيد يتضمن مجموعة واتساب للإقليم الذي تختاره.",
   form: {
     name: "الاسم الكامل",
     email: "البريد الإلكتروني",
@@ -1131,39 +1121,31 @@ const ar: Copy = {
       "اختياري. أمثلة: قاعات بلا درجات، ترجمة نصية، صيغ لقارئ الشاشة، لغة إشارة، أماكن أهدأ، أو وقت إضافي.",
     message: "لماذا تريد التواصل",
     messageHint: "بضع جمل تكفي. اذكر إن كنت تكتب بصفة شخصية أو باسم منظمة.",
-    consent: "أوافق على فتح هذه الرسالة في تطبيق بريدي، موجهة إلى الشبكة.",
+    regionHint: "بريد التأكيد يتضمن مجموعة واتساب لهذا الإقليم.",
+    consent: "أوافق على إرسال هذه الرسالة إلى الشبكة وعلى استلام بريد تأكيد.",
     required: "مطلوب",
     optional: "اختياري",
-    submit: "تجهيز الرسالة",
+    submit: "إرسال الرسالة",
+    sending: "جارٍ الإرسال…",
     regionPlaceholder: "اختر إقليمًا",
-    regions: [
-      "آسيا والشرق الأوسط",
-      "أوروبا",
-      "غرب أفريقيا",
-      "وسط أفريقيا",
-      "شرق أفريقيا والجنوب الأفريقي",
-      "أمريكا اللاتينية والكاريبي",
-      "أكثر من إقليم",
-    ],
     errors: {
       name: "أدخل اسمك.",
       email: "أدخل بريدًا إلكترونيًا مثل name@example.com.",
       region: "اختر إقليمًا.",
       message: "اكتب رسالة قصيرة حتى تعرف الشبكة سبب كتابتك.",
-      consent: "أكّد أن تطبيق بريدك يمكن أن يُفتح بهذه الرسالة.",
-      rate: "انتظر بضع دقائق قبل تجهيز رسالة أخرى من هذا المتصفح.",
+      consent: "أكّد أن الشبكة يمكن أن تراسلك بخصوص هذه الرسالة.",
+      captcha: "أكمل التحقق قبل الإرسال.",
+      rate: "انتظر بضع دقائق قبل إرسال رسالة أخرى.",
+      send: "تعذر إرسال الرسالة. حاول بعد لحظة، أو راسل الشبكة مباشرة.",
+      unconfigured: "البريد غير موصول بعد. راسل العنوان أعلاه في الوقت الحالي.",
     },
     errorHeading: "صحّح هذه الحقول",
-    errorCount: "يلزم الانتباه إلى {n} من الحقول قبل تجهيز الرسالة.",
-    successTitle: "رسالتك جاهزة للإرسال",
-    successBody: "لم يُحفظ شيء على خادم. استخدم زر البريد، أو انسخ النص أدناه وأرسله بنفسك.",
-    emailAction: "فتح البريد إلى الشبكة",
-    copyAction: "نسخ الرسالة",
-    copied: "تم نسخ الرسالة.",
-    copyManually: "لم يعمل النسخ. الرسالة محددة ويمكنك نسخها.",
-    edit: "تعديل الرسالة",
+    errorCount: "يلزم الانتباه إلى {n} من الحقول قبل إرسال الرسالة.",
+    successTitle: "تم إرسال الرسالة",
+    successBody: "تحقق من بريدك. يتضمن مجموعة واتساب للإقليم الذي اخترته.",
+    successNoLink: "استلمنا رسالتك. سيرسل الفريق الإقليمي رابط مجموعة واتساب لهذا الإقليم.",
+    whatsappAction: "فتح مجموعة واتساب",
     noneStated: "لم يُذكر شيء",
-    subject: "الانضمام إلى شبكة الاتحاد الأوروبي للشباب والسلام والأمن",
     popups: "نُفذة الطباعة محجوبة. اسمح بالنوافذ المنبثقة أو استخدم التنزيل.",
   },
   footerBlurb:
@@ -1176,7 +1158,7 @@ const ar: Copy = {
   },
   privacyTitle: "الخصوصية",
   privacy:
-    "حجم النص والتباين واللغة المبسطة واختيار اللغة تُحفظ في هذا المتصفح فقط. نموذج الانضمام لا يُرسل إلى أي مكان حتى تختار إرساله بالبريد. لا تضع كلمات مرور أو أرقام وثائق هوية في الرسالة.",
+    "حجم النص والتباين واللغة المبسطة واختيار اللغة تُحفظ في هذا المتصفح فقط. نموذج الانضمام يُرسل بالبريد إلى الشبكة ويصلك بريد تأكيد. لا تضع كلمات مرور أو أرقام وثائق هوية في الرسالة.",
   contactTitle: "للاستفسار",
   backToTop: "العودة إلى الأعلى",
   sitemapLabel: "خريطة الموقع",

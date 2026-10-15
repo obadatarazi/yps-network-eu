@@ -2,6 +2,7 @@ node_modules
 .DS_Store
 .env
 .env.*
+public/api/join-config.php
 *.log
 .vercel
 deploy

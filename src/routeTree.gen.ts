@@ -16,6 +16,7 @@ import { Route as PillarsRouteImport } from './routes/pillars'
 import { Route as RegionsRouteImport } from './routes/regions'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as TeamRouteImport } from './routes/team'
+import { Route as ApiJoinRouteImport } from './routes/api/join'
 import { Route as ArIndexRouteImport } from './routes/ar/index'
 import { Route as ArActivitiesRouteImport } from './routes/ar/activities'
 import { Route as ArJoinRouteImport } from './routes/ar/join'
@@ -57,6 +58,11 @@ const ResourcesRoute = ResourcesRouteImport.update({
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiJoinRoute = ApiJoinRouteImport.update({
+  id: '/api/join',
+  path: '/api/join',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ArIndexRoute = ArIndexRouteImport.update({
@@ -103,6 +109,7 @@ export interface FileRoutesByFullPath {
   '/regions': typeof RegionsRoute
   '/resources': typeof ResourcesRoute
   '/team': typeof TeamRoute
+  '/api/join': typeof ApiJoinRoute
   '/ar/activities': typeof ArActivitiesRoute
   '/ar/join': typeof ArJoinRoute
   '/ar/pillars': typeof ArPillarsRoute
@@ -119,6 +126,7 @@ export interface FileRoutesByTo {
   '/regions': typeof RegionsRoute
   '/resources': typeof ResourcesRoute
   '/team': typeof TeamRoute
+  '/api/join': typeof ApiJoinRoute
   '/ar/activities': typeof ArActivitiesRoute
   '/ar/join': typeof ArJoinRoute
   '/ar/pillars': typeof ArPillarsRoute
@@ -136,6 +144,7 @@ export interface FileRoutesById {
   '/regions': typeof RegionsRoute
   '/resources': typeof ResourcesRoute
   '/team': typeof TeamRoute
+  '/api/join': typeof ApiJoinRoute
   '/ar/activities': typeof ArActivitiesRoute
   '/ar/join': typeof ArJoinRoute
   '/ar/pillars': typeof ArPillarsRoute
@@ -154,6 +163,7 @@ export interface FileRouteTypes {
     | '/regions'
     | '/resources'
     | '/team'
+    | '/api/join'
     | '/ar/activities'
     | '/ar/join'
     | '/ar/pillars'
@@ -170,6 +180,7 @@ export interface FileRouteTypes {
     | '/regions'
     | '/resources'
     | '/team'
+    | '/api/join'
     | '/ar/activities'
     | '/ar/join'
     | '/ar/pillars'
@@ -186,6 +197,7 @@ export interface FileRouteTypes {
     | '/regions'
     | '/resources'
     | '/team'
+    | '/api/join'
     | '/ar/activities'
     | '/ar/join'
     | '/ar/pillars'
@@ -203,6 +215,7 @@ export interface RootRouteChildren {
   RegionsRoute: typeof RegionsRoute
   ResourcesRoute: typeof ResourcesRoute
   TeamRoute: typeof TeamRoute
+  ApiJoinRoute: typeof ApiJoinRoute
   ArActivitiesRoute: typeof ArActivitiesRoute
   ArJoinRoute: typeof ArJoinRoute
   ArPillarsRoute: typeof ArPillarsRoute
@@ -261,6 +274,13 @@ declare module '@tanstack/react-router' {
       path: '/team'
       fullPath: '/team'
       preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/join': {
+      id: '/api/join'
+      path: '/api/join'
+      fullPath: '/api/join'
+      preLoaderRoute: typeof ApiJoinRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ar/': {
@@ -323,6 +343,7 @@ const rootRouteChildren: RootRouteChildren = {
   RegionsRoute: RegionsRoute,
   ResourcesRoute: ResourcesRoute,
   TeamRoute: TeamRoute,
+  ApiJoinRoute: ApiJoinRoute,
   ArActivitiesRoute: ArActivitiesRoute,
   ArJoinRoute: ArJoinRoute,
   ArPillarsRoute: ArPillarsRoute,
