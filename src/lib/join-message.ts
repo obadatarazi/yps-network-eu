@@ -48,10 +48,47 @@ export type MailDraft = {
   replyTo: string;
   subject: string;
   text: string;
+  html: string;
 };
 
 function oneLine(value: string, max: number): string {
   return sanitizeText(value, max).replace(/[\r\n]+/g, " ").trim();
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function mailPage(lang: JoinLang, body: string): string {
+  const dir = lang === "ar" ? "rtl" : "ltr";
+  return `<!DOCTYPE html><html lang="${lang}" dir="${dir}"><body style="margin:0;background:#f8f9fa;color:#1a1a1a;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f8f9fa;">
+<tr><td align="center" style="padding:24px 12px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border:1px solid #c5cdd6;border-radius:12px;">
+<tr><td style="padding:28px 24px;font-family:Arial,sans-serif;font-size:16px;line-height:1.5;text-align:start;">
+${body}
+</td></tr></table>
+</td></tr></table>
+</body></html>`;
+}
+
+function whatsappButton(label: string, href: string): string {
+  const safeHref = escapeHtml(href);
+  const safeLabel = escapeHtml(label);
+  return `<table role="presentation" cellpadding="0" cellspacing="0" style="margin:16px 0 8px;">
+<tr><td bgcolor="#25D366" style="border-radius:8px;">
+<a href="${safeHref}" style="display:inline-block;padding:12px 18px;font-family:Arial,sans-serif;font-size:16px;font-weight:700;line-height:22px;color:#ffffff;text-decoration:none;">
+<table role="presentation" cellpadding="0" cellspacing="0"><tr>
+<td style="padding:0 10px 0 0;"><img src="cid:whatsapp-mark" width="22" height="22" alt="" style="display:block;border:0;" /></td>
+<td style="color:#ffffff;font-family:Arial,sans-serif;font-size:16px;font-weight:700;line-height:22px;">${safeLabel}</td>
+</tr></table>
+</a>
+</td></tr></table>
+<p style="margin:8px 0 0;font-size:14px;"><a href="${safeHref}" style="color:#003366;">${safeHref}</a></p>`;
 }
 
 export function validateJoin(
@@ -116,11 +153,22 @@ export function buildStaffMail(submission: JoinSubmission): MailDraft {
         ? "The WhatsApp group for this region is coming soon. Their confirmation says that."
         : "No WhatsApp link is set for this region yet. Their confirmation says the regional team will send it.",
   ];
+  const text = lines.join("\n");
+  const groupHtml = submission.whatsappUrl
+    ? `<p style="margin:16px 0 0;">WhatsApp group included in their confirmation:</p>${whatsappButton(`Join the ${submission.regionLabel} group`, submission.whatsappUrl)}`
+    : `<p style="margin:16px 0 0;">${escapeHtml(lines[lines.length - 1] ?? "")}</p>`;
+  const html = mailPage("en", [
+    "<p style=\"margin:0 0 12px;\">New join request for the EU YPS Network</p>",
+    `<p style="margin:0;">Name: ${escapeHtml(submission.name)}<br>Email: ${escapeHtml(submission.email)}<br>Organisation: ${escapeHtml(submission.organisation || none)}<br>City or country: ${escapeHtml(submission.place || none)}<br>Region: ${escapeHtml(submission.regionLabel)}<br>Accessibility: ${escapeHtml(submission.access || none)}<br>Language: ${submission.lang === "ar" ? "Arabic" : "English"}</p>`,
+    `<p style="margin:16px 0 0;">Message:</p><p style="margin:8px 0 0;white-space:pre-wrap;">${escapeHtml(submission.message)}</p>`,
+    groupHtml,
+  ].join(""));
   return {
     to: [...STAFF_INBOXES],
     replyTo: submission.email,
     subject: oneLine(`Join request — ${submission.name} — ${submission.regionLabel}`, 180),
-    text: lines.join("\n"),
+    text,
+    html,
   };
 }
 
@@ -139,7 +187,44 @@ export function buildVisitorMail(submission: JoinSubmission): MailDraft {
     replyTo: "no-reply@euypsnet.org",
     subject,
     text,
+    html: submission.lang === "ar" ? arabicVisitorHtml(submission, link) : englishVisitorHtml(submission, link),
   };
+}
+
+function englishVisitorHtml(submission: JoinSubmission, link: string | null): string {
+  const group = link
+    ? whatsappButton(`Join the ${submission.regionLabel} group`, link)
+    : `<p style="margin:16px 0 0;">${escapeHtml(
+        JOIN_CHANNELS[submission.region].comingSoon
+          ? `The WhatsApp group for ${submission.regionLabel} is coming soon.`
+          : `The regional team will email you the WhatsApp group link for ${submission.regionLabel}.`,
+      )}</p>`;
+  return mailPage("en", [
+    `<p style="margin:0 0 12px;">Hello ${escapeHtml(submission.name)},</p>`,
+    "<p style=\"margin:0 0 12px;\">Thank you for writing to the EU YPS Network.</p>",
+    `<p style="margin:0;">We received your message about the ${escapeHtml(submission.regionLabel)} region.</p>`,
+    group,
+    "<p style=\"margin:16px 0 0;\">The network team has the same message. Reply to this email if you need a different format.</p>",
+    "<p style=\"margin:16px 0 0;\">EU YPS Network<br>no-reply@euypsnet.org</p>",
+  ].join(""));
+}
+
+function arabicVisitorHtml(submission: JoinSubmission, link: string | null): string {
+  const group = link
+    ? whatsappButton(`انضم إلى مجموعة ${submission.regionLabel}`, link)
+    : `<p style="margin:16px 0 0;">${escapeHtml(
+        JOIN_CHANNELS[submission.region].comingSoon
+          ? `مجموعة واتساب لإقليم ${submission.regionLabel} ستتوفر قريبًا.`
+          : `سيرسل الفريق الإقليمي رابط مجموعة واتساب لإقليم ${submission.regionLabel}.`,
+      )}</p>`;
+  return mailPage("ar", [
+    `<p style="margin:0 0 12px;">مرحباً ${escapeHtml(submission.name)}،</p>`,
+    "<p style=\"margin:0 0 12px;\">شكراً لكتابتك إلى شبكة الاتحاد الأوروبي للشباب والسلام والأمن.</p>",
+    `<p style="margin:0;">استلمنا رسالتك بخصوص إقليم ${escapeHtml(submission.regionLabel)}.</p>`,
+    group,
+    "<p style=\"margin:16px 0 0;\">وصل النص نفسه إلى فريق الشبكة. رد على هذا البريد إذا احتجت صيغة مختلفة.</p>",
+    "<p style=\"margin:16px 0 0;\">شبكة الاتحاد الأوروبي للشباب والسلام والأمن<br>no-reply@euypsnet.org</p>",
+  ].join(""));
 }
 
 function englishVisitor(submission: JoinSubmission, link: string | null): string {

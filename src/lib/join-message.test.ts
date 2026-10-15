@@ -35,6 +35,7 @@ test("arabic confirmation uses the Arabic region name", () => {
   const mail = buildVisitorMail(checked.submission);
   assert.match(mail.subject, /استلمنا رسالتك/);
   assert.match(mail.text, /غرب أفريقيا/);
+  assert.match(mail.html, /dir="rtl"/);
 });
 
 test("a configured WhatsApp link is included in the confirmation", () => {
@@ -47,6 +48,8 @@ test("a configured WhatsApp link is included in the confirmation", () => {
     const mail = buildVisitorMail(checked.submission);
     assert.match(mail.text, /https:\/\/chat\.whatsapp\.com\/ExampleGroupInvite/);
     assert.match(mail.text, /Europe/);
+    assert.match(mail.html, /href="https:\/\/chat\.whatsapp\.com\/ExampleGroupInvite"/);
+    assert.match(mail.html, /Join the Europe group/);
   } finally {
     JOIN_CHANNELS.europe.whatsapp = previous;
   }

@@ -115,9 +115,10 @@ $visitorSubject = $lang === 'ar'
   : 'We received your message — EU YPS Network';
 $staffSubject = one_line("Join request — {$name} — {$label}", 180);
 
-$headers = "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\nFrom: EU YPS Network <no-reply@euypsnet.org>\r\n";
-$staffOk = mail('no-reply@euypsnet.org', mime_subject($staffSubject), $staff, $headers . "Cc: euypsnet@gmail.com\r\nReply-To: {$email}\r\n");
-$visitorOk = mail($email, mime_subject($visitorSubject), $visitor, $headers . "Reply-To: no-reply@euypsnet.org\r\n");
+$staffHtml = mail_html($staff, $label, $lang);
+$visitorHtml = mail_html($visitor, $label, $lang);
+$staffOk = send_html_mail('no-reply@euypsnet.org', $staffSubject, $staff, $staffHtml, "Cc: euypsnet@gmail.com\r\nReply-To: {$email}\r\n");
+$visitorOk = send_html_mail($email, $visitorSubject, $visitor, $visitorHtml, "Reply-To: no-reply@euypsnet.org\r\n");
 
 if (!$staffOk || !$visitorOk) {
   http_response_code(502);
@@ -132,6 +133,37 @@ function mime_subject(string $subject): string {
     return mb_encode_mimeheader($subject, 'UTF-8');
   }
   return $subject;
+}
+
+function send_html_mail(string $to, string $subject, string $text, string $html, string $extra): bool {
+  $boundary = 'yps_' . bin2hex(random_bytes(8));
+  $headers = "MIME-Version: 1.0\r\nContent-Type: multipart/alternative; boundary=\"{$boundary}\"\r\nFrom: EU YPS Network <no-reply@euypsnet.org>\r\n{$extra}";
+  $body = "--{$boundary}\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n{$text}\r\n"
+    . "--{$boundary}\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n{$html}\r\n"
+    . "--{$boundary}--\r\n";
+  return mail($to, mime_subject($subject), $body, $headers);
+}
+
+function mail_html(string $text, string $region, string $lang): string {
+  $url = null;
+  if (preg_match('#https://(?:chat\\.whatsapp\\.com|wa\\.me)/\\S+#', $text, $match)) $url = $match[0];
+  $safe = htmlspecialchars($text, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+  $body = nl2br($safe, false);
+  if ($url) {
+    $href = htmlspecialchars($url, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+    $label = $lang === 'ar' ? "انضم إلى مجموعة {$region}" : "Join the {$region} group";
+    $label = htmlspecialchars($label, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+    $button = '<table role="presentation" cellpadding="0" cellspacing="0" style="margin:16px 0 8px;"><tr><td bgcolor="#25D366" style="border-radius:8px;">'
+      . '<a href="' . $href . '" style="display:inline-block;padding:12px 18px;font-family:Arial,sans-serif;font-size:16px;font-weight:700;color:#ffffff;text-decoration:none;">' . $label . '</a>'
+      . '</td></tr></table><p style="margin:8px 0 0;font-size:14px;"><a href="' . $href . '" style="color:#003366;">' . $href . '</a></p>';
+    $body = str_replace($href, $button, $body);
+  }
+  $dir = $lang === 'ar' ? 'rtl' : 'ltr';
+  return '<!DOCTYPE html><html lang="' . $lang . '" dir="' . $dir . '"><body style="margin:0;background:#f8f9fa;">'
+    . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:24px 12px;">'
+    . '<table role="presentation" width="100%" style="max-width:560px;background:#ffffff;border:1px solid #c5cdd6;border-radius:12px;"><tr>'
+    . '<td style="padding:28px 24px;font-family:Arial,sans-serif;font-size:16px;line-height:1.5;color:#1a1a1a;">' . $body . '</td>'
+    . '</tr></table></td></tr></table></body></html>';
 }
 
 function whatsapp_link(string $raw): ?string {
