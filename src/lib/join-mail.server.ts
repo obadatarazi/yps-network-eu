@@ -4,7 +4,6 @@ import { safeWhatsappUrl, type JoinChannelId } from "@/lib/join-channels";
 import {
   buildStaffMail,
   buildVisitorMail,
-  MAIL_FROM,
   validateJoin,
   type JoinInput,
   type JoinLang,
@@ -96,7 +95,7 @@ async function captchaOk(token: string, ip: string, secret: string): Promise<boo
 
 async function sendMail(draft: MailDraft, pass: string): Promise<void> {
   const port = Number(env("SMTP_PORT") ?? "465");
-  const user = env("SMTP_USER") ?? "info@euypsnet.org";
+  const user = env("SMTP_USER") ?? "no-reply@euypsnet.org";
   const transporter = nodemailer.createTransport({
     host: env("SMTP_HOST") ?? "smtp.hostinger.com",
     port,
@@ -104,7 +103,8 @@ async function sendMail(draft: MailDraft, pass: string): Promise<void> {
     auth: { user, pass },
   });
   await transporter.sendMail({
-    from: MAIL_FROM,
+    from: `EU YPS Network <${user}>`,
+    envelope: { from: user, to: draft.to },
     to: draft.to,
     replyTo: draft.replyTo,
     subject: draft.subject,

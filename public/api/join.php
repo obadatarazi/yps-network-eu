@@ -115,9 +115,9 @@ $visitorSubject = $lang === 'ar'
   : 'We received your message — EU YPS Network';
 $staffSubject = one_line("Join request — {$name} — {$label}", 180);
 
-$headers = "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\nFrom: EU YPS Network <info@euypsnet.org>\r\n";
-$staffOk = mail('info@euypsnet.org', mime_subject($staffSubject), $staff, $headers . "Cc: euypsnet@gmail.com\r\nReply-To: {$email}\r\n");
-$visitorOk = mail($email, mime_subject($visitorSubject), $visitor, $headers . "Reply-To: info@euypsnet.org\r\n");
+$headers = "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\nFrom: EU YPS Network <no-reply@euypsnet.org>\r\n";
+$staffOk = mail('no-reply@euypsnet.org', mime_subject($staffSubject), $staff, $headers . "Cc: euypsnet@gmail.com\r\nReply-To: {$email}\r\n");
+$visitorOk = mail($email, mime_subject($visitorSubject), $visitor, $headers . "Reply-To: no-reply@euypsnet.org\r\n");
 
 if (!$staffOk || !$visitorOk) {
   http_response_code(502);
@@ -165,7 +165,7 @@ function visitor_en(string $name, string $label, ?string $whatsapp, bool $coming
     : ($comingSoon
       ? "The WhatsApp group for {$label} is coming soon."
       : "The regional team will email you the WhatsApp group link for {$label}.");
-  return "Hello {$name},\n\nThank you for writing to the EU YPS Network.\nWe received your message about the {$label} region.\n\n{$group}\n\nThe network team has the same message. Reply to this email if you need a different format.\n\nEU YPS Network\ninfo@euypsnet.org";
+  return "Hello {$name},\n\nThank you for writing to the EU YPS Network.\nWe received your message about the {$label} region.\n\n{$group}\n\nThe network team has the same message. Reply to this email if you need a different format.\n\nEU YPS Network\nno-reply@euypsnet.org";
 }
 
 function visitor_ar(string $name, string $label, ?string $whatsapp, bool $comingSoon): string {
@@ -174,5 +174,5 @@ function visitor_ar(string $name, string $label, ?string $whatsapp, bool $coming
     : ($comingSoon
       ? "مجموعة واتساب لإقليم {$label} ستتوفر قريبًا."
       : "سيرسل الفريق الإقليمي رابط مجموعة واتساب لإقليم {$label}.");
-  return "مرحباً {$name}،\n\nشكراً لكتابتك إلى شبكة الاتحاد الأوروبي للشباب والسلام والأمن.\nاستلمنا رسالتك بخصوص إقليم {$label}.\n\n{$group}\n\nوصل النص نفسه إلى فريق الشبكة. رد على هذا البريد إذا احتجت صيغة مختلفة.\n\nشبكة الاتحاد الأوروبي للشباب والسلام والأمن\ninfo@euypsnet.org";
+  return "مرحباً {$name}،\n\nشكراً لكتابتك إلى شبكة الاتحاد الأوروبي للشباب والسلام والأمن.\nاستلمنا رسالتك بخصوص إقليم {$label}.\n\n{$group}\n\nوصل النص نفسه إلى فريق الشبكة. رد على هذا البريد إذا احتجت صيغة مختلفة.\n\nشبكة الاتحاد الأوروبي للشباب والسلام والأمن\nno-reply@euypsnet.org";
 }

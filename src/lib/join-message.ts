@@ -6,8 +6,8 @@ import {
   type JoinChannelId,
 } from "./join-channels.ts";
 
-export const STAFF_INBOXES = ["info@euypsnet.org", "euypsnet@gmail.com"] as const;
-export const MAIL_FROM = "EU YPS Network <info@euypsnet.org>";
+export const STAFF_INBOXES = ["no-reply@euypsnet.org", "euypsnet@gmail.com"] as const;
+export const MAIL_FROM = "EU YPS Network <no-reply@euypsnet.org>";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -136,7 +136,7 @@ export function buildVisitorMail(submission: JoinSubmission): MailDraft {
       : "We received your message — EU YPS Network";
   return {
     to: [submission.email],
-    replyTo: "info@euypsnet.org",
+    replyTo: "no-reply@euypsnet.org",
     subject,
     text,
   };
@@ -159,7 +159,7 @@ function englishVisitor(submission: JoinSubmission, link: string | null): string
     "The network team has the same message. Reply to this email if you need a different format.",
     "",
     "EU YPS Network",
-    "info@euypsnet.org",
+    "no-reply@euypsnet.org",
   ].join("\n");
 }
 
@@ -180,6 +180,6 @@ function arabicVisitor(submission: JoinSubmission, link: string | null): string 
     "وصل النص نفسه إلى فريق الشبكة. رد على هذا البريد إذا احتجت صيغة مختلفة.",
     "",
     "شبكة الاتحاد الأوروبي للشباب والسلام والأمن",
-    "info@euypsnet.org",
+    "no-reply@euypsnet.org",
   ].join("\n");
 }
