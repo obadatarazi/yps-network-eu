@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://euypsnet.org/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euypsnet.org/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://euypsnet.org/ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euypsnet.org/" />
+    <image:image>
+      <image:loc>https://euypsnet.org/og.jpg</image:loc>
+      <image:title>EU YPS Network</image:title>
+      <image:caption>European Youth Peace and Security Network</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://euypsnet.org/ar</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euypsnet.org/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://euypsnet.org/ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euypsnet.org/" />
+    <image:image>
+      <image:loc>https://euypsnet.org/og.jpg</image:loc>
+      <image:title>EU YPS Network</image:title>
+      <image:caption>European Youth Peace and Security Network</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://euypsnet.org/pillars</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euypsnet.org/pillars" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://euypsnet.org/ar/pillars" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euypsnet.org/pillars" />
+  </url>
+  <url>
+    <loc>https://euypsnet.org/ar/pillars</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euypsnet.org/pillars" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://euypsnet.org/ar/pillars" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euypsnet.org/pillars" />
+  </url>
+  <url>
+    <loc>https://euypsnet.org/regions</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euypsnet.org/regions" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://euypsnet.org/ar/regions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euypsnet.org/regions" />
+  </url>
+  <url>
+    <loc>https://euypsnet.org/ar/regions</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euypsnet.org/regions" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://euypsnet.org/ar/regions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euypsnet.org/regions" />
+  </url>
+  <url>
+    <loc>https://euypsnet.org/team</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euypsnet.org/team" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://euypsnet.org/ar/team" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euypsnet.org/team" />
+  </url>
+  <url>
+    <loc>https://euypsnet.org/ar/team</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euypsnet.org/team" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://euypsnet.org/ar/team" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euypsnet.org/team" />
+  </url>
+  <url>
+    <loc>https://euypsnet.org/activities</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euypsnet.org/activities" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://euypsnet.org/ar/activities" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euypsnet.org/activities" />
+  </url>
+  <url>
+    <loc>https://euypsnet.org/ar/activities</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euypsnet.org/activities" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://euypsnet.org/ar/activities" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euypsnet.org/activities" />
+  </url>
+  <url>
+    <loc>https://euypsnet.org/resources</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euypsnet.org/resources" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://euypsnet.org/ar/resources" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euypsnet.org/resources" />
+  </url>
+  <url>
+    <loc>https://euypsnet.org/ar/resources</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euypsnet.org/resources" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://euypsnet.org/ar/resources" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euypsnet.org/resources" />
+  </url>
+  <url>
+    <loc>https://euypsnet.org/join</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euypsnet.org/join" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://euypsnet.org/ar/join" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euypsnet.org/join" />
+  </url>
+  <url>
+    <loc>https://euypsnet.org/ar/join</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://euypsnet.org/join" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://euypsnet.org/ar/join" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://euypsnet.org/join" />
+  </url>
+  <url>
+    <loc>https://euypsnet.org/llms.txt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://euypsnet.org/llms-full.txt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

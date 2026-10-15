@@ -1,0 +1,12 @@
+node_modules
+.git
+.grok
+artifacts
+attachments
+screenshots
+**/*.test.ts
+**/*.test.mjs
+.env
+.env.*
+*.log
+.DS_Store

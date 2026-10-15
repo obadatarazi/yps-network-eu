@@ -1,0 +1,13 @@
+/* TEAM */
+Developer: Obada Altarazi
+Site: https://cupcoding.com
+LinkedIn: https://www.linkedin.com/in/obada-tarazi/
+
+/* SITE */
+Name: EU YPS Network
+Full name: European Youth Peace and Security Network (EYPS Network)
+Standards: HTML5, CSS3, WCAG-oriented accessibility
+Languages: English, Arabic
+Contact: euypsnet@gmail.com
+Location: Brussels, Belgium
+Last update: 2026/04/09

@@ -1,0 +1,31 @@
+# EU YPS Network
+
+> European Youth Peace and Security Network (EYPS Network) — an international network of young activists, advocates, researchers, and changemakers present in more than 82 countries, advancing the United Nations Youth, Peace and Security Agenda (which the European Union helps implement).
+
+The official website for the EU YPS / EYPS Network. Content reflects the network’s regional structure and the United Nations Youth, Peace and Security Agenda.
+
+## Site
+
+- [Home](https://euypsnet.org/): Overview, vision, mission, and metrics
+- [Five pillars](https://euypsnet.org/pillars): Participation, Protection, Prevention, Partnerships, Disengagement and reintegration (UNSCR 2250)
+- [Regions](https://euypsnet.org/regions): West Africa, Central Africa, Eastern and Southern Africa, Europe, Latin America and the Caribbean, Asia and the Middle East
+- [Meet the Team](https://euypsnet.org/team): Regional Administrators and coordinators
+- [Activities](https://euypsnet.org/activities): Dialogue, inclusion, capacity-building and networks
+- [Resources](https://euypsnet.org/resources): Downloadable briefs, toolkits, and training notes
+- [Join](https://euypsnet.org/join): Contact the network by email
+
+## Key facts
+
+- Name: European Youth Peace and Security Network (EYPS Network)
+- Short name: EU YPS Network
+- Founded: 2025
+- Contact: euypsnet@gmail.com
+- Domain: https://euypsnet.org
+- Location reference: Brussels, Belgium
+- Languages on site: English (https://euypsnet.org/), Arabic (https://euypsnet.org/ar)
+
+## Optional
+
+- [Full LLM context](https://euypsnet.org/llms-full.txt): Longer summary for assistants
+- [Sitemap](https://euypsnet.org/sitemap.xml)
+- [Robots](https://euypsnet.org/robots.txt)
