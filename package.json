@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "node scripts/with-app-env.mjs vite dev --host 0.0.0.0 --port 8080",
     "build": "node scripts/with-app-env.mjs vite build && npm run db:migrate",
+    "build:hostinger": "node scripts/build-hostinger.mjs",
     "build:frontend": "node scripts/with-app-env.mjs vite build",
     "pack:frontend": "node scripts/pack-frontend-deploy.mjs",
     "pack:source": "node scripts/pack-source-deploy.mjs",
