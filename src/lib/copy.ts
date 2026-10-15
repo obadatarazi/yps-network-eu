@@ -140,10 +140,6 @@ export type Copy = {
     errorHeading: string;
     errorCount: string;
     successTitle: string;
-    successBody: string;
-    successNoLink: string;
-    successComingSoon: string;
-    whatsappAction: string;
     noneStated: string;
     popups: string;
   };
@@ -529,12 +525,6 @@ const en: Copy = {
     errorHeading: "Fix these fields",
     errorCount: "{n} fields need attention before the message can be sent.",
     successTitle: "Message sent",
-    successBody:
-      "Check your email. It includes the WhatsApp group for the region you chose.",
-    successNoLink:
-      "We received your message. The regional team will email the WhatsApp group link for this region.",
-    successComingSoon: "We received your message. The WhatsApp group for this region is coming soon.",
-    whatsappAction: "Open the WhatsApp group",
     noneStated: "None stated",
     popups: "The print window was blocked. Allow pop-ups or use download instead.",
   },
@@ -1144,10 +1134,6 @@ const ar: Copy = {
     errorHeading: "صحّح هذه الحقول",
     errorCount: "يلزم الانتباه إلى {n} من الحقول قبل إرسال الرسالة.",
     successTitle: "تم إرسال الرسالة",
-    successBody: "تحقق من بريدك. يتضمن مجموعة واتساب للإقليم الذي اخترته.",
-    successNoLink: "استلمنا رسالتك. سيرسل الفريق الإقليمي رابط مجموعة واتساب لهذا الإقليم.",
-    successComingSoon: "استلمنا رسالتك. مجموعة واتساب لهذا الإقليم ستتوفر قريبًا.",
-    whatsappAction: "فتح مجموعة واتساب",
     noneStated: "لم يُذكر شيء",
     popups: "نُفذة الطباعة محجوبة. اسمح بالنوافذ المنبثقة أو استخدم التنزيل.",
   },

@@ -51,7 +51,8 @@ import {
   sanitizeText,
   wasFilledTooFast,
 } from "@/lib/form-security";
-import { JOIN_CHANNEL_IDS, JOIN_CHANNELS, isJoinChannelId, joinChannelLabel } from "@/lib/join-channels";
+import { JOIN_CHANNEL_IDS, joinChannelLabel } from "@/lib/join-channels";
+import { MessageSentMark } from "@/components/message-sent-mark";
 import { trackEvent } from "@/lib/umami";
 import { BridgeField } from "@/components/motion/bridge-field";
 import { CountUp } from "@/components/motion/count-up";
@@ -1381,7 +1382,6 @@ function Join({
   const [errors, setErrors] = useState<FormErrors>([]);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
-  const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null);
 
   function fieldError(key: FormErrors[number]) {
     return errors.includes(key);
@@ -1446,7 +1446,6 @@ function Join({
         ok?: boolean;
         error?: string;
         fields?: FormErrors;
-        whatsappUrl?: string | null;
       };
       if (!response.ok || !data.ok) {
         const serverFields = Array.isArray(data.fields) ? data.fields.filter((field) => field !== "captcha" || HCAPTCHA_SITE_KEY) : [];
@@ -1471,7 +1470,6 @@ function Join({
         return;
       }
       recordJoinPrepare();
-      setWhatsappUrl(typeof data.whatsappUrl === "string" ? data.whatsappUrl : null);
       setSent(true);
       announce(c.form.successTitle);
       trackEvent("join-submit", { region, language: lang });
@@ -1502,26 +1500,9 @@ function Join({
         </div>
         <div className="min-w-0 rounded-xl border border-line bg-surface p-4 sm:p-6 lg:col-span-8">
           {sent ? (
-            <div role="status">
+            <div role="status" className="flex flex-col items-center py-8 text-center">
+              <MessageSentMark />
               <h3 className="text-xl sm:text-2xl">{c.form.successTitle}</h3>
-              <p className="mt-3 max-w-prose">
-                {whatsappUrl
-                  ? c.form.successBody
-                  : isJoinChannelId(region) && JOIN_CHANNELS[region].comingSoon
-                    ? c.form.successComingSoon
-                    : c.form.successNoLink}
-              </p>
-              {whatsappUrl ? (
-                <a
-                  className="btn btn-primary mt-5 w-full sm:w-auto"
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => trackEvent("join-open-whatsapp", { region })}
-                >
-                  {c.form.whatsappAction}
-                </a>
-              ) : null}
             </div>
           ) : (
             <form className="relative" noValidate onSubmit={onSubmit} autoComplete="on">
