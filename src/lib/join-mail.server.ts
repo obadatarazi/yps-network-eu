@@ -70,7 +70,6 @@ const WHATSAPP_ENV: Record<JoinChannelId, string> = {
   "central-africa": "WHATSAPP_CENTRAL_AFRICA",
   "eastern-southern-africa": "WHATSAPP_EASTERN_SOUTHERN_AFRICA",
   "latin-america": "WHATSAPP_LATIN_AMERICA",
-  multi: "WHATSAPP_MULTI",
 };
 
 function withWhatsappLink<T extends { region: JoinChannelId; whatsappUrl: string | null }>(submission: T): T {

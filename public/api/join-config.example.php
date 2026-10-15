@@ -15,6 +15,5 @@ return [
     'central-africa' => '',
     'eastern-southern-africa' => '',
     'latin-america' => '',
-    'multi' => '',
   ],
 ];

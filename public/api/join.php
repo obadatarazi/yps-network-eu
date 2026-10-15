@@ -19,9 +19,8 @@ $channels = [
   'europe' => ['en' => 'Europe', 'ar' => 'أوروبا', 'whatsapp' => ''],
   'west-africa' => ['en' => 'West Africa', 'ar' => 'غرب أفريقيا', 'whatsapp' => ''],
   'central-africa' => ['en' => 'Central Africa', 'ar' => 'وسط أفريقيا', 'whatsapp' => ''],
-  'eastern-southern-africa' => ['en' => 'Eastern and Southern Africa', 'ar' => 'شرق أفريقيا والجنوب الأفريقي', 'whatsapp' => ''],
+  'eastern-southern-africa' => ['en' => 'Eastern and Southern Africa', 'ar' => 'شرق أفريقيا والجنوب الأفريقي', 'whatsapp' => '', 'comingSoon' => true],
   'latin-america' => ['en' => 'Latin America and the Caribbean', 'ar' => 'أمريكا اللاتينية والكاريبي', 'whatsapp' => ''],
-  'multi' => ['en' => 'More than one region', 'ar' => 'أكثر من إقليم', 'whatsapp' => ''],
 ];
 
 $config = [];
@@ -106,10 +105,11 @@ if ($secret !== '') {
 
 $label = $channels[$region][$lang];
 $whatsapp = whatsapp_link((string) $channels[$region]['whatsapp']);
-$staff = staff_text($name, $email, $organisation, $place, $label, $access, $message, $lang, $whatsapp);
+$comingSoon = !empty($channels[$region]['comingSoon']);
+$staff = staff_text($name, $email, $organisation, $place, $label, $access, $message, $lang, $whatsapp, $comingSoon);
 $visitor = $lang === 'ar'
-  ? visitor_ar($name, $label, $whatsapp)
-  : visitor_en($name, $label, $whatsapp);
+  ? visitor_ar($name, $label, $whatsapp, $comingSoon)
+  : visitor_en($name, $label, $whatsapp, $comingSoon);
 $visitorSubject = $lang === 'ar'
   ? 'استلمنا رسالتك — شبكة الاتحاد الأوروبي للشباب والسلام والأمن'
   : 'We received your message — EU YPS Network';
@@ -145,11 +145,13 @@ function whatsapp_link(string $raw): ?string {
   return $raw;
 }
 
-function staff_text(string $name, string $email, string $organisation, string $place, string $label, string $access, string $message, string $lang, ?string $whatsapp): string {
+function staff_text(string $name, string $email, string $organisation, string $place, string $label, string $access, string $message, string $lang, ?string $whatsapp, bool $comingSoon): string {
   $none = 'None stated';
   $group = $whatsapp
     ? "WhatsApp group included in their confirmation:\n{$whatsapp}"
-    : 'No WhatsApp link is set for this region yet. Their confirmation says the regional team will send it.';
+    : ($comingSoon
+      ? 'The WhatsApp group for this region is coming soon. Their confirmation says that.'
+      : 'No WhatsApp link is set for this region yet. Their confirmation says the regional team will send it.');
   $language = $lang === 'ar' ? 'Arabic' : 'English';
   $org = $organisation !== '' ? $organisation : $none;
   $where = $place !== '' ? $place : $none;
@@ -157,16 +159,20 @@ function staff_text(string $name, string $email, string $organisation, string $p
   return "New join request for the EU YPS Network\n\nName: {$name}\nEmail: {$email}\nOrganisation: {$org}\nCity or country: {$where}\nRegion: {$label}\nAccessibility: {$accessText}\nLanguage: {$language}\n\nMessage:\n{$message}\n\n{$group}";
 }
 
-function visitor_en(string $name, string $label, ?string $whatsapp): string {
+function visitor_en(string $name, string $label, ?string $whatsapp, bool $comingSoon): string {
   $group = $whatsapp
     ? "Join the WhatsApp group for {$label}:\n{$whatsapp}"
-    : "The regional team will email you the WhatsApp group link for {$label}.";
+    : ($comingSoon
+      ? "The WhatsApp group for {$label} is coming soon."
+      : "The regional team will email you the WhatsApp group link for {$label}.");
   return "Hello {$name},\n\nThank you for writing to the EU YPS Network.\nWe received your message about the {$label} region.\n\n{$group}\n\nThe network team has the same message. Reply to this email if you need a different format.\n\nEU YPS Network\ninfo@euypsnet.org";
 }
 
-function visitor_ar(string $name, string $label, ?string $whatsapp): string {
+function visitor_ar(string $name, string $label, ?string $whatsapp, bool $comingSoon): string {
   $group = $whatsapp
     ? "مجموعة واتساب لإقليم {$label}:\n{$whatsapp}"
-    : "سيرسل الفريق الإقليمي رابط مجموعة واتساب لإقليم {$label}.";
+    : ($comingSoon
+      ? "مجموعة واتساب لإقليم {$label} ستتوفر قريبًا."
+      : "سيرسل الفريق الإقليمي رابط مجموعة واتساب لإقليم {$label}.");
   return "مرحباً {$name}،\n\nشكراً لكتابتك إلى شبكة الاتحاد الأوروبي للشباب والسلام والأمن.\nاستلمنا رسالتك بخصوص إقليم {$label}.\n\n{$group}\n\nوصل النص نفسه إلى فريق الشبكة. رد على هذا البريد إذا احتجت صيغة مختلفة.\n\nشبكة الاتحاد الأوروبي للشباب والسلام والأمن\ninfo@euypsnet.org";
 }

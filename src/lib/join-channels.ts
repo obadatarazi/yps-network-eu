@@ -6,14 +6,13 @@ export const JOIN_CHANNEL_IDS = [
   "central-africa",
   "eastern-southern-africa",
   "latin-america",
-  "multi",
 ] as const;
 
 export type JoinChannelId = (typeof JOIN_CHANNEL_IDS)[number];
 
 export const JOIN_CHANNELS: Record<
   JoinChannelId,
-  { en: string; ar: string; whatsapp: string }
+  { en: string; ar: string; whatsapp: string; comingSoon?: boolean }
 > = {
   asia: {
     en: "Asia and the Middle East",
@@ -39,15 +38,11 @@ export const JOIN_CHANNELS: Record<
     en: "Eastern and Southern Africa",
     ar: "شرق أفريقيا والجنوب الأفريقي",
     whatsapp: "",
+    comingSoon: true,
   },
   "latin-america": {
     en: "Latin America and the Caribbean",
     ar: "أمريكا اللاتينية والكاريبي",
-    whatsapp: "",
-  },
-  multi: {
-    en: "More than one region",
-    ar: "أكثر من إقليم",
     whatsapp: "",
   },
 };
@@ -69,6 +64,14 @@ export function safeWhatsappUrl(value: string): string | null {
   } catch {
     return null;
   }
+}
+
+/** Region name on the join form. A group without a link says so beside the name. */
+export function joinChannelLabel(id: JoinChannelId, lang: "en" | "ar"): string {
+  const channel = JOIN_CHANNELS[id];
+  const name = channel[lang];
+  if (!channel.comingSoon) return name;
+  return lang === "ar" ? `${name} (قريبًا)` : `${name} (coming soon)`;
 }
 
 export function whatsappLinkFor(id: JoinChannelId): string | null {

@@ -112,7 +112,9 @@ export function buildStaffMail(submission: JoinSubmission): MailDraft {
     "",
     submission.whatsappUrl
       ? `WhatsApp group included in their confirmation:\n${submission.whatsappUrl}`
-      : "No WhatsApp link is set for this region yet. Their confirmation says the regional team will send it.",
+      : JOIN_CHANNELS[submission.region].comingSoon
+        ? "The WhatsApp group for this region is coming soon. Their confirmation says that."
+        : "No WhatsApp link is set for this region yet. Their confirmation says the regional team will send it.",
   ];
   return {
     to: [...STAFF_INBOXES],
@@ -143,7 +145,9 @@ export function buildVisitorMail(submission: JoinSubmission): MailDraft {
 function englishVisitor(submission: JoinSubmission, link: string | null): string {
   const group = link
     ? `Join the WhatsApp group for ${submission.regionLabel}:\n${link}`
-    : `The regional team will email you the WhatsApp group link for ${submission.regionLabel}.`;
+    : JOIN_CHANNELS[submission.region].comingSoon
+      ? `The WhatsApp group for ${submission.regionLabel} is coming soon.`
+      : `The regional team will email you the WhatsApp group link for ${submission.regionLabel}.`;
   return [
     `Hello ${submission.name},`,
     "",
@@ -162,7 +166,9 @@ function englishVisitor(submission: JoinSubmission, link: string | null): string
 function arabicVisitor(submission: JoinSubmission, link: string | null): string {
   const group = link
     ? `مجموعة واتساب لإقليم ${submission.regionLabel}:\n${link}`
-    : `سيرسل الفريق الإقليمي رابط مجموعة واتساب لإقليم ${submission.regionLabel}.`;
+    : JOIN_CHANNELS[submission.region].comingSoon
+      ? `مجموعة واتساب لإقليم ${submission.regionLabel} ستتوفر قريبًا.`
+      : `سيرسل الفريق الإقليمي رابط مجموعة واتساب لإقليم ${submission.regionLabel}.`;
   return [
     `مرحباً ${submission.name}،`,
     "",

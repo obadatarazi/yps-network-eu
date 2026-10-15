@@ -51,7 +51,7 @@ import {
   sanitizeText,
   wasFilledTooFast,
 } from "@/lib/form-security";
-import { JOIN_CHANNEL_IDS, JOIN_CHANNELS } from "@/lib/join-channels";
+import { JOIN_CHANNEL_IDS, JOIN_CHANNELS, isJoinChannelId, joinChannelLabel } from "@/lib/join-channels";
 import { trackEvent } from "@/lib/umami";
 import { BridgeField } from "@/components/motion/bridge-field";
 import { CountUp } from "@/components/motion/count-up";
@@ -1504,7 +1504,13 @@ function Join({
           {sent ? (
             <div role="status">
               <h3 className="text-xl sm:text-2xl">{c.form.successTitle}</h3>
-              <p className="mt-3 max-w-prose">{whatsappUrl ? c.form.successBody : c.form.successNoLink}</p>
+              <p className="mt-3 max-w-prose">
+                {whatsappUrl
+                  ? c.form.successBody
+                  : isJoinChannelId(region) && JOIN_CHANNELS[region].comingSoon
+                    ? c.form.successComingSoon
+                    : c.form.successNoLink}
+              </p>
               {whatsappUrl ? (
                 <a
                   className="btn btn-primary mt-5 w-full sm:w-auto"
@@ -1654,7 +1660,7 @@ function Join({
                     <option value="">{c.form.regionPlaceholder}</option>
                     {JOIN_CHANNEL_IDS.map((id) => (
                       <option key={id} value={id}>
-                        {JOIN_CHANNELS[id][lang]}
+                        {joinChannelLabel(id, lang)}
                       </option>
                     ))}
                   </select>

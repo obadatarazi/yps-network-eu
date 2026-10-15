@@ -52,6 +52,18 @@ test("a configured WhatsApp link is included in the confirmation", () => {
   }
 });
 
+test("eastern and southern Africa says the WhatsApp group is coming soon", () => {
+  const checked = validateJoin(
+    { ...base, region: "eastern-southern-africa" },
+    { captchaRequired: false },
+  );
+  assert.equal(checked.ok, true);
+  if (!checked.ok) return;
+  const mail = buildVisitorMail(checked.submission);
+  assert.match(mail.text, /Eastern and Southern Africa is coming soon/);
+  assert.equal(checked.submission.whatsappUrl, null);
+});
+
 test("a region that is not a channel is rejected", () => {
   const checked = validateJoin({ ...base, region: "Antarctica" }, { captchaRequired: false });
   assert.equal(checked.ok, false);
