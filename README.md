@@ -4,6 +4,8 @@ Website for the **EU Youth, Peace and Security (YPS) Network** — Asia & Middle
 
 Maintained by [Obada Al Tarazi](https://github.com/obadatarazi) (Active Member & Web Developer).
 
+**Live:** [euypsnet.org](https://euypsnet.org/)
+
 ---
 
 ## Stack
