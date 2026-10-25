@@ -289,24 +289,6 @@ const en: Copy = {
         },
       ],
     },
-    {
-      id: "conflict-minerals-2026",
-      title: "Conflict Minerals Conference",
-      when: "10 and 12 November 2026 · public session 15:30–17:00",
-      where: "Brussels and online · hybrid",
-      summary:
-        "Two-part conference on conflict minerals, critical raw materials and youth: a closed-door hearing with young activists from affected areas (10 November), then a public hybrid debate with policymakers and peacebuilders (12 November).",
-      documents: [
-        {
-          label: "Concept note (PDF)",
-          href: "/documents/Conflict_Minerals_Conference_Concept_Note_Nov_2026.pdf",
-        },
-        {
-          label: "Draft programme (PDF)",
-          href: "/documents/Conflict_Minerals_Conference_Program_12_Nov_2026.pdf",
-        },
-      ],
-    },
   ],
   focusTitle: "What we work on",
   focusIntro:
@@ -729,24 +711,6 @@ const en: Copy = {
       fileHref: "/documents/ESA_Regional_Webinar_Program_16_Oct_2026.pdf",
     },
     {
-      id: "conflict-minerals-concept-note",
-      kind: "brief",
-      title: "Conflict Minerals Conference — Concept Note",
-      summary:
-        "Concept note for the Conflict Minerals Conference in Brussels and online (10 and 12 November 2026).",
-      body: "Two-part conference on conflict minerals, critical raw materials and youth: a closed-door hearing with young activists from affected areas (10 November), then a public hybrid debate with policymakers and peacebuilders (12 November, 15:30–17:00).\n\nDownload the PDF for background, legal framing, format and follow-up. Contact euypsnet@gmail.com if you need an accessible format.",
-      fileHref: "/documents/Conflict_Minerals_Conference_Concept_Note_Nov_2026.pdf",
-    },
-    {
-      id: "conflict-minerals-program",
-      kind: "brief",
-      title: "Conflict Minerals Conference — Draft Programme",
-      summary:
-        "Draft hybrid programme for the public Conflict Minerals Conference session (12 November 2026).",
-      body: "Hybrid public session in Brussels and online taking stock of the closed-door hearing, covering the situation and legal framework, needs on the ground from EU YPS Network speakers, Q&A and conclusions.\n\nDate: Thursday, 12 November 2026, 15:30–17:00. Download the PDF for the full draft programme.\n\nContact euypsnet@gmail.com if you need an accessible format.",
-      fileHref: "/documents/Conflict_Minerals_Conference_Program_12_Nov_2026.pdf",
-    },
-    {
       id: "together-for-peace-agenda",
       kind: "brief",
       title: "Together for Peace — Agenda",
@@ -899,24 +863,6 @@ const ar: Copy = {
         {
           label: "مسودة البرنامج (PDF)",
           href: "/documents/ESA_Regional_Webinar_Program_16_Oct_2026.pdf",
-        },
-      ],
-    },
-    {
-      id: "conflict-minerals-2026",
-      title: "مؤتمر المعادن المرتبطة بالنزاع",
-      when: "10 و12 تشرين الثاني/نوفمبر 2026 · الجلسة العامة 15:30–17:00",
-      where: "بروكسل وعبر الإنترنت · هجين",
-      summary:
-        "مؤتمر من جزأين حول المعادن المرتبطة بالنزاع والمواد الخام الحرجة والشباب: جلسة استماع مغلقة مع ناشطين شباب من المناطق المتأثرة (10 تشرين الثاني/نوفمبر)، ثم نقاش عام هجين مع صنّاع السياسات وبناة السلام (12 تشرين الثاني/نوفمبر).",
-      documents: [
-        {
-          label: "المذكرة المفاهيمية (PDF)",
-          href: "/documents/Conflict_Minerals_Conference_Concept_Note_Nov_2026.pdf",
-        },
-        {
-          label: "مسودة البرنامج (PDF)",
-          href: "/documents/Conflict_Minerals_Conference_Program_12_Nov_2026.pdf",
         },
       ],
     },
@@ -1337,24 +1283,6 @@ const ar: Copy = {
         "مسودة برنامج جلسة الندوة الإقليمية لشرق وجنوب أفريقيا حول سلامة المعلومات (16 تشرين الأول/أكتوبر 2026).",
       body: "برنامج مسودة لمدة ساعتين يغطي تعريفات اضطراب المعلومات، وكيف يجري التلاعب بالمحتوى، وإطار الانتخابات والاحتجاجات في شرق أفريقيا، وتمارين تحقق مباشرة، وعرض أداة AmaniCheck.\n\nالتاريخ: الخميس 16 تشرين الأول/أكتوبر 2026. نزّلوا ملف PDF لمقاطع الجلسة الموقوتة.\n\nشاركوها مع المنظّمين والمشاركين قبل الجلسة. راسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
       fileHref: "/documents/ESA_Regional_Webinar_Program_16_Oct_2026.pdf",
-    },
-    {
-      id: "conflict-minerals-concept-note",
-      kind: "brief",
-      title: "مؤتمر المعادن المرتبطة بالنزاع — مذكرة مفاهيمية",
-      summary:
-        "مذكرة مفاهيمية لمؤتمر المعادن المرتبطة بالنزاع في بروكسل وعبر الإنترنت (10 و12 تشرين الثاني/نوفمبر 2026).",
-      body: "مؤتمر من جزأين حول المعادن المرتبطة بالنزاع والمواد الخام الحرجة والشباب: جلسة استماع مغلقة مع ناشطين شباب من المناطق المتأثرة (10 تشرين الثاني/نوفمبر)، ثم نقاش عام هجين مع صنّاع السياسات وبناة السلام (12 تشرين الثاني/نوفمبر، 15:30–17:00).\n\nنزّلوا ملف PDF للخلفية والإطار القانوني والصيغة والمتابعة. راسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
-      fileHref: "/documents/Conflict_Minerals_Conference_Concept_Note_Nov_2026.pdf",
-    },
-    {
-      id: "conflict-minerals-program",
-      kind: "brief",
-      title: "مؤتمر المعادن المرتبطة بالنزاع — مسودة البرنامج",
-      summary:
-        "مسودة برنامج الجلسة العامة الهجينة لمؤتمر المعادن المرتبطة بالنزاع (12 تشرين الثاني/نوفمبر 2026).",
-      body: "جلسة عامة هجينة في بروكسل وعبر الإنترنت تستعرض جلسة الاستماع المغلقة، وتغطي الوضع والإطار القانوني، والاحتياجات على الأرض من متحدثي شبكة الاتحاد الأوروبي للشباب والسلام والأمن، والأسئلة والخلاصة.\n\nالتاريخ: الخميس 12 تشرين الثاني/نوفمبر 2026، 15:30–17:00. نزّلوا ملف PDF لمسودة البرنامج الكاملة.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
-      fileHref: "/documents/Conflict_Minerals_Conference_Program_12_Nov_2026.pdf",
     },
     {
       id: "together-for-peace-agenda",
