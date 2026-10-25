@@ -287,6 +287,10 @@ const en: Copy = {
           label: "Draft programme (PDF)",
           href: "/documents/ESA_Regional_Webinar_Program_16_Oct_2026.pdf",
         },
+        {
+          label: "Webinar report (PDF)",
+          href: "/documents/ESA_Regional_Webinar_Report_16_Oct_2026.pdf",
+        },
       ],
     },
   ],
@@ -711,6 +715,15 @@ const en: Copy = {
       fileHref: "/documents/ESA_Regional_Webinar_Program_16_Oct_2026.pdf",
     },
     {
+      id: "esa-webinar-report",
+      kind: "brief",
+      title: "ESA Regional Webinar — Report",
+      summary:
+        "Report on the East & Southern Africa hub webinar on misinformation, disinformation and malinformation (16 October 2026).",
+      body: "Summary of the EU YPS Network East and Southern Africa webinar with speaker Mr Hamisi Mwatondo, covering information integrity, Kenya as the main case study, a live verification walk-through, and an AmaniCheck demonstration.\n\nDate: Thursday, 16 October 2026. Download the PDF for objectives, opening remarks, speaker biography, session materials and closing notes.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/ESA_Regional_Webinar_Report_16_Oct_2026.pdf",
+    },
+    {
       id: "together-for-peace-agenda",
       kind: "brief",
       title: "Together for Peace — Agenda",
@@ -863,6 +876,10 @@ const ar: Copy = {
         {
           label: "مسودة البرنامج (PDF)",
           href: "/documents/ESA_Regional_Webinar_Program_16_Oct_2026.pdf",
+        },
+        {
+          label: "تقرير الندوة (PDF)",
+          href: "/documents/ESA_Regional_Webinar_Report_16_Oct_2026.pdf",
         },
       ],
     },
@@ -1283,6 +1300,15 @@ const ar: Copy = {
         "مسودة برنامج جلسة الندوة الإقليمية لشرق وجنوب أفريقيا حول سلامة المعلومات (16 تشرين الأول/أكتوبر 2026).",
       body: "برنامج مسودة لمدة ساعتين يغطي تعريفات اضطراب المعلومات، وكيف يجري التلاعب بالمحتوى، وإطار الانتخابات والاحتجاجات في شرق أفريقيا، وتمارين تحقق مباشرة، وعرض أداة AmaniCheck.\n\nالتاريخ: الخميس 16 تشرين الأول/أكتوبر 2026. نزّلوا ملف PDF لمقاطع الجلسة الموقوتة.\n\nشاركوها مع المنظّمين والمشاركين قبل الجلسة. راسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
       fileHref: "/documents/ESA_Regional_Webinar_Program_16_Oct_2026.pdf",
+    },
+    {
+      id: "esa-webinar-report",
+      kind: "brief",
+      title: "ندوة شرق وجنوب أفريقيا الإقليمية — التقرير",
+      summary:
+        "تقرير ندوة مركز شرق وجنوب أفريقيا حول المعلومات المضلّلة والمغلوطة والخبيثة (16 تشرين الأول/أكتوبر 2026).",
+      body: "ملخّص ندوة شبكة الاتحاد الأوروبي للشباب والسلام والأمن في شرق وجنوب أفريقيا مع المتحدث السيد حمسي مواتوندو، ويغطي سلامة المعلومات وكينيا كدراسة حالة رئيسية وتمارين تحقق مباشرة وعرض أداة AmaniCheck.\n\nالتاريخ: الخميس 16 تشرين الأول/أكتوبر 2026. نزّلوا ملف PDF للأهداف وكلمات الافتتاح وسيرة المتحدث ومواد الجلسة والملاحظات الختامية.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/ESA_Regional_Webinar_Report_16_Oct_2026.pdf",
     },
     {
       id: "together-for-peace-agenda",
