@@ -272,6 +272,20 @@ const en: Copy = {
     "Programmes and concept notes for the next network events. Download the PDFs to prepare or share with members.",
   upcoming: [
     {
+      id: "schuman-forum-youth-track-2026",
+      title: "Schuman Forum on Security and Defence — Youth Track",
+      when: "17–18 October 2026 · Online",
+      where: "Preliminary consultations · Round 1 · Europe, Asia & Middle East, Latin America & the Caribbean, Africa",
+      summary:
+        "Regional youth consultations feeding into the Schuman Forum 2026 youth track — covering security concerns, civic space, partnerships, and concrete priorities from all four network regions.",
+      documents: [
+        {
+          label: "Consultation summary (PDF)",
+          href: "/documents/Schuman_Forum_Youth_Track_Preliminary_Consultations_Summary_Oct_2026.pdf",
+        },
+      ],
+    },
+    {
       id: "esa-webinar-2026",
       title: "East & Southern Africa regional webinar",
       when: "Thursday, 16 October 2026 · 6:00–8:00 PM EAT",
@@ -388,14 +402,6 @@ const en: Copy = {
       bio: "Fatuma Adokorach is a Ugandan youth leader, peacebuilder and community advocate committed to advancing inclusive peace, justice and resilience in conflict-affected communities (Gulu, Northern Uganda). She is pursuing a Bachelor's Degree in International Relations and Security Studies at Gulu University, where her research focuses on regional integration as a pathway to peace and security in East Africa.\n\nHer work centres on youth empowerment, peacebuilding, human rights and community development. She has actively contributed to youth-led initiatives such as the Youth Advocacy Network and Rocco Paco, promoting civic engagement and meaningful participation in peace processes.\n\nCurrently serving as Regional Administrator for Eastern and Southern Africa within the European Youth, Peace and Security Network, she supports coordination and engagement across the region. Fatuma is motivated to strengthen youth voices, foster collaboration, and advance the Youth, Peace and Security Agenda through inclusive and sustainable approaches.",
     },
     {
-      id: "gebreegziabher-tadele-desalegn",
-      name: "Gebreegziabher Tadele Desalegn",
-      role: "Regional Administrator – Eastern and Southern Africa",
-      image: teamImage("gebreegziabher-tadele-desalegn"),
-      alt: "Portrait of Gebreegziabher Tadele Desalegn",
-      bio: "Gebreegziabher Tadele Desalegn is a journalist and global peace ambassador from Tigray, Ethiopia, with 13 years of experience. He has earned certificates from international media outlets and institutions including CNN Academy, AFP, Reuters, NBCU Academy, the University of Derby (UK), Indiana University (USA), United Nations University, and the EU International Academy Partnership.\n\nHe is also a global peace ambassador certified by the Institute for Economics and Peace and Global Peace Chain, an ambassador of United Leaders Global and of the My Body is My Body Foundation, and a board member of International Cities of Peace.\n\nHe currently serves as Regional Administrator for Eastern and Southern Africa within the European Youth, Peace and Security Network, and works with international organisations as a volunteer.",
-    },
-    {
       id: "kasim-ahmed",
       name: "Kasim Ahmed",
       role: "Regional Administrator – Eastern and Southern Africa",
@@ -442,14 +448,6 @@ const en: Copy = {
       image: teamImage("yvette-ariwo"),
       alt: "Portrait of Yvette Ariwo",
       bio: "Biography details coming soon.",
-    },
-    {
-      id: "hamisi-mwatondo",
-      name: "Hamisi Mwatondo",
-      role: "Regional Coordinator – Eastern and Southern Africa",
-      image: teamImage("hamisi-mwatondo"),
-      alt: "Portrait of Hamisi Mwatondo",
-      bio: "Hamisi Mwatondo is a peace and security practitioner and MEL specialist working on information integrity on the Kenyan coast. He is currently pursuing a Master's in Communications and Media, building on a BA in International Relations and Diplomacy with IT.\n\nHe is the founder and sole builder of Amani Check, a bilingual (English and Kiswahili) civic AI platform for fact-checking, misinformation resilience and PCVE education, now in pilot ahead of Kenya's 2027 electoral cycle. He has presented the platform at the Pwani University Transdisciplinary Conference and engaged institutions including NCIC and IGAD on how communities can counter misinformation, disinformation and malinformation in local languages and contexts.\n\nHamisi is Programme Manager at Jamii Action Centre in Kwale County, where he leads a team of eight on youth, women and children's participation in decision-making. He is also MEL Officer and Programs Officer at the Kenya Muslim Youth Alliance (KMYA), where his work covers information integrity, PCVE and civic engagement across Kenya. His evidence-based approach draws on peacebuilding practice, data science training from ALX Africa and grassroots work with youth and faith communities. He was a Top 30 Under 30 honouree at the Kenya Climate Innovation Conference (2026) and received the Young Changemakers Award (2025).",
     },
     {
       id: "yairy-vega-muenala",
@@ -697,6 +695,15 @@ const en: Copy = {
   ],
   resources: [
     {
+      id: "schuman-forum-youth-track-summary",
+      kind: "brief",
+      title: "Schuman Forum Youth Track — Consultation Summary",
+      summary:
+        "Preliminary consultations (Round 1) for the Schuman Forum on Security and Defence youth track (17–18 October 2026).",
+      body: "Summary of EU YPS Network regional youth consultations for the Schuman Forum 2026 youth track, bringing together perspectives from Europe, Asia and the Middle East, Latin America and the Caribbean, and Africa.\n\nCovers security concerns, civic space and participation, partnerships, and concrete priorities for the Forum — including calls to move from tokenism to genuine youth partnership.\n\nDates: 17–18 October 2026 (online). Download the PDF for the full regional summaries.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/Schuman_Forum_Youth_Track_Preliminary_Consultations_Summary_Oct_2026.pdf",
+    },
+    {
       id: "esa-webinar-concept-note",
       kind: "brief",
       title: "ESA Regional Webinar — Concept Note",
@@ -862,6 +869,20 @@ const ar: Copy = {
     "برامج ومذكرات مفاهيمية لفعاليات الشبكة القادمة. نزّلوا ملفات PDF للتحضير أو للمشاركة مع الأعضاء.",
   upcoming: [
     {
+      id: "schuman-forum-youth-track-2026",
+      title: "منتدى شومان للأمن والدفاع — مسار الشباب",
+      when: "17–18 تشرين الأول/أكتوبر 2026 · عبر الإنترنت",
+      where: "مشاورات أولية · الجولة 1 · أوروبا، آسيا والشرق الأوسط، أمريكا اللاتينية والكاريبي، أفريقيا",
+      summary:
+        "مشاورات شبابية إقليمية تُغذّي مسار الشباب في منتدى شومان 2026 — وتشمل مخاوف الأمن والفضاء المدني والشراكات والأولويات الملموسة من أقاليم الشبكة الأربعة.",
+      documents: [
+        {
+          label: "ملخّص المشاورات (PDF)",
+          href: "/documents/Schuman_Forum_Youth_Track_Preliminary_Consultations_Summary_Oct_2026.pdf",
+        },
+      ],
+    },
+    {
       id: "esa-webinar-2026",
       title: "ندوة شرق وجنوب أفريقيا الإقليمية",
       when: "الخميس 16 تشرين الأول/أكتوبر 2026 · 6:00–8:00 مساءً بتوقيت شرق أفريقيا",
@@ -974,14 +995,6 @@ const ar: Copy = {
       bio: "فاتوما أدوكوراتش قائدة شبابية أوغندية وبانية سلام ومدافعة مجتمعية ملتزمة بالسلام الشامل والعدالة والمرونة في المجتمعات المتأثرة بالنزاع (غولو، شمال أوغندا). تدرس درجة البكالوريوس في العلاقات الدولية ودراسات الأمن في جامعة غولو، وتركّز أبحاثها على التكامل الإقليمي كمسار للسلام والأمن في شرق أفريقيا.\n\nيتمحور عملها حول تمكين الشباب وبناء السلام وحقوق الإنسان والتنمية المجتمعية. ساهمت في مبادرات يقودها الشباب مثل شبكة مناصرة الشباب وروكو باكو، لتعزيز المشاركة المدنية والمشاركة الهادفة في عمليات السلام.\n\nتعمل حاليًا مسؤولة إقليمية لشرق أفريقيا والجنوب الأفريقي ضمن الشبكة الأوروبية للشباب والسلام والأمن، وتدعم التنسيق والمشاركة عبر الإقليم. تدفعها الرغبة في تعزيز أصوات الشباب وتعزيز التعاون ودفع أجندة الشباب والسلام والأمن عبر مقاربات شاملة ومستدامة.",
     },
     {
-      id: "gebreegziabher-tadele-desalegn",
-      name: "غيبريغزيابهير تاديلي ديساليغن",
-      role: "مسؤول إقليمي – شرق أفريقيا والجنوب الأفريقي",
-      image: teamImage("gebreegziabher-tadele-desalegn"),
-      alt: "صورة غيبريغزيابهير تاديلي ديساليغن",
-      bio: "غيبريغزيابهير تاديلي ديساليغن صحفي وسفير سلام عالمي من تيغراي، إثيوبيا، بخبرة تمتد إلى 13 عامًا. حصل على شهادات من منافذ إعلامية ومؤسسات دولية منها أكاديمية CNN وAFP ورويترز وأكاديمية NBCU وجامعة ديربي (المملكة المتحدة) وجامعة إنديانا (الولايات المتحدة) وجامعة الأمم المتحدة وشراكة أكاديمية الاتحاد الأوروبي الدولية.\n\nوهو أيضًا سفير سلام عالمي معتمد من معهد الاقتصاد والسلام وGlobal Peace Chain، وسفير لدى United Leaders Global ومؤسسة My Body is My Body، وعضو مجلس إدارة International Cities of Peace.\n\nيعمل حاليًا مسؤولًا إقليميًا لشرق أفريقيا والجنوب الأفريقي ضمن الشبكة الأوروبية للشباب والسلام والأمن، ويتعاون مع منظمات دولية بصفة تطوعية.",
-    },
-    {
       id: "kasim-ahmed",
       name: "قاسم أحمد",
       role: "مسؤول إقليمي – شرق أفريقيا والجنوب الأفريقي",
@@ -1028,14 +1041,6 @@ const ar: Copy = {
       image: teamImage("yvette-ariwo"),
       alt: "صورة إيفيت أريوو",
       bio: "تفاصيل السيرة قريبًا.",
-    },
-    {
-      id: "hamisi-mwatondo",
-      name: "حميسي مواتوندو",
-      role: "منسق إقليمي – شرق أفريقيا والجنوب الأفريقي",
-      image: teamImage("hamisi-mwatondo"),
-      alt: "صورة حميسي مواتوندو",
-      bio: "حميسي مواتوندو ممارس في السلام والأمن ومتخصص في الرصد والتقييم يعمل على نزاهة المعلومات على الساحل الكيني. يتابع حاليًا ماجستير في الاتصال والإعلام، بناءً على بكالوريوس في العلاقات الدولية والدبلوماسية مع تقنية المعلومات.\n\nوهو مؤسس ومنشئ منصة أماني تشيك (Amani Check)، منصة مدنية ثنائية اللغة (الإنجليزية والكيسواحيلية) للتحقق من الحقائق وبناء المرونة أمام المعلومات المضللة والتعليم في مجال منع التطرف العنيف والمجتمعي، وهي الآن في مرحلة تجريبية قبيل الدورة الانتخابية في كينيا عام 2027. قدّم المنصة في المؤتمر العابر للتخصصات بجامعة بواني، وتواصل مع مؤسسات منها اللجنة الوطنية للتماسك والاندماج (NCIC) والهيئة الحكومية للتنمية (IGAD) حول كيفية تصدي المجتمعات للمعلومات المضللة والمغلوطة والخبيثة باللغات والسياقات المحلية.\n\nيعمل حميسي مدير برامج في مركز جامي أكشن في مقاطعة كوالي، حيث يقود فريقًا من ثمانية أشخاص حول مشاركة الشباب والنساء والأطفال في صنع القرار. وهو أيضًا مسؤول الرصد والتقييم ومسؤول البرامج في تحالف الشباب المسلمين في كينيا (KMYA)، حيث يغطي عمله نزاهة المعلومات ومنع التطرف العنيف والمجتمعي والمشاركة المدنية عبر كينيا. يستند نهجه القائم على الأدلة إلى ممارسة بناء السلام وتدريب علوم البيانات من ALX Africa والعمل القاعدي مع الشباب والمجتمعات الإيمانية. اختير ضمن أفضل 30 تحت سن الثلاثين في مؤتمر الابتكار المناخي في كينيا (2026) ونال جائزة صناع التغيير الشباب (2025).",
     },
     {
       id: "yairy-vega-muenala",
@@ -1283,6 +1288,15 @@ const ar: Copy = {
   ],
 
   resources: [
+    {
+      id: "schuman-forum-youth-track-summary",
+      kind: "brief",
+      title: "منتدى شومان — مسار الشباب · ملخّص المشاورات",
+      summary:
+        "المشاورات الأولية (الجولة 1) لمسار الشباب في منتدى شومان للأمن والدفاع (17–18 تشرين الأول/أكتوبر 2026).",
+      body: "ملخّص مشاورات شبكة الاتحاد الأوروبي للشباب والسلام والأمن الإقليمية لمسار الشباب في منتدى شومان 2026، ويجمع منظورات من أوروبا وآسيا والشرق الأوسط وأمريكا اللاتينية والكاريبي وأفريقيا.\n\nيغطي مخاوف الأمن والفضاء المدني والمشاركة والشراكات والأولويات الملموسة للمنتدى — بما في ذلك الدعوة للانتقال من المشاركة الشكلية إلى شراكة شبابية حقيقية.\n\nالتواريخ: 17–18 تشرين الأول/أكتوبر 2026 (عبر الإنترنت). نزّلوا ملف PDF للملخّصات الإقليمية الكاملة.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/Schuman_Forum_Youth_Track_Preliminary_Consultations_Summary_Oct_2026.pdf",
+    },
     {
       id: "esa-webinar-concept-note",
       kind: "brief",
