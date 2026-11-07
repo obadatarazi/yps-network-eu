@@ -272,6 +272,20 @@ const en: Copy = {
     "Programmes and concept notes for the next network events. Download the PDFs to prepare or share with members.",
   upcoming: [
     {
+      id: "eu-cop26-bertin-cituli-2026",
+      title: "EU CoP26 — Peace Mediation in the Age of Power Politics",
+      when: "20–21 October 2026",
+      where: "Brussels, Belgium · Bertin Cituli, EU CoP26 Youth Advisor",
+      summary:
+        "Final participation report from Bertin Cituli (EU YPS Network Regional Administrator for Central Africa) at the European Union Community of Practice 26 — calling on decision-makers to treat young people as partners who co-create solutions, not only as beneficiaries.",
+      documents: [
+        {
+          label: "Participation report (PDF)",
+          href: "/documents/EU_CoP26_Participation_Report_Bertin_Cituli_Oct_2026.pdf",
+        },
+      ],
+    },
+    {
       id: "schuman-forum-youth-track-2026",
       title: "Schuman Forum on Security and Defence — Youth Track",
       when: "17–18 October 2026 · Online",
@@ -695,6 +709,15 @@ const en: Copy = {
   ],
   resources: [
     {
+      id: "eu-cop26-bertin-cituli-report",
+      kind: "brief",
+      title: "EU CoP26 — Participation Report (Bertin Cituli)",
+      summary:
+        "Final participation report from Bertin Cituli as EU CoP26 Youth Advisor at Peace Mediation in the Age of Power Politics (Brussels, 20–21 October 2026).",
+      body: "Final participation report by Bertin Cituli, EU CoP26 Youth Advisor and EU YPS Network Regional Administrator for Central Africa, from the European Union Community of Practice 26: Peace Mediation in the Age of Power Politics.\n\nHeld in Brussels, Belgium, on 20–21 October 2026. The report centres a call to decision-makers: young people must not be treated merely as beneficiaries of decisions made for them without them — they are ready to co-create solutions and contribute to the development of their communities.\n\nDownload the PDF for the full report.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/EU_CoP26_Participation_Report_Bertin_Cituli_Oct_2026.pdf",
+    },
+    {
       id: "schuman-forum-youth-track-summary",
       kind: "brief",
       title: "Schuman Forum Youth Track — Consultation Summary",
@@ -868,6 +891,20 @@ const ar: Copy = {
   upcomingIntro:
     "برامج ومذكرات مفاهيمية لفعاليات الشبكة القادمة. نزّلوا ملفات PDF للتحضير أو للمشاركة مع الأعضاء.",
   upcoming: [
+    {
+      id: "eu-cop26-bertin-cituli-2026",
+      title: "منتدى ممارسة الاتحاد الأوروبي 26 — الوساطة في السلام في عصر سياسات القوة",
+      when: "20–21 تشرين الأول/أكتوبر 2026",
+      where: "بروكسل، بلجيكا · بيرتين سيتولي، مستشار شبابي لـ EU CoP26",
+      summary:
+        "تقرير المشاركة النهائي لبيرتين سيتولي (المسؤول الإقليمي لشبكة الاتحاد الأوروبي للشباب والسلام والأمن في وسط أفريقيا) في مجتمع ممارسة الاتحاد الأوروبي 26 — ويدعو صنّاع القرار إلى معاملة الشباب كشركاء يشاركون في صياغة الحلول، لا كمستفيدين فحسب.",
+      documents: [
+        {
+          label: "تقرير المشاركة (PDF)",
+          href: "/documents/EU_CoP26_Participation_Report_Bertin_Cituli_Oct_2026.pdf",
+        },
+      ],
+    },
     {
       id: "schuman-forum-youth-track-2026",
       title: "منتدى شومان للأمن والدفاع — مسار الشباب",
@@ -1288,6 +1325,15 @@ const ar: Copy = {
   ],
 
   resources: [
+    {
+      id: "eu-cop26-bertin-cituli-report",
+      kind: "brief",
+      title: "منتدى ممارسة الاتحاد الأوروبي 26 — تقرير مشاركة بيرتين سيتولي",
+      summary:
+        "تقرير المشاركة النهائي لبيرتين سيتولي بصفته مستشارًا شبابيًا في EU CoP26 حول الوساطة في السلام في عصر سياسات القوة (بروكسل، 20–21 تشرين الأول/أكتوبر 2026).",
+      body: "تقرير المشاركة النهائي لبيرتين سيتولي، مستشار شبابي في منتدى ممارسة الاتحاد الأوروبي 26 والمسؤول الإقليمي لشبكة الاتحاد الأوروبي للشباب والسلام والأمن في وسط أفريقيا، من مجتمع ممارسة الاتحاد الأوروبي 26: الوساطة في السلام في عصر سياسات القوة.\n\nعُقد في بروكسل، بلجيكا، يومي 20–21 تشرين الأول/أكتوبر 2026. يتمحور التقرير حول نداء إلى صنّاع القرار: لا ينبغي معاملة الشباب كمستفيدين فحسب من قرارات تُتَّخذ لهم من دونهم — فهم مستعدون للمشاركة في صياغة الحلول والمساهمة في تنمية مجتمعاتهم.\n\nنزّلوا ملف PDF للتقرير الكامل.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/EU_CoP26_Participation_Report_Bertin_Cituli_Oct_2026.pdf",
+    },
     {
       id: "schuman-forum-youth-track-summary",
       kind: "brief",
