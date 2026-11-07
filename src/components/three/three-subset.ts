@@ -1,20 +1,23 @@
 /**
- * Only the Three.js pieces the network globe uses. Importing these by name
- * (instead of `import("three")` as a whole namespace) lets the bundler drop
- * the rest of the library from the globe chunk.
+ * Named Three.js exports for globe + activity path. Importing by name lets
+ * the bundler drop unused library surface from each chunk.
  */
 export {
   BackSide,
   BufferAttribute,
   BufferGeometry,
+  CatmullRomCurve3,
+  Color,
   DoubleSide,
   Float32BufferAttribute,
   Group,
   IcosahedronGeometry,
+  Line,
   LineBasicMaterial,
   LineSegments,
   Mesh,
   MeshBasicMaterial,
+  OrthographicCamera,
   PerspectiveCamera,
   Points,
   PointsMaterial,

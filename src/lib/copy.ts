@@ -79,11 +79,14 @@ export type Copy = {
   hubsTitle: string;
   hubsIntro: string;
   hubsHint: string;
-  upcomingTitle: string;
-  upcomingIntro: string;
-  upcoming: {
+  timelineTitle: string;
+  timelineIntro: string;
+  timelineClosing: string;
+  activities: {
     id: string;
     title: string;
+    /** Machine-sortable start day (YYYY-MM-DD). */
+    dateISO: string;
     when: string;
     where: string;
     summary: string;
@@ -267,41 +270,15 @@ const en: Copy = {
   hubsIntro:
     "The EYPS Network is present in more than 82 countries. To ensure inclusive representation, effective coordination, and a better understanding of local realities, the network relies on a dynamic regional structure coordinated by Regional Administrators.",
   hubsHint: "Horizontal tabs. Use Left and Right arrow keys to move.",
-  upcomingTitle: "Upcoming activities",
-  upcomingIntro:
-    "Programmes and concept notes for the next network events. Download the PDFs to prepare or share with members.",
-  upcoming: [
-    {
-      id: "eu-cop26-bertin-cituli-2026",
-      title: "EU CoP26 — Peace Mediation in the Age of Power Politics",
-      when: "20–21 October 2026",
-      where: "Brussels, Belgium · Bertin Cituli, EU CoP26 Youth Advisor",
-      summary:
-        "Final participation report from Bertin Cituli (EU YPS Network Regional Administrator for Central Africa) at the European Union Community of Practice 26 — calling on decision-makers to treat young people as partners who co-create solutions, not only as beneficiaries.",
-      documents: [
-        {
-          label: "Participation report (PDF)",
-          href: "/documents/EU_CoP26_Participation_Report_Bertin_Cituli_Oct_2026.pdf",
-        },
-      ],
-    },
-    {
-      id: "schuman-forum-youth-track-2026",
-      title: "Schuman Forum on Security and Defence — Youth Track",
-      when: "17–18 October 2026 · Online",
-      where: "Preliminary consultations · Round 1 · Europe, Asia & Middle East, Latin America & the Caribbean, Africa",
-      summary:
-        "Regional youth consultations feeding into the Schuman Forum 2026 youth track — covering security concerns, civic space, partnerships, and concrete priorities from all four network regions.",
-      documents: [
-        {
-          label: "Consultation summary (PDF)",
-          href: "/documents/Schuman_Forum_Youth_Track_Preliminary_Consultations_Summary_Oct_2026.pdf",
-        },
-      ],
-    },
+  timelineTitle: "Our documented journey",
+  timelineIntro:
+    "Scroll through each chapter — from the first recorded activity to the latest with a downloadable report. Pause on a moment, then open the PDFs.",
+  timelineClosing: "The journey continues as new reports are published.",
+  activities: [
     {
       id: "esa-webinar-2026",
       title: "East & Southern Africa regional webinar",
+      dateISO: "2026-10-16",
       when: "Thursday, 16 October 2026 · 6:00–8:00 PM EAT",
       where: "Virtual · East & Southern Africa hub",
       summary:
@@ -318,6 +295,36 @@ const en: Copy = {
         {
           label: "Webinar report (PDF)",
           href: "/documents/ESA_Regional_Webinar_Report_16_Oct_2026.pdf",
+        },
+      ],
+    },
+    {
+      id: "schuman-forum-youth-track-2026",
+      title: "Schuman Forum on Security and Defence — Youth Track",
+      dateISO: "2026-10-17",
+      when: "17–18 October 2026 · Online",
+      where: "Preliminary consultations · Round 1 · Europe, Asia & Middle East, Latin America & the Caribbean, Africa",
+      summary:
+        "Regional youth consultations feeding into the Schuman Forum 2026 youth track — covering security concerns, civic space, partnerships, and concrete priorities from all four network regions.",
+      documents: [
+        {
+          label: "Consultation summary (PDF)",
+          href: "/documents/Schuman_Forum_Youth_Track_Preliminary_Consultations_Summary_Oct_2026.pdf",
+        },
+      ],
+    },
+    {
+      id: "eu-cop26-bertin-cituli-2026",
+      title: "EU CoP26 — Peace Mediation in the Age of Power Politics",
+      dateISO: "2026-10-20",
+      when: "20–21 October 2026",
+      where: "Brussels, Belgium · Bertin Cituli, EU CoP26 Youth Advisor",
+      summary:
+        "Final participation report from Bertin Cituli (EU YPS Network Regional Administrator for Central Africa) at the European Union Community of Practice 26 — calling on decision-makers to treat young people as partners who co-create solutions, not only as beneficiaries.",
+      documents: [
+        {
+          label: "Participation report (PDF)",
+          href: "/documents/EU_CoP26_Participation_Report_Bertin_Cituli_Oct_2026.pdf",
         },
       ],
     },
@@ -887,41 +894,15 @@ const ar: Copy = {
   hubsIntro:
     "شبكة EYPS حاضرة في أكثر من 82 بلدًا. لضمان تمثيل شامل وتنسيق فعّال وفهم أفضل للواقع المحلي، تعتمد الشبكة هيكلًا إقليميًا ديناميكيًا ينسّقه المسؤولون الإقليميون.",
   hubsHint: "ألسنة أفقية. استخدم سهمي اليمين واليسار للتنقل.",
-  upcomingTitle: "الأنشطة القادمة",
-  upcomingIntro:
-    "برامج ومذكرات مفاهيمية لفعاليات الشبكة القادمة. نزّلوا ملفات PDF للتحضير أو للمشاركة مع الأعضاء.",
-  upcoming: [
-    {
-      id: "eu-cop26-bertin-cituli-2026",
-      title: "منتدى ممارسة الاتحاد الأوروبي 26 — الوساطة في السلام في عصر سياسات القوة",
-      when: "20–21 تشرين الأول/أكتوبر 2026",
-      where: "بروكسل، بلجيكا · بيرتين سيتولي، مستشار شبابي لـ EU CoP26",
-      summary:
-        "تقرير المشاركة النهائي لبيرتين سيتولي (المسؤول الإقليمي لشبكة الاتحاد الأوروبي للشباب والسلام والأمن في وسط أفريقيا) في مجتمع ممارسة الاتحاد الأوروبي 26 — ويدعو صنّاع القرار إلى معاملة الشباب كشركاء يشاركون في صياغة الحلول، لا كمستفيدين فحسب.",
-      documents: [
-        {
-          label: "تقرير المشاركة (PDF)",
-          href: "/documents/EU_CoP26_Participation_Report_Bertin_Cituli_Oct_2026.pdf",
-        },
-      ],
-    },
-    {
-      id: "schuman-forum-youth-track-2026",
-      title: "منتدى شومان للأمن والدفاع — مسار الشباب",
-      when: "17–18 تشرين الأول/أكتوبر 2026 · عبر الإنترنت",
-      where: "مشاورات أولية · الجولة 1 · أوروبا، آسيا والشرق الأوسط، أمريكا اللاتينية والكاريبي، أفريقيا",
-      summary:
-        "مشاورات شبابية إقليمية تُغذّي مسار الشباب في منتدى شومان 2026 — وتشمل مخاوف الأمن والفضاء المدني والشراكات والأولويات الملموسة من أقاليم الشبكة الأربعة.",
-      documents: [
-        {
-          label: "ملخّص المشاورات (PDF)",
-          href: "/documents/Schuman_Forum_Youth_Track_Preliminary_Consultations_Summary_Oct_2026.pdf",
-        },
-      ],
-    },
+  timelineTitle: "رحلتنا الموثّقة",
+  timelineIntro:
+    "تمرّروا عبر كل فصل — من أول نشاط مسجّل إلى أحدث فعالية يتوفر لها تقرير قابل للتنزيل. توقّفوا عند لحظة، ثم افتحوا ملفات PDF.",
+  timelineClosing: "تستمر الرحلة مع نشر تقارير جديدة.",
+  activities: [
     {
       id: "esa-webinar-2026",
       title: "ندوة شرق وجنوب أفريقيا الإقليمية",
+      dateISO: "2026-10-16",
       when: "الخميس 16 تشرين الأول/أكتوبر 2026 · 6:00–8:00 مساءً بتوقيت شرق أفريقيا",
       where: "افتراضي · مركز شرق وجنوب أفريقيا",
       summary:
@@ -938,6 +919,36 @@ const ar: Copy = {
         {
           label: "تقرير الندوة (PDF)",
           href: "/documents/ESA_Regional_Webinar_Report_16_Oct_2026.pdf",
+        },
+      ],
+    },
+    {
+      id: "schuman-forum-youth-track-2026",
+      title: "منتدى شومان للأمن والدفاع — مسار الشباب",
+      dateISO: "2026-10-17",
+      when: "17–18 تشرين الأول/أكتوبر 2026 · عبر الإنترنت",
+      where: "مشاورات أولية · الجولة 1 · أوروبا، آسيا والشرق الأوسط، أمريكا اللاتينية والكاريبي، أفريقيا",
+      summary:
+        "مشاورات شبابية إقليمية تُغذّي مسار الشباب في منتدى شومان 2026 — وتشمل مخاوف الأمن والفضاء المدني والشراكات والأولويات الملموسة من أقاليم الشبكة الأربعة.",
+      documents: [
+        {
+          label: "ملخّص المشاورات (PDF)",
+          href: "/documents/Schuman_Forum_Youth_Track_Preliminary_Consultations_Summary_Oct_2026.pdf",
+        },
+      ],
+    },
+    {
+      id: "eu-cop26-bertin-cituli-2026",
+      title: "منتدى ممارسة الاتحاد الأوروبي 26 — الوساطة في السلام في عصر سياسات القوة",
+      dateISO: "2026-10-20",
+      when: "20–21 تشرين الأول/أكتوبر 2026",
+      where: "بروكسل، بلجيكا · بيرتين سيتولي، مستشار شبابي لـ EU CoP26",
+      summary:
+        "تقرير المشاركة النهائي لبيرتين سيتولي (المسؤول الإقليمي لشبكة الاتحاد الأوروبي للشباب والسلام والأمن في وسط أفريقيا) في مجتمع ممارسة الاتحاد الأوروبي 26 — ويدعو صنّاع القرار إلى معاملة الشباب كشركاء يشاركون في صياغة الحلول، لا كمستفيدين فحسب.",
+      documents: [
+        {
+          label: "تقرير المشاركة (PDF)",
+          href: "/documents/EU_CoP26_Participation_Report_Bertin_Cituli_Oct_2026.pdf",
         },
       ],
     },
@@ -1441,4 +1452,12 @@ export const copy: Record<Lang, Copy> = { en, ar };
 
 export function fill(template: string, n: number) {
   return template.replaceAll("{n}", String(n));
+}
+
+/** Documented activities only, chronological — first event → last with a PDF. */
+export function documentedActivities(c: Copy) {
+  return c.activities
+    .filter((event) => event.documents.length > 0)
+    .slice()
+    .sort((a, b) => a.dateISO.localeCompare(b.dateISO));
 }

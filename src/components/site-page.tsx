@@ -60,6 +60,7 @@ import { DownloadButton } from "@/components/motion/download-button";
 import { Magnetic } from "@/components/motion/magnetic";
 import { RegionMarquee } from "@/components/motion/region-marquee";
 import { Reveal } from "@/components/motion/reveal";
+import { ActivityTimeline } from "@/components/motion/activity-timeline";
 import { ResolutionTimeline } from "@/components/motion/resolution-timeline";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { SplitWords } from "@/components/motion/split-words";
@@ -215,7 +216,7 @@ export function SitePage({ page }: { page: SitePageId }) {
         {page === "pillars" && <Pillars c={c} plain={plain} />}
         {page === "regions" && <Hubs c={c} plain={plain} lang={lang} />}
         {page === "team" && <Team c={c} />}
-        {page === "activities" && <Focus c={c} plain={plain} announce={announce} />}
+        {page === "activities" && <Focus c={c} plain={plain} lang={lang} announce={announce} />}
         {page === "resources" && <Resources c={c} lang={lang} announce={announce} />}
         {page === "join" && <Join c={c} lang={lang} announce={announce} />}
       </main>
@@ -1093,50 +1094,29 @@ function Team({ c }: { c: Copy }) {
 function Focus({
   c,
   plain,
+  lang,
   announce,
 }: {
   c: Copy;
   plain: boolean;
+  lang: Lang;
   announce: (message: string) => void;
 }) {
   return (
     <>
       <section
-        id="upcoming"
-        className="border-b border-line bg-surface"
-        aria-labelledby="upcoming-title"
+        id="timeline"
+        className="activity-timeline-band border-b border-line bg-surface"
+        aria-labelledby="timeline-title"
       >
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12 lg:py-16">
-          <h2 id="upcoming-title" className="section-title">
-            {c.upcomingTitle}
+          <h2 id="timeline-title" className="section-title">
+            {c.timelineTitle}
           </h2>
-          <p className="mt-3 max-w-prose text-base leading-relaxed sm:text-lg">{c.upcomingIntro}</p>
-          <ul className="mt-6 grid gap-4 sm:mt-8">
-            {c.upcoming.map((event, index) => (
-              <Reveal key={event.id} as="li" delay={index * 80} className="rounded-xl border border-line bg-paper p-4 sm:p-5">
-                <h3 className="text-lg sm:text-xl">{event.title}</h3>
-                <p className="mt-2 text-sm font-semibold text-accent">{event.when}</p>
-                <p className="mt-1 text-sm text-muted">{event.where}</p>
-                <p className="mt-3 max-w-prose">{event.summary}</p>
-                <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-                  {event.documents.map((doc) => (
-                    <DownloadButton
-                      key={doc.href}
-                      href={doc.href}
-                      label={doc.label}
-                      busyLabel={c.downloading}
-                      doneLabel={c.downloaded}
-                      srTitle={`${event.title} — ${doc.label}`}
-                      onDownload={() =>
-                        trackEvent("upcoming-file-download", { event: event.id, file: doc.href })
-                      }
-                      onDone={() => announce(`${c.downloaded}: ${doc.label}`)}
-                    />
-                  ))}
-                </div>
-              </Reveal>
-            ))}
-          </ul>
+          <p className="mt-3 max-w-prose text-base leading-relaxed sm:text-lg">{c.timelineIntro}</p>
+          <div className="mt-8 sm:mt-10">
+            <ActivityTimeline c={c} lang={lang} announce={announce} />
+          </div>
         </div>
       </section>
       <section id="focus" className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12 lg:py-16" aria-labelledby="focus-title">
