@@ -4,6 +4,9 @@ import { pageHead } from "@/lib/i18n";
 
 export const Route = createFileRoute("/regions")({
   head: () => pageHead("regions", "en"),
+  validateSearch: (search: Record<string, unknown>) => ({
+    hub: typeof search.hub === "string" ? search.hub : undefined,
+  }),
   component: RegionsPage,
 });
 

@@ -17,10 +17,16 @@ export function CountUp({
   value,
   className,
   duration = 1400,
+  accentSuffix = false,
+  dir,
 }: {
   value: string;
   className?: string;
   duration?: number;
+  /** Render a trailing suffix, such as "+", smaller and in the mark colour. */
+  accentSuffix?: boolean;
+  /** Keep Western figures in LTR when the page is Arabic. */
+  dir?: "ltr" | "rtl";
 }) {
   const reduced = usePrefersReducedMotion();
   const [ref, inView] = useInView<HTMLParagraphElement>({ once: true, threshold: 0.4 });
@@ -51,9 +57,23 @@ export function CountUp({
     return () => cancelAnimationFrame(frame);
   }, [inView, reduced, target, suffix, decimals, value, duration]);
 
+  const marked =
+    accentSuffix && suffix.length > 0 && display.endsWith(suffix)
+      ? { figure: display.slice(0, -suffix.length), suffix }
+      : null;
+
   return (
-    <p ref={ref} className={className} aria-label={value}>
-      <span aria-hidden="true">{display}</span>
+    <p ref={ref} className={className} aria-label={value} dir={dir}>
+      <span aria-hidden="true">
+        {marked ? (
+          <>
+            {marked.figure}
+            <span className="metric-suffix">{marked.suffix}</span>
+          </>
+        ) : (
+          display
+        )}
+      </span>
     </p>
   );
 }

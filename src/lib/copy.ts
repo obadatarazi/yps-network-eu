@@ -32,6 +32,32 @@ export type HubId =
   | "lac"
   | "asia-me";
 export type ResourceKind = "brief" | "toolkit" | "training";
+export type ActivityFormat = "webinar" | "forum" | "conference" | "consultation";
+export type ActivityTheme =
+  | "information-integrity"
+  | "security"
+  | "mediation"
+  | "participation";
+
+export type Activity = {
+  id: string;
+  title: string;
+  /** Machine-sortable start day (YYYY-MM-DD). */
+  dateISO: string;
+  when: string;
+  where: string;
+  summary: string;
+  documents: { label: string; href: string }[];
+  /** Primary hub for the map pin (Regions deep link). */
+  hubId?: HubId;
+  /** Hubs this activity touches — used for region filters. */
+  hubs?: HubId[];
+  themes: ActivityTheme[];
+  format: ActivityFormat;
+  image?: { src: string; alt: string };
+  video?: { src: string; title: string };
+  quote?: { text: string; attribution?: string };
+};
 
 export type Copy = {
   skip: string;
@@ -65,6 +91,7 @@ export type Copy = {
   photoCaption: string;
   photoDetail: string;
   photoAlt: string;
+  metricsTitle: string;
   metrics: { value: string; label: string }[];
   aboutTitle: string;
   about: string;
@@ -82,16 +109,22 @@ export type Copy = {
   timelineTitle: string;
   timelineIntro: string;
   timelineClosing: string;
-  activities: {
-    id: string;
-    title: string;
-    /** Machine-sortable start day (YYYY-MM-DD). */
-    dateISO: string;
-    when: string;
-    where: string;
-    summary: string;
-    documents: { label: string; href: string }[];
-  }[];
+  timelinePrev: string;
+  timelineNext: string;
+  timelineViewMode: string;
+  timelineCinematic: string;
+  timelineCompact: string;
+  timelineFilterRegion: string;
+  timelineFilterYear: string;
+  timelineFilterAll: string;
+  timelineFilters: string;
+  timelineEmptyFilter: string;
+  timelineHubPin: string;
+  timelineDocument: string;
+  timelineDocuments: string;
+  formatLabel: Record<ActivityFormat, string>;
+  themeLabel: Record<ActivityTheme, string>;
+  activities: Activity[];
   focusTitle: string;
   focusIntro: string;
   focus: {
@@ -243,6 +276,7 @@ const en: Copy = {
   photoDetail: "Young peacebuilders compare notes across regions.",
   photoAlt:
     "Young adults from several regions sit around a wooden table in a sunlit hall, reviewing paper maps and notebooks.",
+  metricsTitle: "The network in numbers",
   metrics: [
     { value: "50+", label: "Member Organisations" },
     { value: "20+", label: "Countries" },
@@ -274,6 +308,31 @@ const en: Copy = {
   timelineIntro:
     "Scroll through each chapter — from the first recorded activity to the latest with a downloadable report. Pause on a moment, then open the PDFs.",
   timelineClosing: "The journey continues as new reports are published.",
+  timelinePrev: "Previous chapter",
+  timelineNext: "Next chapter",
+  timelineViewMode: "Journey view",
+  timelineCinematic: "Cinematic",
+  timelineCompact: "Compact list",
+  timelineFilterRegion: "Region",
+  timelineFilterYear: "Year",
+  timelineFilterAll: "All",
+  timelineFilters: "Filters",
+  timelineEmptyFilter: "No documented activities match these filters.",
+  timelineHubPin: "Open region",
+  timelineDocument: "document",
+  timelineDocuments: "documents",
+  formatLabel: {
+    webinar: "Webinar",
+    forum: "Forum",
+    conference: "Conference",
+    consultation: "Consultation",
+  },
+  themeLabel: {
+    "information-integrity": "Information integrity",
+    security: "Security & defence",
+    mediation: "Peace mediation",
+    participation: "Youth participation",
+  },
   activities: [
     {
       id: "esa-webinar-2026",
@@ -283,6 +342,14 @@ const en: Copy = {
       where: "Virtual · East & Southern Africa hub",
       summary:
         "A practical EU YPS Network session on misinformation, disinformation and malinformation, with Kenya as the main case study and brief comparisons from the wider region — including a live verification exercise and an AmaniCheck demonstration.",
+      hubId: "esa",
+      hubs: ["esa"],
+      themes: ["information-integrity", "participation"],
+      format: "webinar",
+      quote: {
+        text: "Verification is a practice communities can learn together — not only a tool experts hold.",
+        attribution: "ESA regional webinar · October 2026",
+      },
       documents: [
         {
           label: "Concept note (PDF)",
@@ -306,6 +373,14 @@ const en: Copy = {
       where: "Preliminary consultations · Round 1 · Europe, Asia & Middle East, Latin America & the Caribbean, Africa",
       summary:
         "Regional youth consultations feeding into the Schuman Forum 2026 youth track — covering security concerns, civic space, partnerships, and concrete priorities from all four network regions.",
+      hubId: "europe",
+      hubs: ["europe", "asia-me", "lac", "west-africa", "central-africa", "esa"],
+      themes: ["security", "participation"],
+      format: "consultation",
+      quote: {
+        text: "Security priorities only hold when civic space and partnerships travel with them.",
+        attribution: "Schuman Forum youth track · Round 1",
+      },
       documents: [
         {
           label: "Consultation summary (PDF)",
@@ -321,6 +396,14 @@ const en: Copy = {
       where: "Brussels, Belgium · Bertin Cituli, EU CoP26 Youth Advisor",
       summary:
         "Final participation report from Bertin Cituli (EU YPS Network Regional Administrator for Central Africa) at the European Union Community of Practice 26 — calling on decision-makers to treat young people as partners who co-create solutions, not only as beneficiaries.",
+      hubId: "central-africa",
+      hubs: ["central-africa", "europe"],
+      themes: ["mediation", "participation"],
+      format: "conference",
+      quote: {
+        text: "Young people must be partners who co-create solutions — not only beneficiaries of decisions made elsewhere.",
+        attribution: "Bertin Cituli · EU CoP26",
+      },
       documents: [
         {
           label: "Participation report (PDF)",
@@ -868,6 +951,7 @@ const ar: Copy = {
   photoDetail: "بناة سلام شباب يقارنون الملاحظات بين الأقاليم.",
   photoAlt:
     "شباب من عدة أقاليم يجلسون حول طاولة خشبية في قاعة مضاءة بنور النهار، ويراجعون خرائط ورقية ودفاتر.",
+  metricsTitle: "الشبكة بالأرقام",
   metrics: [
     { value: "50+", label: "منظمة عضو" },
     { value: "20+", label: "دولة" },
@@ -898,6 +982,31 @@ const ar: Copy = {
   timelineIntro:
     "تمرّروا عبر كل فصل — من أول نشاط مسجّل إلى أحدث فعالية يتوفر لها تقرير قابل للتنزيل. توقّفوا عند لحظة، ثم افتحوا ملفات PDF.",
   timelineClosing: "تستمر الرحلة مع نشر تقارير جديدة.",
+  timelinePrev: "الفصل السابق",
+  timelineNext: "الفصل التالي",
+  timelineViewMode: "عرض الرحلة",
+  timelineCinematic: "سينمائي",
+  timelineCompact: "قائمة مختصرة",
+  timelineFilterRegion: "الإقليم",
+  timelineFilterYear: "السنة",
+  timelineFilterAll: "الكل",
+  timelineFilters: "المرشّحات",
+  timelineEmptyFilter: "لا توجد أنشطة موثّقة تطابق هذه المرشّحات.",
+  timelineHubPin: "فتح الإقليم",
+  timelineDocument: "مستند",
+  timelineDocuments: "مستندات",
+  formatLabel: {
+    webinar: "ندوة",
+    forum: "منتدى",
+    conference: "مؤتمر",
+    consultation: "مشاورة",
+  },
+  themeLabel: {
+    "information-integrity": "نزاهة المعلومات",
+    security: "الأمن والدفاع",
+    mediation: "الوساطة في السلام",
+    participation: "مشاركة الشباب",
+  },
   activities: [
     {
       id: "esa-webinar-2026",
@@ -907,6 +1016,14 @@ const ar: Copy = {
       where: "افتراضي · مركز شرق وجنوب أفريقيا",
       summary:
         "جلسة عملية لشبكة الاتحاد الأوروبي للشباب والسلام والأمن حول المعلومات المضلّلة والمغلوطة والخبيثة، مع كينيا كدراسة حالة رئيسية ومقارنات قصيرة من الإقليم — وتشمل تمرين تحقق مباشر وعرض أداة AmaniCheck.",
+      hubId: "esa",
+      hubs: ["esa"],
+      themes: ["information-integrity", "participation"],
+      format: "webinar",
+      quote: {
+        text: "التحقق ممارسة يمكن للمجتمعات أن تتعلّمها معًا — لا أداة يحتكرها الخبراء فحسب.",
+        attribution: "ندوة شرق وجنوب أفريقيا · تشرين الأول/أكتوبر 2026",
+      },
       documents: [
         {
           label: "المذكرة المفاهيمية (PDF)",
@@ -930,6 +1047,14 @@ const ar: Copy = {
       where: "مشاورات أولية · الجولة 1 · أوروبا، آسيا والشرق الأوسط، أمريكا اللاتينية والكاريبي، أفريقيا",
       summary:
         "مشاورات شبابية إقليمية تُغذّي مسار الشباب في منتدى شومان 2026 — وتشمل مخاوف الأمن والفضاء المدني والشراكات والأولويات الملموسة من أقاليم الشبكة الأربعة.",
+      hubId: "europe",
+      hubs: ["europe", "asia-me", "lac", "west-africa", "central-africa", "esa"],
+      themes: ["security", "participation"],
+      format: "consultation",
+      quote: {
+        text: "أولويات الأمن لا تصمد إلا حين يرافقها الفضاء المدني والشراكات.",
+        attribution: "مسار شباب منتدى شومان · الجولة 1",
+      },
       documents: [
         {
           label: "ملخّص المشاورات (PDF)",
@@ -945,6 +1070,14 @@ const ar: Copy = {
       where: "بروكسل، بلجيكا · بيرتين سيتولي، مستشار شبابي لـ EU CoP26",
       summary:
         "تقرير المشاركة النهائي لبيرتين سيتولي (المسؤول الإقليمي لشبكة الاتحاد الأوروبي للشباب والسلام والأمن في وسط أفريقيا) في مجتمع ممارسة الاتحاد الأوروبي 26 — ويدعو صنّاع القرار إلى معاملة الشباب كشركاء يشاركون في صياغة الحلول، لا كمستفيدين فحسب.",
+      hubId: "central-africa",
+      hubs: ["central-africa", "europe"],
+      themes: ["mediation", "participation"],
+      format: "conference",
+      quote: {
+        text: "يجب أن يكون الشباب شركاء يشاركون في صياغة الحلول — لا مستفيدين فقط من قرارات تُتخذ في مكان آخر.",
+        attribution: "بيرتين سيتولي · EU CoP26",
+      },
       documents: [
         {
           label: "تقرير المشاركة (PDF)",
@@ -1455,9 +1588,18 @@ export function fill(template: string, n: number) {
 }
 
 /** Documented activities only, chronological — first event → last with a PDF. */
-export function documentedActivities(c: Copy) {
+export function documentedActivities(c: Copy): Activity[] {
   return c.activities
     .filter((event) => event.documents.length > 0)
     .slice()
     .sort((a, b) => a.dateISO.localeCompare(b.dateISO));
+}
+
+export function activityYear(dateISO: string) {
+  return dateISO.slice(0, 4);
+}
+
+export function activityHubIds(event: Activity): HubId[] {
+  if (event.hubs?.length) return event.hubs;
+  return event.hubId ? [event.hubId] : [];
 }

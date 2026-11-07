@@ -30,6 +30,8 @@
  * a verified id via `@/lib/auth/middleware`.
  */
 import { betterAuth } from "better-auth";
+import type { BetterAuthPlugin } from "better-auth";
+import { createAuthEndpoint } from "better-auth/api";
 import { bearer, genericOAuth } from "better-auth/plugins";
 import { tanstackStartCookies } from "better-auth/tanstack-start";
 import { getCookie } from "@tanstack/react-start/server";
@@ -162,6 +164,9 @@ const grokOAuthPlugin = authConfigured
         tokenUrl: grokTokenUrl,
         userInfoUrl: grokUserInfoUrl,
         scopes: ["openid", "profile", "email"],
+        // 1.7 turns PKCE on by default. This broker's token endpoint was
+        // integrated without it; keep the previous request shape.
+        pkce: false,
         // `prompt: "login"` forces the broker to re-authenticate against the
         // upstream on every sign-in instead of silently reusing an existing
         // broker session. Combined with the broker sending Google
@@ -171,6 +176,42 @@ const grokOAuthPlugin = authConfigured
       })),
     })
   : null;
+
+/**
+ * Better Auth 1.7 completes generic OAuth on `/callback/:id`. The broker still
+ * only accepts `/api/auth/oauth2/callback/<providerId>`, so keep sending that
+ * `redirect_uri` and forward the old path to the new handler.
+ */
+function grokBrokerCallbackPaths(): BetterAuthPlugin {
+  return {
+    id: "grok-broker-callback-paths",
+    init(ctx) {
+      const providers = ctx.socialProviders as Array<{
+        id: string;
+        callbackPath?: string;
+      }>;
+      for (const provider of providers) {
+        if (provider.id.startsWith("grok-")) {
+          provider.callbackPath = `/oauth2/callback/${provider.id}`;
+        }
+      }
+    },
+    endpoints: {
+      oauth2Callback: createAuthEndpoint(
+        "/oauth2/callback/:providerId",
+        { method: "GET" },
+        async (ctx) => {
+          const requestUrl = ctx.request?.url;
+          const search = requestUrl ? new URL(requestUrl).search : "";
+          const providerId = String(ctx.params.providerId ?? "");
+          throw ctx.redirect(
+            `${ctx.context.baseURL}/callback/${encodeURIComponent(providerId)}${search}`,
+          );
+        },
+      ),
+    },
+  };
+}
 
 export const auth = betterAuth({
   baseURL,
@@ -221,6 +262,9 @@ export const auth = betterAuth({
   // Secure + the names ourselves. (Browsers allow Secure cookies on
   // `http://localhost`, so local dev still works.)
   advanced: {
+    // 1.7 ignores x-forwarded-host unless this is set. Preview and deploy
+    // both sit behind a proxy that publishes the public host that way.
+    trustedProxyHeaders: true,
     useSecureCookies: false,
     defaultCookieAttributes: { secure: true, sameSite: "lax", path: "/" },
     cookies: {
@@ -237,6 +281,11 @@ export const auth = betterAuth({
     // One genericOAuth provider per upstream (when auth is on), all federating
     // to the broker with the SAME client and differing only by the `idp` hint.
     ...(grokOAuthPlugin ? [grokOAuthPlugin] : []),
+
+    // 1.7 serves generic OAuth on `/callback/:id`. The broker's registered
+    // redirect is still `/oauth2/callback/<providerId>`, so keep sending that
+    // redirect_uri and alias the old path onto the new handler.
+    grokBrokerCallbackPaths(),
 
     // Accept `Authorization: Bearer <session-token>` as an alternative to the
     // cookie. Needed for the LIVE PREVIEW: the app runs in an embedded iframe

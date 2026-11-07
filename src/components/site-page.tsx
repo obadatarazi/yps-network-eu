@@ -64,7 +64,6 @@ import { ActivityTimeline } from "@/components/motion/activity-timeline";
 import { ResolutionTimeline } from "@/components/motion/resolution-timeline";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { SplitWords } from "@/components/motion/split-words";
-import { SpotlightSection } from "@/components/motion/spotlight-section";
 import { TiltCard } from "@/components/motion/tilt-card";
 import { NetworkGlobeLazy as NetworkGlobe } from "@/components/three/network-globe-lazy";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
@@ -734,21 +733,25 @@ function Hero({ c, lang, plain }: { c: Copy; lang: Lang; plain: boolean }) {
 
 function Metrics({ c }: { c: Copy }) {
   return (
-    <SpotlightSection
-      aria-label={c.metrics.map((item) => item.label).join(", ")}
-      className="bg-inverse text-inverse-fg"
-    >
-      <ul className="relative z-10 mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 py-8 sm:gap-6 sm:px-6 sm:py-10 lg:grid-cols-4">
-        {c.metrics.map((item, index) => (
-          <Reveal key={item.label} as="li" delay={index * 120} className="metric-card">
-            <div className="metric-ring" style={{ "--i": index } as CSSProperties}>
-              <CountUp value={item.value} className="stat-num text-inverse-fg" />
-            </div>
-            <p className="mt-2 text-sm font-medium leading-snug sm:mt-3 sm:text-base">{item.label}</p>
-          </Reveal>
-        ))}
-      </ul>
-    </SpotlightSection>
+    <section className="metric-band" aria-labelledby="metrics-title">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+        <Reveal>
+          <h2 id="metrics-title" className="metric-kicker">
+            <span className="metric-kicker-mark" aria-hidden="true" />
+            {c.metricsTitle}
+          </h2>
+        </Reveal>
+        <ul className="metric-grid">
+          {c.metrics.map((item, index) => (
+            <Reveal key={item.label} as="li" delay={index * 90} className="metric-cell">
+              <CountUp value={item.value} accentSuffix dir="ltr" className="stat-num metric-value" />
+              <span className="metric-rule" aria-hidden="true" />
+              <p className="metric-label">{item.label}</p>
+            </Reveal>
+          ))}
+        </ul>
+      </div>
+    </section>
   );
 }
 
@@ -881,9 +884,26 @@ function Pillars({ c, plain }: { c: Copy; plain: boolean }) {
 }
 
 function Hubs({ c, plain, lang }: { c: Copy; plain: boolean; lang: Lang }) {
-  const [active, setActive] = useState(0);
+  const searchHub = useRouterState({
+    select: (state) => {
+      const raw = state.location.search as { hub?: string } | string;
+      if (typeof raw === "string") {
+        const params = new URLSearchParams(raw.startsWith("?") ? raw : `?${raw}`);
+        return params.get("hub");
+      }
+      return typeof raw?.hub === "string" ? raw.hub : null;
+    },
+  });
+  const initialHubIndex = c.hubs.findIndex((item) => item.id === searchHub);
+  const [active, setActive] = useState(initialHubIndex >= 0 ? initialHubIndex : 0);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
-  const hub = c.hubs[active];
+  const hub = c.hubs[active] ?? c.hubs[0]!;
+
+  useEffect(() => {
+    if (!searchHub) return;
+    const index = c.hubs.findIndex((item) => item.id === searchHub);
+    if (index >= 0) setActive(index);
+  }, [searchHub, c.hubs]);
 
   function move(event: KeyboardEvent<HTMLButtonElement>, index: number) {
     const last = c.hubs.length - 1;
