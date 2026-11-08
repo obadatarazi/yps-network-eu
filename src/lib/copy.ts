@@ -335,6 +335,68 @@ const en: Copy = {
   },
   activities: [
     {
+      id: "organised-crime-webinar-2026",
+      title: "The role of youth in preventing organised crime",
+      dateISO: "2026-05-21",
+      when: "21 May 2026 · 15:00–17:00 CET",
+      where: "Virtual · Europe hub regional webinar · English & French",
+      summary:
+        "Regional webinar on youth vulnerability to organised crime and youth-led prevention — with Elena Borgis on recruitment dynamics in Italy (drawing on Gomorra and La Paranza dei Bambini) and Giampaolo Servida on YPS-aligned responses, narrative intelligence, and cyber peacebuilding.",
+      hubId: "europe",
+      hubs: ["europe"],
+      themes: ["security", "participation"],
+      format: "webinar",
+      quote: {
+        text: "Organised crime recruitment among young people cannot be addressed only through repression — prevention needs local engagement, education, inclusion, and community support.",
+        attribution: "EU YPS Network · 21 May webinar",
+      },
+      documents: [
+        {
+          label: "Programme (PDF)",
+          href: "/documents/Programme_Youth_Preventing_Organised_Crime_21_May_2026.pdf",
+        },
+        {
+          label: "Meeting report (PDF)",
+          href: "/documents/EU_YPS_Network_Meeting_Report_21_May_2026.pdf",
+        },
+        {
+          label: "Presentation — Organised crime & youth (PDF)",
+          href: "/documents/Organized_Crime_and_Youth_Presentation_21_May_2026.pdf",
+        },
+      ],
+    },
+    {
+      id: "together-for-peace-2026",
+      title: "Together for Peace — Pamoja Kwa Amani webinar",
+      dateISO: "2026-10-10",
+      when: "10 October 2026 · 15:00–16:30 CEST",
+      where: "Online · Central Africa & Europe · English/French with interpretation",
+      summary:
+        "Cross-continental webinar on conflict transformation and youth peacebuilding — linking PAMOJA KWA AMANI with guest speakers from Albania (Youth Voice Network), the Central African Republic (Bangui Peace Lab), and the DRC (Sauti ya Vijana kwa Amani), then moving from dialogue to joint follow-up action.",
+      hubId: "central-africa",
+      hubs: ["central-africa", "europe"],
+      themes: ["mediation", "participation"],
+      format: "webinar",
+      quote: {
+        text: "PAMOJA KWA AMANI — together for peace — creates spaces where generations and regions learn from one another.",
+        attribution: "Together for Peace webinar · 10 October 2026",
+      },
+      documents: [
+        {
+          label: "Agenda (PDF)",
+          href: "/documents/Together_for_Peace_Agenda_updated.pdf",
+        },
+        {
+          label: "Meeting report (PDF)",
+          href: "/documents/EU_YPS_Together_for_Peace_Report_10_Oct_2026.pdf",
+        },
+        {
+          label: "Speakers’ biographies (PDF)",
+          href: "/documents/Together_for_Peace_Speakers_Biographies.pdf",
+        },
+      ],
+    },
+    {
       id: "esa-webinar-2026",
       title: "East & Southern Africa regional webinar",
       dateISO: "2026-10-16",
@@ -799,6 +861,33 @@ const en: Copy = {
   ],
   resources: [
     {
+      id: "organised-crime-webinar-programme",
+      kind: "brief",
+      title: "21 May webinar — Programme",
+      summary:
+        "Programme for the regional webinar on the role of youth in preventing organised crime (21 May 2026).",
+      body: "Timed programme for the EU YPS Network regional webinar “The role of youth in preventing organised crime,” held online on 21 May 2026 in English and French.\n\nIncludes opening by Ema Meçaj, Elena Borgis on youth recruitment by criminal organisations in Italy, Giampaolo Servida (SCPS) on responses and prevention, Q&A, and closing remarks.\n\nDownload the PDF for the full bilingual schedule.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/Programme_Youth_Preventing_Organised_Crime_21_May_2026.pdf",
+    },
+    {
+      id: "organised-crime-webinar-report",
+      kind: "brief",
+      title: "21 May webinar — Meeting report",
+      summary:
+        "Meeting report from the regional webinar on youth and organised-crime prevention (21 May 2026).",
+      body: "Report on the EU YPS Network regional webinar “The role of youth in preventing organised crime” (21 May 2026, 15:00–17:00 CET).\n\nCovers Elena Borgis on recruitment and vulnerability, follow-up aims for Southern Europe communities, and Giampaolo Servida on YPS-aligned prevention, narrative intelligence, and cyber peacebuilding, plus participant Q&A.\n\nDownload the PDF for the full report.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/EU_YPS_Network_Meeting_Report_21_May_2026.pdf",
+    },
+    {
+      id: "organised-crime-webinar-presentation",
+      kind: "brief",
+      title: "21 May webinar — Organised crime & youth presentation",
+      summary:
+        "Bilingual presentation on organised crime, youth recruitment, and the role of YPS (21 May 2026).",
+      body: "Slide deck used at the 21 May 2026 regional webinar: Organised Crime and Youth / La criminalité organisée et la jeunesse — a study based on Gomorra and La Paranza dei Bambini, focused on recruitment and the role of YPS in prevention.\n\nDownload the PDF for the full English–French presentation.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/Organized_Crime_and_Youth_Presentation_21_May_2026.pdf",
+    },
+    {
       id: "eu-cop26-bertin-cituli-report",
       kind: "brief",
       title: "EU CoP26 — Participation Report (Bertin Cituli)",
@@ -847,9 +936,28 @@ const en: Copy = {
       id: "together-for-peace-agenda",
       kind: "brief",
       title: "Together for Peace — Agenda",
-      summary: "Updated programme agenda for Together for Peace (PDF).",
-      body: "This is the updated Together for Peace agenda. Download the PDF for the full schedule and session details.\n\nShare it with organisers and participants before the event. Contact euypsnet@gmail.com if you need an accessible format.",
+      summary:
+        "Programme agenda for the Together for Peace / Pamoja Kwa Amani webinar on conflict transformation (10 October 2026).",
+      body: "Agenda for the EU YPS Network webinar “Together for Peace” on conflict transformation and youth peacebuilding (10 October 2026, 15:00–16:30 CEST).\n\nCovers framing, PAMOJA KWA AMANI, guest speakers from Albania, CAR and the DRC, open Q&A, and from-dialogue-to-action.\n\nDownload the PDF for the full schedule.\n\nContact euypsnet@gmail.com if you need an accessible format.",
       fileHref: "/documents/Together_for_Peace_Agenda_updated.pdf",
+    },
+    {
+      id: "together-for-peace-report",
+      kind: "brief",
+      title: "Together for Peace — Meeting report",
+      summary:
+        "Report from the Pamoja Kwa Amani webinar on cross-continental youth peacebuilding (10 October 2026).",
+      body: "Meeting report for the EU YPS Network webinar “Together for Peace: Pamoja Kwa Amani” (10 October 2026), co-organised by the Central Africa and Europe hubs.\n\nSummarises opening remarks, the PAMOJA KWA AMANI framing, guest speakers from the DRC, CAR and Albania, and the open exchange with participants.\n\nDownload the PDF for the full report.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/EU_YPS_Together_for_Peace_Report_10_Oct_2026.pdf",
+    },
+    {
+      id: "together-for-peace-speakers",
+      kind: "brief",
+      title: "Together for Peace — Speakers’ biographies",
+      summary:
+        "Speaker biographies for the Together for Peace webinar (10 October 2026).",
+      body: "Short biographies of the guest speakers for the 10 October 2026 Together for Peace webinar — including François Bahanuzi (DRC), SABE Hermas Dieu-Parfait (CAR), Andi Rabiaj and Irini Demo (Albania).\n\nDownload the PDF for the full bios.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/Together_for_Peace_Speakers_Biographies.pdf",
     },
     {
       id: "unscr-primer",
@@ -1008,6 +1116,68 @@ const ar: Copy = {
     participation: "مشاركة الشباب",
   },
   activities: [
+    {
+      id: "organised-crime-webinar-2026",
+      title: "دور الشباب في منع الجريمة المنظّمة",
+      dateISO: "2026-05-21",
+      when: "21 أيار/مايو 2026 · 15:00–17:00 بتوقيت وسط أوروبا",
+      where: "افتراضي · ندوة إقليمية لمركز أوروبا · الإنجليزية والفرنسية",
+      summary:
+        "ندوة إقليمية حول تعرّض الشباب للجريمة المنظّمة والوقاية بقيادة الشباب — مع إلينا بورجيس حول ديناميات التجنيد في إيطاليا (استنادًا إلى غومورا ولا بارانزا ديي بامبيني) وجيامباولو سيرفيدا حول استجابات متوافقة مع أجندة الشباب والسلام والأمن، وذكاء السرد، وبناء السلام السيبراني.",
+      hubId: "europe",
+      hubs: ["europe"],
+      themes: ["security", "participation"],
+      format: "webinar",
+      quote: {
+        text: "لا يمكن معالجة تجنيد الشباب في الجريمة المنظّمة بالقمع وحده — فالوقاية تحتاج انخراطًا محليًا وتعليمًا وإدماجًا ودعمًا مجتمعيًا.",
+        attribution: "شبكة الاتحاد الأوروبي للشباب والسلام والأمن · ندوة 21 أيار/مايو",
+      },
+      documents: [
+        {
+          label: "البرنامج (PDF)",
+          href: "/documents/Programme_Youth_Preventing_Organised_Crime_21_May_2026.pdf",
+        },
+        {
+          label: "تقرير الاجتماع (PDF)",
+          href: "/documents/EU_YPS_Network_Meeting_Report_21_May_2026.pdf",
+        },
+        {
+          label: "العرض — الجريمة المنظّمة والشباب (PDF)",
+          href: "/documents/Organized_Crime_and_Youth_Presentation_21_May_2026.pdf",
+        },
+      ],
+    },
+    {
+      id: "together-for-peace-2026",
+      title: "معًا من أجل السلام — ندوة باموجا كوا أماني",
+      dateISO: "2026-10-10",
+      when: "10 تشرين الأول/أكتوبر 2026 · 15:00–16:30 بتوقيت وسط أوروبا الصيفي",
+      where: "عبر الإنترنت · وسط أفريقيا وأوروبا · الإنجليزية/الفرنسية مع ترجمة فورية",
+      summary:
+        "ندوة عبر القارات حول تحويل النزاع وبناء السلام بقيادة الشباب — تربط باموجا كوا أماني بمتحدثين من ألبانيا (شبكة صوت الشباب) وجمهورية أفريقيا الوسطى (مختبر سلام بانغي) وجمهورية الكونغو الديمقراطية (صوتي يا فيجانا كوا أماني)، ثم تنتقل من الحوار إلى متابعة مشتركة.",
+      hubId: "central-africa",
+      hubs: ["central-africa", "europe"],
+      themes: ["mediation", "participation"],
+      format: "webinar",
+      quote: {
+        text: "باموجا كوا أماني — معًا من أجل السلام — تخلق فضاءات تتعلّم فيها الأجيال والأقاليم من بعضها.",
+        attribution: "ندوة معًا من أجل السلام · 10 تشرين الأول/أكتوبر 2026",
+      },
+      documents: [
+        {
+          label: "الأجندة (PDF)",
+          href: "/documents/Together_for_Peace_Agenda_updated.pdf",
+        },
+        {
+          label: "تقرير الاجتماع (PDF)",
+          href: "/documents/EU_YPS_Together_for_Peace_Report_10_Oct_2026.pdf",
+        },
+        {
+          label: "سير المتحدثين (PDF)",
+          href: "/documents/Together_for_Peace_Speakers_Biographies.pdf",
+        },
+      ],
+    },
     {
       id: "esa-webinar-2026",
       title: "ندوة شرق وجنوب أفريقيا الإقليمية",
@@ -1470,6 +1640,33 @@ const ar: Copy = {
 
   resources: [
     {
+      id: "organised-crime-webinar-programme",
+      kind: "brief",
+      title: "ندوة 21 أيار/مايو — البرنامج",
+      summary:
+        "برنامج الندوة الإقليمية حول دور الشباب في منع الجريمة المنظّمة (21 أيار/مايو 2026).",
+      body: "برنامج موقوت لندوة شبكة الاتحاد الأوروبي للشباب والسلام والأمن الإقليمية «دور الشباب في منع الجريمة المنظّمة»، عُقدت عبر الإنترنت في 21 أيار/مايو 2026 بالإنجليزية والفرنسية.\n\nيشمل افتتاح إيما ميتشاج، وعرض إلينا بورجيس حول تجنيد الشباب من قبل المنظمات الإجرامية في إيطاليا، وتدخّل جيامباولو سيرفيدا (SCPS)، وجلسة أسئلة وأجوبة، والختام.\n\nنزّلوا ملف PDF للجدول الثنائي اللغة الكامل.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/Programme_Youth_Preventing_Organised_Crime_21_May_2026.pdf",
+    },
+    {
+      id: "organised-crime-webinar-report",
+      kind: "brief",
+      title: "ندوة 21 أيار/مايو — تقرير الاجتماع",
+      summary:
+        "تقرير اجتماع الندوة الإقليمية حول الشباب ومنع الجريمة المنظّمة (21 أيار/مايو 2026).",
+      body: "تقرير ندوة شبكة الاتحاد الأوروبي للشباب والسلام والأمن الإقليمية «دور الشباب في منع الجريمة المنظّمة» (21 أيار/مايو 2026، 15:00–17:00 بتوقيت وسط أوروبا).\n\nيغطي عرض إلينا بورجيس حول التجنيد والهشاشة، وأهداف المتابعة لمجتمعات جنوب أوروبا، وعرض جيامباولو سيرفيدا حول الوقاية المتوافقة مع أجندة الشباب والسلام والأمن وذكاء السرد وبناء السلام السيبراني، إضافة إلى أسئلة المشاركين.\n\nنزّلوا ملف PDF للتقرير الكامل.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/EU_YPS_Network_Meeting_Report_21_May_2026.pdf",
+    },
+    {
+      id: "organised-crime-webinar-presentation",
+      kind: "brief",
+      title: "ندوة 21 أيار/مايو — عرض الجريمة المنظّمة والشباب",
+      summary:
+        "عرض ثنائي اللغة عن الجريمة المنظّمة وتجنيد الشباب ودور أجندة الشباب والسلام والأمن (21 أيار/مايو 2026).",
+      body: "الشرائح المستخدمة في ندوة 21 أيار/مايو 2026: الجريمة المنظّمة والشباب / La criminalité organisée et la jeunesse — دراسة استنادًا إلى غومورا ولا بارانزا ديي بامبيني، مع التركيز على التجنيد ودور أجندة الشباب والسلام والأمن في الوقاية.\n\nنزّلوا ملف PDF للعرض الكامل بالإنجليزية والفرنسية.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/Organized_Crime_and_Youth_Presentation_21_May_2026.pdf",
+    },
+    {
       id: "eu-cop26-bertin-cituli-report",
       kind: "brief",
       title: "منتدى ممارسة الاتحاد الأوروبي 26 — تقرير مشاركة بيرتين سيتولي",
@@ -1518,9 +1715,28 @@ const ar: Copy = {
       id: "together-for-peace-agenda",
       kind: "brief",
       title: "معًا من أجل السلام — الأجندة",
-      summary: "أجندة برنامج «معًا من أجل السلام» المحدّثة (ملف PDF).",
-      body: "هذه أجندة «معًا من أجل السلام» المحدّثة. نزّلوا ملف PDF للاطلاع على الجدول الكامل وتفاصيل الجلسات.\n\nشاركوها مع المنظّمين والمشاركين قبل الفعالية. راسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      summary:
+        "أجندة ندوة «معًا من أجل السلام» / باموجا كوا أماني حول تحويل النزاع (10 تشرين الأول/أكتوبر 2026).",
+      body: "أجندة ندوة شبكة الاتحاد الأوروبي للشباب والسلام والأمن «معًا من أجل السلام» حول تحويل النزاع وبناء السلام بقيادة الشباب (10 تشرين الأول/أكتوبر 2026، 15:00–16:30 بتوقيت وسط أوروبا الصيفي).\n\nتغطي التأطير، وباموجا كوا أماني، والمتحدثين من ألبانيا وأفريقيا الوسطى والكونغو الديمقراطية، وجلسة الأسئلة، والانتقال من الحوار إلى الفعل.\n\nنزّلوا ملف PDF للجدول الكامل.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
       fileHref: "/documents/Together_for_Peace_Agenda_updated.pdf",
+    },
+    {
+      id: "together-for-peace-report",
+      kind: "brief",
+      title: "معًا من أجل السلام — تقرير الاجتماع",
+      summary:
+        "تقرير ندوة باموجا كوا أماني حول بناء السلام الشبابي عبر القارات (10 تشرين الأول/أكتوبر 2026).",
+      body: "تقرير اجتماع ندوة شبكة الاتحاد الأوروبي للشباب والسلام والأمن «معًا من أجل السلام: باموجا كوا أماني» (10 تشرين الأول/أكتوبر 2026)، بتنظيم مشترك من مركزي وسط أفريقيا وأوروبا.\n\nيلخّص الافتتاح وإطار باموجا كوا أماني والمتحدثين من الكونغو الديمقراطية وأفريقيا الوسطى وألبانيا والتبادل المفتوح مع المشاركين.\n\nنزّلوا ملف PDF للتقرير الكامل.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/EU_YPS_Together_for_Peace_Report_10_Oct_2026.pdf",
+    },
+    {
+      id: "together-for-peace-speakers",
+      kind: "brief",
+      title: "معًا من أجل السلام — سير المتحدثين",
+      summary:
+        "سير المتحدثين لندوة معًا من أجل السلام (10 تشرين الأول/أكتوبر 2026).",
+      body: "سير قصيرة للمتحدثين الضيوف في ندوة 10 تشرين الأول/أكتوبر 2026 — بما في ذلك فرانسوا باهانوزي (الكونغو الديمقراطية) وسابي هيراس ديو-بارفيه (أفريقيا الوسطى) وأندي رابيا وإيريني ديمو (ألبانيا).\n\nنزّلوا ملف PDF للسير الكاملة.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/Together_for_Peace_Speakers_Biographies.pdf",
     },
     {
       id: "unscr-primer",
