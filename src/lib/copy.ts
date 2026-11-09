@@ -366,6 +366,33 @@ const en: Copy = {
       ],
     },
     {
+      id: "asia-me-2nd-regional-webinar-2026",
+      title: "Second Regional Webinar Series — Youth as agents of peace",
+      dateISO: "2026-07-14",
+      when: "Tuesday, 14 July 2026 · 18:00–19:30 CEST",
+      where: "Virtual · Asia & Middle East hub · English with French & Spanish interpretation",
+      summary:
+        "Asia & Middle East hub webinar on empowering youth as agents of peace and social change — moderated by Abdul Rahman Jalil and Carol Zakhour, with a presentation by Shan Rasheed and cross-regional exchange among young peacebuilders from Europe, Asia, the Middle East, Africa, and the Americas.",
+      hubId: "asia-me",
+      hubs: ["asia-me"],
+      themes: ["participation", "mediation"],
+      format: "webinar",
+      quote: {
+        text: "Youth should not only be recognised as the leaders of tomorrow — they must be trusted, supported, and empowered as leaders today.",
+        attribution: "Second Regional Webinar Series · 14 July 2026",
+      },
+      documents: [
+        {
+          label: "Webinar report (PDF)",
+          href: "/documents/Asia_ME_2nd_Regional_Webinar_Report_14_July_2026.pdf",
+        },
+        {
+          label: "Presentation — YPS (PDF)",
+          href: "/documents/Asia_ME_2nd_Regional_Webinar_Presentation_YPS_14_July_2026.pdf",
+        },
+      ],
+    },
+    {
       id: "together-for-peace-2026",
       title: "Together for Peace — Pamoja Kwa Amani webinar",
       dateISO: "2026-10-10",
@@ -470,6 +497,33 @@ const en: Copy = {
         {
           label: "Participation report (PDF)",
           href: "/documents/EU_CoP26_Participation_Report_Bertin_Cituli_Oct_2026.pdf",
+        },
+      ],
+    },
+    {
+      id: "conflict-minerals-conference-2026",
+      title: "Conference on conflict minerals",
+      dateISO: "2026-11-12",
+      when: "12 November 2026 · 15:30–17:00 CET (public session; closed hearing 10 November)",
+      where: "Hybrid · Brussels (EEAS COR 04/A522) & online · Central Africa & Europe",
+      summary:
+        "Public hybrid conference on conflict minerals and youth-responsive mineral governance — following a closed-door hearing with young activists from affected areas (10 November). Panellists from EEAS and the EU YPS Network debate the legal framework, needs on the ground, and concrete follow-up actions.",
+      hubId: "central-africa",
+      hubs: ["central-africa", "europe"],
+      themes: ["security", "participation"],
+      format: "conference",
+      quote: {
+        text: "Young people experience the costs of unsafe mining and conflict-linked supply chains — and they can shape more responsible, peace-responsive approaches.",
+        attribution: "Conflict minerals conference · November 2026",
+      },
+      documents: [
+        {
+          label: "Concept note (PDF)",
+          href: "/documents/Conflict_Minerals_Conference_Concept_Note_12_Nov_2026.pdf",
+        },
+        {
+          label: "Draft programme (PDF)",
+          href: "/documents/Conflict_Minerals_Conference_Program_12_Nov_2026.pdf",
         },
       ],
     },
@@ -888,6 +942,24 @@ const en: Copy = {
       fileHref: "/documents/Organized_Crime_and_Youth_Presentation_21_May_2026.pdf",
     },
     {
+      id: "asia-me-2nd-regional-webinar-report",
+      kind: "brief",
+      title: "14 July webinar — Second Regional Webinar Series report",
+      summary:
+        "Report from the Asia & Middle East hub Second Regional Webinar Series on youth as agents of peace (14 July 2026).",
+      body: "Report on the EU YPS Network Asia & Middle East Second Regional Webinar Series (14 July 2026, 18:00–19:30 CEST), in English with French and Spanish interpretation.\n\nCovers opening by moderators Abdul Rahman Jalil and Carol Zakhour, Shan Rasheed’s presentation on youth realities and pathways to action under the YPS agenda, interactive regional exchange, and closing messages on youth leadership today.\n\nDownload the PDF for the full report and speaker profile.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/Asia_ME_2nd_Regional_Webinar_Report_14_July_2026.pdf",
+    },
+    {
+      id: "asia-me-2nd-regional-webinar-presentation",
+      kind: "brief",
+      title: "14 July webinar — YPS presentation",
+      summary:
+        "Presentation used at the Second Regional Webinar Series: empowering youth as agents of peace and social change (14 July 2026).",
+      body: "Slide deck presented by Shan Rasheed at the Asia & Middle East Second Regional Webinar Series (14 July 2026) — covering youth realities across the region and practical approaches for leadership, dialogue, volunteerism, interfaith understanding, and community-led peacebuilding under the YPS agenda.\n\nDownload the PDF for the full presentation.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/Asia_ME_2nd_Regional_Webinar_Presentation_YPS_14_July_2026.pdf",
+    },
+    {
       id: "eu-cop26-bertin-cituli-report",
       kind: "brief",
       title: "EU CoP26 — Participation Report (Bertin Cituli)",
@@ -958,6 +1030,24 @@ const en: Copy = {
         "Speaker biographies for the Together for Peace webinar (10 October 2026).",
       body: "Short biographies of the guest speakers for the 10 October 2026 Together for Peace webinar — including François Bahanuzi (DRC), SABE Hermas Dieu-Parfait (CAR), Andi Rabiaj and Irini Demo (Albania).\n\nDownload the PDF for the full bios.\n\nContact euypsnet@gmail.com if you need an accessible format.",
       fileHref: "/documents/Together_for_Peace_Speakers_Biographies.pdf",
+    },
+    {
+      id: "conflict-minerals-concept-note",
+      kind: "brief",
+      title: "Conflict minerals conference — Concept note",
+      summary:
+        "Concept note for the hybrid conference on conflict minerals (Brussels & online, 10 and 12 November 2026).",
+      body: "Concept note for the EU YPS Network–linked conference on conflict minerals and youth-responsive mineral governance.\n\nCovers background on artisanal mining and conflict-linked supply chains in central Africa, the EU Conflict Minerals Regulation (2017/821) and critical raw materials, a closed-door youth hearing (10 November), and the public solutions session (12 November, 15:30–17:00).\n\nDownload the PDF for the full note.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/Conflict_Minerals_Conference_Concept_Note_12_Nov_2026.pdf",
+    },
+    {
+      id: "conflict-minerals-program",
+      kind: "brief",
+      title: "Conflict minerals conference — Draft programme",
+      summary:
+        "Draft programme for the public hybrid Conflict Minerals Conference (12 November 2026).",
+      body: "Timed draft programme for the public session on Thursday, 12 November 2026 (15:30–17:00), hybrid at EEAS COR 04/A522 (Brussels) and online.\n\nIncludes introduction by Rok Koželj (EEAS), Salvatore Berger on the situation and legal framework, Esaïe Irenge (EU YPS Network) on needs on the ground, Q&A, and conclusions by Bernardo Mariani.\n\nDownload the PDF for the full schedule.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/Conflict_Minerals_Conference_Program_12_Nov_2026.pdf",
     },
     {
       id: "unscr-primer",
@@ -1148,6 +1238,33 @@ const ar: Copy = {
       ],
     },
     {
+      id: "asia-me-2nd-regional-webinar-2026",
+      title: "السلسلة الإقليمية الثانية للندوات — الشباب كفاعلين في السلام",
+      dateISO: "2026-07-14",
+      when: "الثلاثاء 14 تموز/يوليو 2026 · 18:00–19:30 بتوقيت وسط أوروبا الصيفي",
+      where: "افتراضي · مركز آسيا والشرق الأوسط · الإنجليزية مع ترجمة فرنسية وإسبانية",
+      summary:
+        "ندوة مركز آسيا والشرق الأوسط حول تمكين الشباب كفاعلين في السلام والتغيير الاجتماعي — بإدارة عبد الرحمن جليل وكارول زاخور، وعرض لشان رشيد، وتبادل إقليمي بين بناة سلام شباب من أوروبا وآسيا والشرق الأوسط وأفريقيا والأمريكتين.",
+      hubId: "asia-me",
+      hubs: ["asia-me"],
+      themes: ["participation", "mediation"],
+      format: "webinar",
+      quote: {
+        text: "لا ينبغي الاعتراف بالشباب كقادة الغد فحسب — بل يجب الوثوق بهم ودعمهم وتمكينهم كقادة اليوم.",
+        attribution: "السلسلة الإقليمية الثانية للندوات · 14 تموز/يوليو 2026",
+      },
+      documents: [
+        {
+          label: "تقرير الندوة (PDF)",
+          href: "/documents/Asia_ME_2nd_Regional_Webinar_Report_14_July_2026.pdf",
+        },
+        {
+          label: "العرض — أجندة الشباب والسلام والأمن (PDF)",
+          href: "/documents/Asia_ME_2nd_Regional_Webinar_Presentation_YPS_14_July_2026.pdf",
+        },
+      ],
+    },
+    {
       id: "together-for-peace-2026",
       title: "معًا من أجل السلام — ندوة باموجا كوا أماني",
       dateISO: "2026-10-10",
@@ -1252,6 +1369,33 @@ const ar: Copy = {
         {
           label: "تقرير المشاركة (PDF)",
           href: "/documents/EU_CoP26_Participation_Report_Bertin_Cituli_Oct_2026.pdf",
+        },
+      ],
+    },
+    {
+      id: "conflict-minerals-conference-2026",
+      title: "مؤتمر معادن النزاع",
+      dateISO: "2026-11-12",
+      when: "12 تشرين الثاني/نوفمبر 2026 · 15:30–17:00 بتوقيت وسط أوروبا (جلسة عامة؛ جلسة استماع مغلقة في 10 تشرين الثاني/نوفمبر)",
+      where: "هجين · بروكسل (EEAS COR 04/A522) وعبر الإنترنت · وسط أفريقيا وأوروبا",
+      summary:
+        "مؤتمر هجين عام حول معادن النزاع وحوكمة المعادن المستجيبة للشباب — بعد جلسة استماع مغلقة مع ناشطين شباب من المناطق المتأثرة (10 تشرين الثاني/نوفمبر). يناقش متحدثون من دائرة العمل الخارجي الأوروبي وشبكة الاتحاد الأوروبي للشباب والسلام والأمن الإطار القانوني والاحتياجات على الأرض ومتابعات ملموسة.",
+      hubId: "central-africa",
+      hubs: ["central-africa", "europe"],
+      themes: ["security", "participation"],
+      format: "conference",
+      quote: {
+        text: "يعيش الشباب كلفة التعدين غير الآمن وسلاسل التوريد المرتبطة بالنزاع — ويمكنهم صياغة مقاربات أكثر مسؤولية واستجابة للسلام.",
+        attribution: "مؤتمر معادن النزاع · تشرين الثاني/نوفمبر 2026",
+      },
+      documents: [
+        {
+          label: "المذكرة المفاهيمية (PDF)",
+          href: "/documents/Conflict_Minerals_Conference_Concept_Note_12_Nov_2026.pdf",
+        },
+        {
+          label: "مسودة البرنامج (PDF)",
+          href: "/documents/Conflict_Minerals_Conference_Program_12_Nov_2026.pdf",
         },
       ],
     },
@@ -1667,6 +1811,24 @@ const ar: Copy = {
       fileHref: "/documents/Organized_Crime_and_Youth_Presentation_21_May_2026.pdf",
     },
     {
+      id: "asia-me-2nd-regional-webinar-report",
+      kind: "brief",
+      title: "ندوة 14 تموز/يوليو — تقرير السلسلة الإقليمية الثانية",
+      summary:
+        "تقرير ندوة مركز آسيا والشرق الأوسط ضمن السلسلة الإقليمية الثانية حول الشباب كفاعلين في السلام (14 تموز/يوليو 2026).",
+      body: "تقرير ندوة شبكة الاتحاد الأوروبي للشباب والسلام والأمن — السلسلة الإقليمية الثانية لمركز آسيا والشرق الأوسط (14 تموز/يوليو 2026، 18:00–19:30 بتوقيت وسط أوروبا الصيفي)، بالإنجليزية مع ترجمة فرنسية وإسبانية.\n\nيغطي افتتاح المشرفين عبد الرحمن جليل وكارول زاخور، وعرض شان رشيد حول واقع الشباب ومسارات الفعل ضمن أجندة الشباب والسلام والأمن، والتبادل الإقليمي التفاعلي، والرسائل الختامية حول قيادة الشباب اليوم.\n\nنزّلوا ملف PDF للتقرير الكامل وسيرة المتحدث.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/Asia_ME_2nd_Regional_Webinar_Report_14_July_2026.pdf",
+    },
+    {
+      id: "asia-me-2nd-regional-webinar-presentation",
+      kind: "brief",
+      title: "ندوة 14 تموز/يوليو — عرض أجندة الشباب والسلام والأمن",
+      summary:
+        "العرض المستخدم في السلسلة الإقليمية الثانية: تمكين الشباب كفاعلين في السلام والتغيير الاجتماعي (14 تموز/يوليو 2026).",
+      body: "شرائح قدّمها شان رشيد في السلسلة الإقليمية الثانية لمركز آسيا والشرق الأوسط (14 تموز/يوليو 2026) — تغطي واقع الشباب في الإقليم ومقاربات عملية للقيادة والحوار والتطوّع والتفاهم بين الأديان وبناء السلام بقيادة المجتمع ضمن أجندة الشباب والسلام والأمن.\n\nنزّلوا ملف PDF للعرض الكامل.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/Asia_ME_2nd_Regional_Webinar_Presentation_YPS_14_July_2026.pdf",
+    },
+    {
       id: "eu-cop26-bertin-cituli-report",
       kind: "brief",
       title: "منتدى ممارسة الاتحاد الأوروبي 26 — تقرير مشاركة بيرتين سيتولي",
@@ -1737,6 +1899,24 @@ const ar: Copy = {
         "سير المتحدثين لندوة معًا من أجل السلام (10 تشرين الأول/أكتوبر 2026).",
       body: "سير قصيرة للمتحدثين الضيوف في ندوة 10 تشرين الأول/أكتوبر 2026 — بما في ذلك فرانسوا باهانوزي (الكونغو الديمقراطية) وسابي هيراس ديو-بارفيه (أفريقيا الوسطى) وأندي رابيا وإيريني ديمو (ألبانيا).\n\nنزّلوا ملف PDF للسير الكاملة.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
       fileHref: "/documents/Together_for_Peace_Speakers_Biographies.pdf",
+    },
+    {
+      id: "conflict-minerals-concept-note",
+      kind: "brief",
+      title: "مؤتمر معادن النزاع — المذكرة المفاهيمية",
+      summary:
+        "مذكرة مفاهيمية للمؤتمر الهجين حول معادن النزاع (بروكسل وعبر الإنترنت، 10 و12 تشرين الثاني/نوفمبر 2026).",
+      body: "مذكرة مفاهيمية لمؤتمر مرتبط بشبكة الاتحاد الأوروبي للشباب والسلام والأمن حول معادن النزاع وحوكمة المعادن المستجيبة للشباب.\n\nتغطي خلفية التعدين الحرفي وسلاسل التوريد المرتبطة بالنزاع في وسط أفريقيا، ولائحة الاتحاد الأوروبي لمعادن النزاع (2017/821) والمواد الخام الحرجة، وجلسة استماع شبابية مغلقة (10 تشرين الثاني/نوفمبر)، والجلسة العامة للحلول (12 تشرين الثاني/نوفمبر، 15:30–17:00).\n\nنزّلوا ملف PDF للمذكرة الكاملة.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/Conflict_Minerals_Conference_Concept_Note_12_Nov_2026.pdf",
+    },
+    {
+      id: "conflict-minerals-program",
+      kind: "brief",
+      title: "مؤتمر معادن النزاع — مسودة البرنامج",
+      summary:
+        "مسودة برنامج الجلسة العامة الهجينة لمؤتمر معادن النزاع (12 تشرين الثاني/نوفمبر 2026).",
+      body: "برنامج مسودة موقوت للجلسة العامة يوم الخميس 12 تشرين الثاني/نوفمبر 2026 (15:30–17:00)، هجين في EEAS COR 04/A522 (بروكسل) وعبر الإنترنت.\n\nيشمل افتتاح روك كوژلي (دائرة العمل الخارجي الأوروبي)، وسالفاتوري بيرغر حول الوضع والإطار القانوني، وإيساي إيرينجي (شبكة الاتحاد الأوروبي للشباب والسلام والأمن) حول الاحتياجات على الأرض، وجلسة أسئلة وأجوبة، وختام برناردو مارياني.\n\nنزّلوا ملف PDF للجدول الكامل.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/Conflict_Minerals_Conference_Program_12_Nov_2026.pdf",
     },
     {
       id: "unscr-primer",
