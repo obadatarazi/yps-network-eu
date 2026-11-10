@@ -200,6 +200,7 @@ export function SitePage({ page }: { page: SitePageId }) {
       <main id="main-content">
         {page === "home" && (
           <>
+            <FeaturedActivityHero c={c} />
             <Hero c={c} lang={lang} plain={plain} />
             <RegionMarquee
               items={
@@ -643,6 +644,75 @@ function Header({
         </div>
       </div>
     </header>
+  );
+}
+
+function FeaturedActivityHero({ c }: { c: Copy }) {
+  const featured = c.featuredActivity;
+  const [primary, secondary] = featured.links;
+
+  return (
+    <section
+      className="featured-hero"
+      aria-labelledby="featured-hero-title"
+    >
+      <div className="featured-hero-media" aria-hidden={featured.image.alt ? undefined : true}>
+        <img
+          src={featured.image.src}
+          alt={featured.image.alt}
+          width={1792}
+          height={1008}
+          fetchPriority="high"
+          decoding="async"
+        />
+      </div>
+      <div className="featured-hero-shade" aria-hidden="true" />
+      <div className="featured-hero-panel hero-enter hero-enter-1">
+        <p
+          className={
+            featured.status === "upcoming"
+              ? "featured-hero-label featured-hero-label--live"
+              : "featured-hero-label"
+          }
+        >
+          {featured.status === "upcoming" ? (
+            <span className="featured-hero-live-dot" aria-hidden="true" />
+          ) : null}
+          {featured.label}
+        </p>
+        <h2 id="featured-hero-title" className="featured-hero-title">
+          {featured.title}
+        </h2>
+        <p className="featured-hero-text">{featured.text}</p>
+        <p className="featured-hero-meta">{featured.meta}</p>
+        <div className="featured-hero-actions">
+          {primary ? (
+            <a
+              className="btn btn-inverse"
+              href={primary.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-umami-event="featured-concept-note"
+              data-umami-event-placement="featured-hero"
+            >
+              {primary.label}
+            </a>
+          ) : null}
+          {secondary ? (
+            <a
+              className="btn btn-featured-ghost"
+              href={secondary.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-umami-event="featured-programme"
+              data-umami-event-placement="featured-hero"
+            >
+              {secondary.label}
+            </a>
+          ) : null}
+        </div>
+      </div>
+    </section>
   );
 }
 

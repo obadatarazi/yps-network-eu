@@ -59,6 +59,20 @@ export type Activity = {
   quote?: { text: string; attribution?: string };
 };
 
+/** Homepage featured story — swap these fields when the next activity publishes. */
+export type FeaturedActivity = {
+  /** Controls the label pulse — only "upcoming" draws attention. */
+  status: "upcoming" | "latest";
+  /** "Upcoming event" or "Latest activity". */
+  label: string;
+  title: string;
+  text: string;
+  /** Date, time, and place line. */
+  meta: string;
+  image: { src: string; alt: string };
+  links: { label: string; href: string }[];
+};
+
 export type Copy = {
   skip: string;
   accessibility: string;
@@ -84,6 +98,7 @@ export type Copy = {
   nav: { href: string; label: string }[];
   joinCta: string;
   exploreCta: string;
+  featuredActivity: FeaturedActivity;
   kicker: string;
   title: string;
   sub: string;
@@ -267,6 +282,27 @@ const en: Copy = {
   ],
   joinCta: "Join the network",
   exploreCta: "Explore the 5 pillars",
+  featuredActivity: {
+    status: "upcoming",
+    label: "Upcoming event",
+    title: "Conference on conflict minerals",
+    text: "A public hybrid conference on youth-responsive mineral governance, following a closed-door hearing with young activists from affected areas.",
+    meta: "12 November 2026 · 15:30–17:00 CET · Brussels (EEAS) & online",
+    image: {
+      src: "/images/hero.webp",
+      alt: "Young adults from several regions sit around a wooden table in a sunlit hall, reviewing paper maps and notebooks.",
+    },
+    links: [
+      {
+        label: "Read the concept note",
+        href: "/documents/Conflict_Minerals_Conference_Concept_Note_12_Nov_2026.pdf",
+      },
+      {
+        label: "View the programme",
+        href: "/documents/Conflict_Minerals_Conference_Program_12_Nov_2026.pdf",
+      },
+    ],
+  },
   kicker: "EU Youth, Peace and Security Network",
   title: "Youth at the forefront of peace and security across regions in the world",
   sub: "Empowering young people to build inclusive, peaceful and resilient societies in line with the United Nations Youth, Peace and Security Agenda.",
@@ -1140,6 +1176,27 @@ const ar: Copy = {
   ],
   joinCta: "انضم إلى الشبكة",
   exploreCta: "استكشف الركائز الخمس",
+  featuredActivity: {
+    status: "upcoming",
+    label: "فعالية قادمة",
+    title: "مؤتمر معادن النزاع",
+    text: "مؤتمر هجين عام حول حوكمة المعادن المستجيبة للشباب، بعد جلسة استماع مغلقة مع ناشطين شباب من المناطق المتأثرة.",
+    meta: "12 تشرين الثاني/نوفمبر 2026 · 15:30–17:00 بتوقيت وسط أوروبا · بروكسل (EEAS) وعبر الإنترنت",
+    image: {
+      src: "/images/hero.webp",
+      alt: "شباب من عدة أقاليم يجلسون حول طاولة خشبية في قاعة مضاءة بنور النهار، ويراجعون خرائط ورقية ودفاتر.",
+    },
+    links: [
+      {
+        label: "اقرأ المذكرة المفاهيمية",
+        href: "/documents/Conflict_Minerals_Conference_Concept_Note_12_Nov_2026.pdf",
+      },
+      {
+        label: "اطّلع على البرنامج",
+        href: "/documents/Conflict_Minerals_Conference_Program_12_Nov_2026.pdf",
+      },
+    ],
+  },
   kicker: "شبكة الاتحاد الأوروبي للشباب والسلام والأمن",
   title: "الشباب في طليعة السلام والأمن عبر أقاليم العالم",
   sub: "تمكين الشباب لبناء مجتمعات شاملة وسلمية ومرنة بما يتسق مع أجندة الأمم المتحدة للشباب والسلام والأمن.",
