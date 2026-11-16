@@ -42,8 +42,8 @@ export type ActivityTheme =
 export type Activity = {
   id: string;
   title: string;
-  /** Machine-sortable start day (YYYY-MM-DD). */
-  dateISO: string;
+  /** Machine-sortable start day (YYYY-MM-DD). Omit when the date is still TBC. */
+  dateISO?: string;
   when: string;
   where: string;
   summary: string;
@@ -285,9 +285,9 @@ const en: Copy = {
   featuredActivity: {
     status: "upcoming",
     label: "Upcoming event",
-    title: "Conference on conflict minerals",
-    text: "A public hybrid conference on youth-responsive mineral governance, following a closed-door hearing with young activists from affected areas.",
-    meta: "12 November 2026 · 15:30–17:00 CET · Brussels (EEAS) & online",
+    title: "West Africa webinar — YPS Fundamentals",
+    text: "Online webinar on Youth, Peace and Security fundamentals for the West Africa hub — UNSCR 2250 and 1325, youth mapping, myths versus realities, and the role of ECOWAS and the AU.",
+    meta: "20 November 2026 · 18:00–19:30 GMT · Online",
     image: {
       src: "/images/hero.webp",
       alt: "Young adults from several regions sit around a wooden table in a sunlit hall, reviewing paper maps and notebooks.",
@@ -295,11 +295,11 @@ const en: Copy = {
     links: [
       {
         label: "Read the concept note",
-        href: "/documents/Conflict_Minerals_Conference_Concept_Note_12_Nov_2026.pdf",
+        href: "/documents/EU_YPS_West_Africa_Webinar_Concept_Note_20_Nov_2026.pdf",
       },
       {
-        label: "View the programme",
-        href: "/documents/Conflict_Minerals_Conference_Program_12_Nov_2026.pdf",
+        label: "View the agenda",
+        href: "/documents/EU_YPS_West_Africa_Webinar_Agenda_20_Nov_2026.pdf",
       },
     ],
   },
@@ -560,6 +560,55 @@ const en: Copy = {
         {
           label: "Draft programme (PDF)",
           href: "/documents/Conflict_Minerals_Conference_Program_12_Nov_2026.pdf",
+        },
+      ],
+    },
+    {
+      id: "west-africa-webinar-yps-fundamentals-2026",
+      title: "West Africa webinar — YPS Fundamentals",
+      dateISO: "2026-11-20",
+      when: "20 November 2026 · 18:00–19:30 GMT",
+      where: "Online · West Africa hub · English with translation",
+      summary:
+        "General Theme 1 webinar on Youth, Peace and Security fundamentals for the West Africa hub — covering UNSCR 2250 and 1325 and the five YPS pillars, youth actor mapping, myths and realities about youth as perpetrators versus peacebuilders, and the role of ECOWAS and the AU in promoting youth participation.",
+      hubId: "west-africa",
+      hubs: ["west-africa"],
+      themes: ["participation", "security"],
+      format: "webinar",
+      quote: {
+        text: "Understanding the fundamentals of YPS — participation, protection, prevention, partnerships, and disengagement — is how West African youth claim their place as peacebuilders.",
+        attribution: "West Africa webinar · November 2026",
+      },
+      documents: [
+        {
+          label: "Concept note (PDF)",
+          href: "/documents/EU_YPS_West_Africa_Webinar_Concept_Note_20_Nov_2026.pdf",
+        },
+        {
+          label: "Agenda (PDF)",
+          href: "/documents/EU_YPS_West_Africa_Webinar_Agenda_20_Nov_2026.pdf",
+        },
+      ],
+    },
+    {
+      id: "schuman-forum-consultation-2-2026",
+      title: "Schuman Forum Consultation 2 — From Priorities to Action",
+      when: "Date to be confirmed · Online",
+      where: "Youth recommendations for reliable security partnerships · Cross-regional",
+      summary:
+        "Second and final Schuman Forum youth consultation — turning Round 1 challenges into practical actions, partnerships, and policy recommendations for the EU and international partners on meaningful youth participation in peace and security.",
+      hubId: "europe",
+      hubs: ["europe", "asia-me", "lac", "west-africa", "central-africa", "esa"],
+      themes: ["security", "participation"],
+      format: "consultation",
+      quote: {
+        text: "Young people do not need more invitations to conversations where decisions have already been made — they need genuine opportunities to shape those decisions.",
+        attribution: "Schuman Forum Consultation 2",
+      },
+      documents: [
+        {
+          label: "Consultation 2 report (PDF)",
+          href: "/documents/Schuman_Forum_Consultation_2_Report.pdf",
         },
       ],
     },
@@ -1014,6 +1063,33 @@ const en: Copy = {
       fileHref: "/documents/Schuman_Forum_Youth_Track_Preliminary_Consultations_Summary_Oct_2026.pdf",
     },
     {
+      id: "schuman-forum-consultation-2-report",
+      kind: "brief",
+      title: "Schuman Forum Consultation 2 — From Priorities to Action",
+      summary:
+        "Unified report from the second Schuman Forum youth consultation on practical actions and reliable security partnerships (date TBC).",
+      body: "Unified report from Schuman Forum Consultation 2: From Priorities to Action — Youth Recommendations for Reliable Security Partnerships.\n\nBuilds on Consultation 1 with practical actions, partnership recommendations, and messages for EU and international decision-makers on meaningful youth participation, protection, and territorial-level support.\n\nAvailable in English, Spanish, and French in the same PDF. Date of the consultation still to be confirmed on the activities page.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/Schuman_Forum_Consultation_2_Report.pdf",
+    },
+    {
+      id: "west-africa-webinar-concept-note",
+      kind: "brief",
+      title: "West Africa webinar — Concept note",
+      summary:
+        "Concept note for the West Africa hub webinar Demystifying YPS in West Africa (20 November 2026).",
+      body: "Concept note for the EU YPS West Africa Network regional webinar “Demystifying Youth, Peace, and Security (YPS) in West Africa: Fundamentals, Frameworks, and Regional Dynamics” (20 November 2026, 18:00–19:30 GMT, online).\n\nCovers background and rationale, grounding in UNSCR 2250/2419/2535 and the five YPS pillars, deconstructing myths about youth, youth actor mapping, and institutional synergies with ECOWAS and the African Union, plus expected outcomes including a Regional Youth Actor Directory and policy brief.\n\nDownload the PDF for the full note.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/EU_YPS_West_Africa_Webinar_Concept_Note_20_Nov_2026.pdf",
+    },
+    {
+      id: "west-africa-webinar-agenda",
+      kind: "brief",
+      title: "West Africa webinar — Agenda (YPS Fundamentals)",
+      summary:
+        "Programme agenda for the West Africa hub webinar on Youth, Peace and Security fundamentals (20 November 2026).",
+      body: "Timed agenda for the EU YPS Network West Africa webinar “General Theme 1: Youth, Peace and Security Fundamentals” (20 November 2026, 18:00–19:30 GMT, online).\n\nIncludes opening by Patricia Z. Gaye and Rok Koželj, presentations on UNSCR 2250/1325 and the five YPS pillars, youth mapping in West Africa, myths and realities about youth as perpetrators versus peacebuilders, the role of ECOWAS and the AU, Q&A, and closing remarks.\n\nDownload the PDF for the full schedule.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/EU_YPS_West_Africa_Webinar_Agenda_20_Nov_2026.pdf",
+    },
+    {
       id: "esa-webinar-concept-note",
       kind: "brief",
       title: "ESA Regional Webinar — Concept Note",
@@ -1179,9 +1255,9 @@ const ar: Copy = {
   featuredActivity: {
     status: "upcoming",
     label: "فعالية قادمة",
-    title: "مؤتمر معادن النزاع",
-    text: "مؤتمر هجين عام حول حوكمة المعادن المستجيبة للشباب، بعد جلسة استماع مغلقة مع ناشطين شباب من المناطق المتأثرة.",
-    meta: "12 تشرين الثاني/نوفمبر 2026 · 15:30–17:00 بتوقيت وسط أوروبا · بروكسل (EEAS) وعبر الإنترنت",
+    title: "ندوة غرب أفريقيا — أساسيات أجندة الشباب والسلام والأمن",
+    text: "ندوة عبر الإنترنت حول أساسيات أجندة الشباب والسلام والأمن لمركز غرب أفريقيا — قرارات مجلس الأمن 2250 و1325، ورسم خريطة الفاعلين الشباب، والأساطير مقابل الواقع، ودور إيكواس والاتحاد الأفريقي.",
+    meta: "20 تشرين الثاني/نوفمبر 2026 · 18:00–19:30 بتوقيت غرينيتش · عبر الإنترنت",
     image: {
       src: "/images/hero.webp",
       alt: "شباب من عدة أقاليم يجلسون حول طاولة خشبية في قاعة مضاءة بنور النهار، ويراجعون خرائط ورقية ودفاتر.",
@@ -1189,11 +1265,11 @@ const ar: Copy = {
     links: [
       {
         label: "اقرأ المذكرة المفاهيمية",
-        href: "/documents/Conflict_Minerals_Conference_Concept_Note_12_Nov_2026.pdf",
+        href: "/documents/EU_YPS_West_Africa_Webinar_Concept_Note_20_Nov_2026.pdf",
       },
       {
-        label: "اطّلع على البرنامج",
-        href: "/documents/Conflict_Minerals_Conference_Program_12_Nov_2026.pdf",
+        label: "اطّلع على الأجندة",
+        href: "/documents/EU_YPS_West_Africa_Webinar_Agenda_20_Nov_2026.pdf",
       },
     ],
   },
@@ -1453,6 +1529,55 @@ const ar: Copy = {
         {
           label: "مسودة البرنامج (PDF)",
           href: "/documents/Conflict_Minerals_Conference_Program_12_Nov_2026.pdf",
+        },
+      ],
+    },
+    {
+      id: "west-africa-webinar-yps-fundamentals-2026",
+      title: "ندوة غرب أفريقيا — أساسيات أجندة الشباب والسلام والأمن",
+      dateISO: "2026-11-20",
+      when: "20 تشرين الثاني/نوفمبر 2026 · 18:00–19:30 بتوقيت غرينيتش",
+      where: "عبر الإنترنت · مركز غرب أفريقيا · الإنجليزية مع ترجمة",
+      summary:
+        "ندوة الموضوع العام 1 حول أساسيات أجندة الشباب والسلام والأمن لمركز غرب أفريقيا — تغطي قراري مجلس الأمن 2250 و1325 والركائز الخمس، ورسم خريطة الفاعلين الشباب، والأساطير والحقائق حول الشباب كمرتكبين مقابل بناة سلام، ودور إيكواس والاتحاد الأفريقي في تعزيز مشاركة الشباب.",
+      hubId: "west-africa",
+      hubs: ["west-africa"],
+      themes: ["participation", "security"],
+      format: "webinar",
+      quote: {
+        text: "فهم أساسيات أجندة الشباب والسلام والأمن — المشاركة والحماية والوقاية والشراكات وفك الارتباط — هو كيف يطالب شباب غرب أفريقيا بمكانهم كبناة سلام.",
+        attribution: "ندوة غرب أفريقيا · تشرين الثاني/نوفمبر 2026",
+      },
+      documents: [
+        {
+          label: "المذكرة المفاهيمية (PDF)",
+          href: "/documents/EU_YPS_West_Africa_Webinar_Concept_Note_20_Nov_2026.pdf",
+        },
+        {
+          label: "الأجندة (PDF)",
+          href: "/documents/EU_YPS_West_Africa_Webinar_Agenda_20_Nov_2026.pdf",
+        },
+      ],
+    },
+    {
+      id: "schuman-forum-consultation-2-2026",
+      title: "مشاورة منتدى شومان 2 — من الأولويات إلى الفعل",
+      when: "التاريخ يُؤكد لاحقًا · عبر الإنترنت",
+      where: "توصيات شبابية لشراكات أمنية موثوقة · عبر الأقاليم",
+      summary:
+        "المشاورات الشبابية الثانية والأخيرة لمنتدى شومان — تحويل تحديات الجولة 1 إلى إجراءات عملية وشراكات وتوصيات سياساتية للاتحاد الأوروبي والشركاء الدوليين بشأن المشاركة الهادفة للشباب في السلام والأمن.",
+      hubId: "europe",
+      hubs: ["europe", "asia-me", "lac", "west-africa", "central-africa", "esa"],
+      themes: ["security", "participation"],
+      format: "consultation",
+      quote: {
+        text: "لا يحتاج الشباب إلى مزيد من الدعوات لمحادثات اتُخذت قراراتها سلفًا — بل إلى فرص حقيقية لصياغة تلك القرارات.",
+        attribution: "مشاورة منتدى شومان 2",
+      },
+      documents: [
+        {
+          label: "تقرير المشاورة 2 (PDF)",
+          href: "/documents/Schuman_Forum_Consultation_2_Report.pdf",
         },
       ],
     },
@@ -1904,6 +2029,33 @@ const ar: Copy = {
       fileHref: "/documents/Schuman_Forum_Youth_Track_Preliminary_Consultations_Summary_Oct_2026.pdf",
     },
     {
+      id: "schuman-forum-consultation-2-report",
+      kind: "brief",
+      title: "مشاورة منتدى شومان 2 — من الأولويات إلى الفعل",
+      summary:
+        "التقرير الموحّد من المشاورة الشبابية الثانية لمنتدى شومان حول الإجراءات العملية والشراكات الأمنية الموثوقة (التاريخ يُؤكد لاحقًا).",
+      body: "التقرير الموحّد لمشاورة منتدى شومان 2: من الأولويات إلى الفعل — توصيات شبابية لشراكات أمنية موثوقة.\n\nيبني على المشاورة 1 بإجراءات عملية وتوصيات شراكة ورسائل لصنّاع القرار في الاتحاد الأوروبي والشركاء الدوليين حول المشاركة الهادفة للشباب والحماية والدعم على المستوى المحلي.\n\nمتاح بالإنجليزية والإسبانية والفرنسية في ملف PDF واحد. تاريخ المشاورة ما زال قيد التأكيد في صفحة الأنشطة.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/Schuman_Forum_Consultation_2_Report.pdf",
+    },
+    {
+      id: "west-africa-webinar-concept-note",
+      kind: "brief",
+      title: "ندوة غرب أفريقيا — المذكرة المفاهيمية",
+      summary:
+        "مذكرة مفاهيمية لندوة مركز غرب أفريقيا حول إزالة الغموض عن أجندة الشباب والسلام والأمن (20 تشرين الثاني/نوفمبر 2026).",
+      body: "مذكرة مفاهيمية لندوة شبكة الاتحاد الأوروبي للشباب والسلام والأمن في غرب أفريقيا «إزالة الغموض عن أجندة الشباب والسلام والأمن في غرب أفريقيا: الأساسيات والأطر والديناميات الإقليمية» (20 تشرين الثاني/نوفمبر 2026، 18:00–19:30 بتوقيت غرينيتش، عبر الإنترنت).\n\nتغطي الخلفية والمبررات، والتأسيس على قرارات مجلس الأمن 2250/2419/2535 والركائز الخمس، وتفكيك الأساطير حول الشباب، ورسم خريطة الفاعلين الشباب، والتآزر المؤسسي مع إيكواس والاتحاد الأفريقي، والنتائج المتوقعة بما في ذلك دليل إقليمي للفاعلين الشباب وموجز سياسات.\n\nنزّلوا ملف PDF للمذكرة الكاملة.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/EU_YPS_West_Africa_Webinar_Concept_Note_20_Nov_2026.pdf",
+    },
+    {
+      id: "west-africa-webinar-agenda",
+      kind: "brief",
+      title: "ندوة غرب أفريقيا — الأجندة (أساسيات أجندة الشباب والسلام والأمن)",
+      summary:
+        "أجندة برنامج ندوة مركز غرب أفريقيا حول أساسيات أجندة الشباب والسلام والأمن (20 تشرين الثاني/نوفمبر 2026).",
+      body: "أجندة موقوتة لندوة شبكة الاتحاد الأوروبي للشباب والسلام والأمن في غرب أفريقيا «الموضوع العام 1: أساسيات أجندة الشباب والسلام والأمن» (20 تشرين الثاني/نوفمبر 2026، 18:00–19:30 بتوقيت غرينيتش، عبر الإنترنت).\n\nتشمل افتتاح باتريشيا ز. غاي وروك كوژلي، وعروضًا حول قراري مجلس الأمن 2250/1325 والركائز الخمس، ورسم خريطة الشباب في غرب أفريقيا، والأساطير والحقائق حول الشباب كمرتكبين مقابل بناة سلام، ودور إيكواس والاتحاد الأفريقي، وجلسة أسئلة، وختام.\n\nنزّلوا ملف PDF للجدول الكامل.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/EU_YPS_West_Africa_Webinar_Agenda_20_Nov_2026.pdf",
+    },
+    {
       id: "esa-webinar-concept-note",
       kind: "brief",
       title: "ندوة شرق وجنوب أفريقيا الإقليمية — مذكرة مفاهيمية",
@@ -2040,16 +2192,21 @@ export function fill(template: string, n: number) {
   return template.replaceAll("{n}", String(n));
 }
 
-/** Documented activities only, chronological — first event → last with a PDF. */
+/** Documented activities only, chronological — first event → last with a PDF. Date-TBC items sort last. */
 export function documentedActivities(c: Copy): Activity[] {
   return c.activities
     .filter((event) => event.documents.length > 0)
     .slice()
-    .sort((a, b) => a.dateISO.localeCompare(b.dateISO));
+    .sort((a, b) => {
+      if (!a.dateISO && !b.dateISO) return 0;
+      if (!a.dateISO) return 1;
+      if (!b.dateISO) return -1;
+      return a.dateISO.localeCompare(b.dateISO);
+    });
 }
 
-export function activityYear(dateISO: string) {
-  return dateISO.slice(0, 4);
+export function activityYear(dateISO: string | undefined) {
+  return dateISO?.slice(0, 4) ?? "TBC";
 }
 
 export function activityHubIds(event: Activity): HubId[] {

@@ -29,13 +29,22 @@ type Props = {
 
 const VIEW_KEY = "eyps-journey-view";
 
-function dateParts(dateISO: string, lang: Lang) {
+function dateParts(dateISO: string | undefined, lang: Lang) {
+  if (!dateISO) {
+    return {
+      day: lang === "ar" ? "قريبًا" : "TBC",
+      month: "",
+      year: "",
+      tbc: true as const,
+    };
+  }
   const date = new Date(`${dateISO}T12:00:00`);
   const locale = lang === "ar" ? "ar" : "en-GB";
   return {
     day: date.toLocaleDateString(locale, { day: "2-digit" }),
     month: date.toLocaleDateString(locale, { month: "short" }),
     year: date.toLocaleDateString(locale, { year: "numeric" }),
+    tbc: false as const,
   };
 }
 
@@ -183,7 +192,10 @@ export function ActivityTimeline({ c, lang, announce }: Props) {
   }, []);
 
   const years = useMemo(
-    () => Array.from(new Set(allItems.map((item) => activityYear(item.dateISO)))).sort(),
+    () =>
+      Array.from(new Set(allItems.map((item) => activityYear(item.dateISO))))
+        .filter((year) => year !== "TBC")
+        .sort(),
     [allItems],
   );
 
@@ -466,18 +478,21 @@ export function ActivityTimeline({ c, lang, announce }: Props) {
             <ol className="activity-journey-dots">
               {items.map((event, index) => {
                 const parts = dateParts(event.dateISO, lang);
+                const dateLabel = parts.tbc
+                  ? parts.day
+                  : `${parts.day} ${parts.month}`.trim();
                 return (
                   <li key={event.id}>
                     <button
                       type="button"
                       className={`activity-journey-dot${index === activeSafe ? " is-active" : ""}${index < activeSafe ? " is-past" : ""}`}
                       aria-current={index === activeSafe ? "true" : undefined}
-                      aria-label={`${parts.day} ${parts.month}: ${event.title}`}
+                      aria-label={`${dateLabel}: ${event.title}`}
                       onClick={() => scrollToChapter(index)}
                     >
                       <span className="activity-journey-dot-mark" aria-hidden="true" />
                       <span className="activity-journey-dot-label" dir="ltr">
-                        {parts.day} {parts.month}
+                        {dateLabel}
                       </span>
                     </button>
                   </li>
@@ -518,9 +533,12 @@ export function ActivityTimeline({ c, lang, announce }: Props) {
             const prevYear = index > 0 ? activityYear(items[index - 1]!.dateISO) : null;
             const parts = dateParts(event.dateISO, lang);
             const hub = event.hubId;
+            const compactDate = parts.tbc
+              ? parts.day
+              : `${parts.day} ${parts.month} ${parts.year}`.trim();
             return (
               <li key={event.id}>
-                {year !== prevYear ? renderYearBreak(year, `y-${year}`) : null}
+                {year !== prevYear && year !== "TBC" ? renderYearBreak(year, `y-${year}`) : null}
                 <article
                   id={event.id}
                   data-chapter
@@ -528,7 +546,7 @@ export function ActivityTimeline({ c, lang, announce }: Props) {
                 >
                   <button type="button" className="activity-compact-hit" onClick={() => setActive(index)}>
                     <span className="activity-compact-date" dir="ltr">
-                      {parts.day} {parts.month} {parts.year}
+                      {compactDate}
                     </span>
                     <h3 className="activity-compact-title">{event.title}</h3>
                   </button>
@@ -556,7 +574,7 @@ export function ActivityTimeline({ c, lang, announce }: Props) {
 
             return (
               <div key={event.id}>
-                {year !== prevYear ? renderYearBreak(year, `cine-y-${year}`) : null}
+                {year !== prevYear && year !== "TBC" ? renderYearBreak(year, `cine-y-${year}`) : null}
                 <section
                   id={event.id}
                   data-chapter
@@ -568,10 +586,12 @@ export function ActivityTimeline({ c, lang, announce }: Props) {
                       <span className="activity-chapter-day tabular-nums" dir="ltr">
                         {parts.day}
                       </span>
-                      <span className="activity-chapter-monthyear" dir="ltr">
-                        {parts.month}
-                        <span className="activity-chapter-year">{parts.year}</span>
-                      </span>
+                      {parts.tbc ? null : (
+                        <span className="activity-chapter-monthyear" dir="ltr">
+                          {parts.month}
+                          <span className="activity-chapter-year">{parts.year}</span>
+                        </span>
+                      )}
                       <span className="activity-chapter-node" />
                     </aside>
 
