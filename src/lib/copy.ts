@@ -283,23 +283,23 @@ const en: Copy = {
   joinCta: "Join the network",
   exploreCta: "Explore the 5 pillars",
   featuredActivity: {
-    status: "upcoming",
-    label: "Upcoming event",
-    title: "West Africa webinar — YPS Fundamentals",
-    text: "Online webinar on Youth, Peace and Security fundamentals for the West Africa hub — UNSCR 2250 and 1325, youth mapping, myths versus realities, and the role of ECOWAS and the AU.",
-    meta: "20 November 2026 · 18:00–19:30 GMT · Online",
+    status: "latest",
+    label: "Latest activity",
+    title: "Schuman Forum Youth Track",
+    text: "Youth track participants carried regional priorities into the Schuman Security and Defence Forum in Brussels — meeting EU institutions, EEAS desks and the Secretary General, and issuing a Flash Communiqué with follow-up steps.",
+    meta: "17–18 November 2026 · Brussels",
     image: {
       src: "/images/hero.webp",
       alt: "Young adults from several regions sit around a wooden table in a sunlit hall, reviewing paper maps and notebooks.",
     },
     links: [
       {
-        label: "Read the concept note",
-        href: "/documents/EU_YPS_West_Africa_Webinar_Concept_Note_20_Nov_2026.pdf",
+        label: "Read the Flash Communiqué",
+        href: "/documents/Schuman_Forum_Youth_Track_Flash_Communique_17_18_Nov_2026.pdf",
       },
       {
-        label: "View the agenda",
-        href: "/documents/EU_YPS_West_Africa_Webinar_Agenda_20_Nov_2026.pdf",
+        label: "View the final programme",
+        href: "/documents/Schuman_Forum_Youth_Track_Final_Programme_17_18_Nov_2026.pdf",
       },
     ],
   },
@@ -583,6 +583,10 @@ const en: Copy = {
         {
           label: "Flash Communiqué (PDF)",
           href: "/documents/Schuman_Forum_Youth_Track_Flash_Communique_17_18_Nov_2026.pdf",
+        },
+        {
+          label: "Final programme (PDF)",
+          href: "/documents/Schuman_Forum_Youth_Track_Final_Programme_17_18_Nov_2026.pdf",
         },
       ],
     },
@@ -1104,6 +1108,15 @@ const en: Copy = {
       fileHref: "/documents/Schuman_Forum_Youth_Track_Flash_Communique_17_18_Nov_2026.pdf",
     },
     {
+      id: "schuman-forum-youth-track-final-programme",
+      kind: "brief",
+      title: "Schuman Forum Youth Track — Final programme",
+      summary:
+        "Final programme for the Schuman Security and Defence Forum youth track at EEAS Headquarters (Brussels, 17–18 November 2026).",
+      body: "Timed final programme for the Schuman Forum 2026 youth track at EEAS Headquarters, Rond Point Schuman 9A (Brussels).\n\nTuesday 17 November covers meetings with PCM.1, DG MENA and the Anna Lindh Foundation, EU Member State delegates, DG Education and Culture, DG International Partnerships, Policy Planning and Strategic Communication, and the Equality and Diversity Task Force.\n\nWednesday 18 November covers parallel EEAS geographical desk meetings, the EEAS Secretary General, the Nigerian Youth Sounding Board, the Schuman Forum plenary (one youth delegate), and meetings at the UN House with UNDP, OHCHR and UN Women — ending with the Flash Note wrap-up.\n\nDownload the PDF for the full schedule.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/Schuman_Forum_Youth_Track_Final_Programme_17_18_Nov_2026.pdf",
+    },
+    {
       id: "west-africa-webinar-concept-note",
       kind: "brief",
       title: "West Africa webinar — Concept note",
@@ -1285,23 +1298,23 @@ const ar: Copy = {
   joinCta: "انضم إلى الشبكة",
   exploreCta: "استكشف الركائز الخمس",
   featuredActivity: {
-    status: "upcoming",
-    label: "فعالية قادمة",
-    title: "ندوة غرب أفريقيا — أساسيات أجندة الشباب والسلام والأمن",
-    text: "ندوة عبر الإنترنت حول أساسيات أجندة الشباب والسلام والأمن لمركز غرب أفريقيا — قرارات مجلس الأمن 2250 و1325، ورسم خريطة الفاعلين الشباب، والأساطير مقابل الواقع، ودور إيكواس والاتحاد الأفريقي.",
-    meta: "20 تشرين الثاني/نوفمبر 2026 · 18:00–19:30 بتوقيت غرينيتش · عبر الإنترنت",
+    status: "latest",
+    label: "أحدث نشاط",
+    title: "مسار شباب منتدى شومان",
+    text: "نقل مشاركو مسار الشباب أولويات إقليمية إلى منتدى شومان للأمن والدفاع في بروكسل — والتقوا بمؤسسات الاتحاد الأوروبي ومكاتب دائرة العمل الخارجي الأوروبي والأمين العام، وأصدروا بيانًا فلاشًا بخطوات متابعة.",
+    meta: "17–18 تشرين الثاني/نوفمبر 2026 · بروكسل",
     image: {
       src: "/images/hero.webp",
       alt: "شباب من عدة أقاليم يجلسون حول طاولة خشبية في قاعة مضاءة بنور النهار، ويراجعون خرائط ورقية ودفاتر.",
     },
     links: [
       {
-        label: "اقرأ المذكرة المفاهيمية",
-        href: "/documents/EU_YPS_West_Africa_Webinar_Concept_Note_20_Nov_2026.pdf",
+        label: "اقرأ بيان الفلاش",
+        href: "/documents/Schuman_Forum_Youth_Track_Flash_Communique_17_18_Nov_2026.pdf",
       },
       {
-        label: "اطّلع على الأجندة",
-        href: "/documents/EU_YPS_West_Africa_Webinar_Agenda_20_Nov_2026.pdf",
+        label: "اطّلع على البرنامج النهائي",
+        href: "/documents/Schuman_Forum_Youth_Track_Final_Programme_17_18_Nov_2026.pdf",
       },
     ],
   },
@@ -1584,6 +1597,10 @@ const ar: Copy = {
         {
           label: "بيان فلاش (PDF)",
           href: "/documents/Schuman_Forum_Youth_Track_Flash_Communique_17_18_Nov_2026.pdf",
+        },
+        {
+          label: "البرنامج النهائي (PDF)",
+          href: "/documents/Schuman_Forum_Youth_Track_Final_Programme_17_18_Nov_2026.pdf",
         },
       ],
     },
@@ -2100,6 +2117,15 @@ const ar: Copy = {
         "بيان فلاش من مشاركي مسار الشباب في منتدى شومان للأمن والدفاع (بروكسل، 17–18 تشرين الثاني/نوفمبر 2026).",
       body: "بيان فلاش كُتب في بروكسل في 18 تشرين الثاني/نوفمبر 2026 من مشاركي مسار الشباب في منتدى شومان.\n\nيغطي اجتماعات اليوم الأول مع مؤسسات الاتحاد الأوروبي (بما في ذلك المديرية العامة للشرق الأوسط وشمال أفريقيا، والمديرية العامة للتعليم والثقافة، والمديرية العامة للشراكات الدولية، وأقسام دائرة العمل الخارجي الأوروبي) وانخراط اليوم الثاني مع مكاتب البلدان/الأقاليم والأمين العام لدائرة العمل الخارجي الأوروبي ومجلس الشباب النيجيري وصندوق الأمم المتحدة الإنمائي ومفوضية الأمم المتحدة السامية لحقوق الإنسان في بروكسل — إضافة إلى مداخلة في الجلسة الختامية حول الشباب كبنية تحتية للصمود.\n\nيتضمن خطوات تالية عامة وأخرى خاصة بسوريا وأمريكا اللاتينية والكاريبي وأفغانستان.\n\nنزّلوا ملف PDF للبيان الكامل.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
       fileHref: "/documents/Schuman_Forum_Youth_Track_Flash_Communique_17_18_Nov_2026.pdf",
+    },
+    {
+      id: "schuman-forum-youth-track-final-programme",
+      kind: "brief",
+      title: "مسار شباب منتدى شومان — البرنامج النهائي",
+      summary:
+        "البرنامج النهائي لمسار الشباب في منتدى شومان للأمن والدفاع في مقر دائرة العمل الخارجي الأوروبي (بروكسل، 17–18 تشرين الثاني/نوفمبر 2026).",
+      body: "برنامج نهائي موقوت لمسار شباب منتدى شومان 2026 في مقر دائرة العمل الخارجي الأوروبي، رون بوان شومان 9A (بروكسل).\n\nيغطي الثلاثاء 17 تشرين الثاني/نوفمبر اجتماعات مع PCM.1 والمديرية العامة للشرق الأوسط وشمال أفريقيا ومؤسسة آنا ليند ومندوبي الدول الأعضاء والمديرية العامة للتعليم والثقافة والمديرية العامة للشراكات الدولية وتخطيط السياسات والاتصال الاستراتيجي وفريق المساواة والتنوع.\n\nويغطي الأربعاء 18 تشرين الثاني/نوفمبر اجتماعات موازية مع مكاتب جغرافية في دائرة العمل الخارجي الأوروبي والأمين العام للدائرة ومجلس الشباب النيجيري وجلسة منتدى شومان العامة (مندوب شبابي واحد) واجتماعات في بيت الأمم المتحدة مع صندوق الأمم المتحدة الإنمائي ومفوضية حقوق الإنسان وهيئة الأمم المتحدة للمرأة — وينتهي بجلسة كتابة البيان الفلاش.\n\nنزّلوا ملف PDF للجدول الكامل.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/Schuman_Forum_Youth_Track_Final_Programme_17_18_Nov_2026.pdf",
     },
     {
       id: "west-africa-webinar-concept-note",
