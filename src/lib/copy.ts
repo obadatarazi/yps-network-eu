@@ -4,19 +4,6 @@ export const NETWORK_EMAIL = "euypsnet@gmail.com";
 export const SITE_DOMAIN = "euypsnet.org";
 export const SITE_URL = `https://${SITE_DOMAIN}`;
 
-/** Verified EU YPS Coalition channels (closest public profiles for the Europe hub). */
-export const SOCIAL_LINKS = [
-  {
-    id: "linkedin" as const,
-    href: "https://www.linkedin.com/company/eu-youth-peace-and-security-coalition",
-  },
-  {
-    id: "instagram" as const,
-    href: "https://www.instagram.com/euypscoalition/",
-  },
-] as const;
-
-export type SocialId = (typeof SOCIAL_LINKS)[number]["id"];
 export type Lang = "en" | "ar";
 export type PillarId =
   | "participation"
@@ -196,8 +183,6 @@ export type Copy = {
   };
   footerBlurb: string;
   footerNav: string;
-  socialTitle: string;
-  social: Record<SocialId, string>;
   privacyTitle: string;
   privacy: string;
   contactTitle: string;
@@ -847,11 +832,6 @@ const en: Copy = {
   footerBlurb:
     "The European Youth Peace and Security Network (EYPS Network) mobilises young people worldwide for peace, security, and sustainable development, in line with the United Nations YPS Agenda.",
   footerNav: "Site pages",
-  socialTitle: "Social",
-  social: {
-    linkedin: "EU Youth, Peace and Security Coalition on LinkedIn (opens in a new tab)",
-    instagram: "EU Youth, Peace and Security Coalition on Instagram (opens in a new tab)",
-  },
   privacyTitle: "Privacy",
   privacy:
     "Text size, contrast, plain language, and language choice are saved only in this browser. The join form is emailed to the network and a confirmation is emailed to you. Do not include passwords or identity document numbers in your message.",
@@ -1857,11 +1837,6 @@ const ar: Copy = {
   footerBlurb:
     "تعبّئ الشبكة الأوروبية للشباب والسلام والأمن (شبكة EYPS) الشباب حول العالم من أجل السلام والأمن والتنمية المستدامة، بما يتسق مع أجندة الأمم المتحدة للشباب والسلام والأمن.",
   footerNav: "صفحات الموقع",
-  socialTitle: "التواصل الاجتماعي",
-  social: {
-    linkedin: "تحالف الاتحاد الأوروبي للشباب والسلام والأمن على LinkedIn (يفتح في تبويب جديد)",
-    instagram: "تحالف الاتحاد الأوروبي للشباب والسلام والأمن على Instagram (يفتح في تبويب جديد)",
-  },
   privacyTitle: "الخصوصية",
   privacy:
     "حجم النص والتباين واللغة المبسطة واختيار اللغة تُحفظ في هذا المتصفح فقط. نموذج الانضمام يُرسل بالبريد إلى الشبكة ويصلك بريد تأكيد. لا تضع كلمات مرور أو أرقام وثائق هوية في الرسالة.",

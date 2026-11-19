@@ -1,4 +1,4 @@
-import { NETWORK_EMAIL, SITE_DOMAIN, SITE_URL, SOCIAL_LINKS } from "@/lib/copy";
+import { NETWORK_EMAIL, SITE_DOMAIN, SITE_URL } from "@/lib/copy";
 
 export const APP_NAME = "EU YPS Network";
 export const APP_NAME_FULL = "European Youth Peace and Security Network (EYPS Network)";
@@ -61,7 +61,6 @@ export function organizationJsonLd() {
       latitude: GEO.latitude,
       longitude: GEO.longitude,
     },
-    sameAs: SOCIAL_LINKS.map((link) => link.href),
     knowsAbout: [
       "Youth, Peace and Security",
       "UN Security Council Resolution 2250",

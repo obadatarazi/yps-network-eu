@@ -17,10 +17,8 @@ import {
   Handshake,
   Languages,
   HeartHandshake,
-  Instagram,
   Laptop,
   Leaf,
-  Linkedin,
   Mail,
   Menu,
   Printer,
@@ -33,14 +31,12 @@ import {
   NETWORK_EMAIL,
   SITE_DOMAIN,
   SITE_URL,
-  SOCIAL_LINKS,
   copy,
   fill,
   type Copy,
   type Lang,
   type PillarId,
   type ResourceKind,
-  type SocialId,
 } from "@/lib/copy";
 import type { TeamMemberCopy } from "@/lib/team";
 import {
@@ -68,11 +64,6 @@ import { TiltCard } from "@/components/motion/tilt-card";
 import { NetworkGlobeLazy as NetworkGlobe } from "@/components/three/network-globe-lazy";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 import { langFromPath, localizePath, stripLang, type SitePageId } from "@/lib/i18n";
-
-const socialIcons: Record<SocialId, typeof Linkedin> = {
-  linkedin: Linkedin,
-  instagram: Instagram,
-};
 
 export type { SitePageId };
 
@@ -1856,28 +1847,6 @@ function Footer({ c, lang, pathname }: { c: Copy; lang: Lang; pathname: string }
             <p className="font-display text-xl font-semibold sm:text-2xl">EU YPS</p>
           </div>
           <p className="mt-3 max-w-prose text-sm leading-relaxed sm:text-base">{c.footerBlurb}</p>
-          <nav aria-label={c.socialTitle} className="mt-4">
-            <h2 className="text-lg">{c.socialTitle}</h2>
-            <ul className="mt-3 flex flex-wrap gap-2">
-              {SOCIAL_LINKS.map((item) => {
-                const Icon = socialIcons[item.id];
-                return (
-                  <li key={item.id}>
-                    <a
-                      className="icon-btn border-inverse-fg/40 bg-transparent text-inverse-fg hover:bg-inverse-fg/10"
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={c.social[item.id]}
-                      data-umami-event={`${item.id}-click`}
-                    >
-                      <Icon aria-hidden="true" className="size-5" />
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
         </div>
         <nav aria-label={c.footerNav}>
           <h2 className="text-lg">{c.footerNav}</h2>
