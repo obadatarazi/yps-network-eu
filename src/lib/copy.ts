@@ -564,6 +564,29 @@ const en: Copy = {
       ],
     },
     {
+      id: "schuman-forum-youth-track-flash-2026",
+      title: "Schuman Forum Youth Track — Flash Communiqué",
+      dateISO: "2026-11-17",
+      when: "17–18 November 2026",
+      where: "Brussels · Schuman Security and Defence Forum youth track",
+      summary:
+        "Youth track participants met EU institutions, EEAS desks and the EEAS Secretary General, and spoke in the Forum closing plenary — carrying priorities from Ukraine, Syria, Afghanistan, the Western Balkans, Latin America and the Caribbean, and Africa into the Schuman Forum debate, with concrete follow-up steps by region.",
+      hubId: "europe",
+      hubs: ["europe", "asia-me", "lac", "west-africa", "central-africa", "esa"],
+      themes: ["security", "participation"],
+      format: "forum",
+      quote: {
+        text: "Young peacebuilders are already an often invisible but essential resilience infrastructure — preserving trust, sustaining dialogue, and maintaining social cohesion where formal institutions are under pressure.",
+        attribution: "Schuman Forum youth track · Flash Communiqué",
+      },
+      documents: [
+        {
+          label: "Flash Communiqué (PDF)",
+          href: "/documents/Schuman_Forum_Youth_Track_Flash_Communique_17_18_Nov_2026.pdf",
+        },
+      ],
+    },
+    {
       id: "west-africa-webinar-yps-fundamentals-2026",
       title: "West Africa webinar — YPS Fundamentals",
       dateISO: "2026-11-20",
@@ -1072,6 +1095,15 @@ const en: Copy = {
       fileHref: "/documents/Schuman_Forum_Consultation_2_Report.pdf",
     },
     {
+      id: "schuman-forum-youth-track-flash-communique",
+      kind: "brief",
+      title: "Schuman Forum Youth Track — Flash Communiqué",
+      summary:
+        "Flash communiqué from youth track participants at the Schuman Security and Defence Forum (Brussels, 17–18 November 2026).",
+      body: "Flash Communiqué written in Brussels on 18 November 2026 by Schuman Forum youth track participants.\n\nCovers Day One meetings with EU institutions (including DG MENA, DG Education and Culture, DG International Partnerships, and EEAS divisions) and Day Two engagement with country/region desks, the EEAS Secretary General, the Nigerian Youth Sounding Board, and UNDP and OHCHR in Brussels — plus a closing plenary intervention on youth as resilience infrastructure.\n\nIncludes general and geo-specific next steps for Syria, Latin America and the Caribbean, and Afghanistan.\n\nDownload the PDF for the full communiqué.\n\nContact euypsnet@gmail.com if you need an accessible format.",
+      fileHref: "/documents/Schuman_Forum_Youth_Track_Flash_Communique_17_18_Nov_2026.pdf",
+    },
+    {
       id: "west-africa-webinar-concept-note",
       kind: "brief",
       title: "West Africa webinar — Concept note",
@@ -1529,6 +1561,29 @@ const ar: Copy = {
         {
           label: "مسودة البرنامج (PDF)",
           href: "/documents/Conflict_Minerals_Conference_Program_12_Nov_2026.pdf",
+        },
+      ],
+    },
+    {
+      id: "schuman-forum-youth-track-flash-2026",
+      title: "مسار شباب منتدى شومان — بيان فلاش",
+      dateISO: "2026-11-17",
+      when: "17–18 تشرين الثاني/نوفمبر 2026",
+      where: "بروكسل · مسار الشباب في منتدى شومان للأمن والدفاع",
+      summary:
+        "التقى مشاركو مسار الشباب بمؤسسات الاتحاد الأوروبي ومكاتب دائرة العمل الخارجي الأوروبي والأمين العام للدائرة، وتحدثوا في الجلسة الختامية للمنتدى — ناقلين أولويات من أوكرانيا وسوريا وأفغانستان والبلقان الغربي وأمريكا اللاتينية والكاريبي وأفريقيا إلى نقاش منتدى شومان، مع خطوات متابعة ملموسة حسب الإقليم.",
+      hubId: "europe",
+      hubs: ["europe", "asia-me", "lac", "west-africa", "central-africa", "esa"],
+      themes: ["security", "participation"],
+      format: "forum",
+      quote: {
+        text: "بناة السلام الشباب هم أصلًا بنية تحتية للصمود غالبًا ما تبقى غير مرئية لكنها أساسية — يحفظون الثقة ويستمرون في الحوار ويحافظون على التماسك الاجتماعي حيث تكون المؤسسات الرسمية تحت ضغط.",
+        attribution: "مسار شباب منتدى شومان · بيان فلاش",
+      },
+      documents: [
+        {
+          label: "بيان فلاش (PDF)",
+          href: "/documents/Schuman_Forum_Youth_Track_Flash_Communique_17_18_Nov_2026.pdf",
         },
       ],
     },
@@ -2036,6 +2091,15 @@ const ar: Copy = {
         "التقرير الموحّد من المشاورة الشبابية الثانية لمنتدى شومان حول الإجراءات العملية والشراكات الأمنية الموثوقة (التاريخ يُؤكد لاحقًا).",
       body: "التقرير الموحّد لمشاورة منتدى شومان 2: من الأولويات إلى الفعل — توصيات شبابية لشراكات أمنية موثوقة.\n\nيبني على المشاورة 1 بإجراءات عملية وتوصيات شراكة ورسائل لصنّاع القرار في الاتحاد الأوروبي والشركاء الدوليين حول المشاركة الهادفة للشباب والحماية والدعم على المستوى المحلي.\n\nمتاح بالإنجليزية والإسبانية والفرنسية في ملف PDF واحد. تاريخ المشاورة ما زال قيد التأكيد في صفحة الأنشطة.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
       fileHref: "/documents/Schuman_Forum_Consultation_2_Report.pdf",
+    },
+    {
+      id: "schuman-forum-youth-track-flash-communique",
+      kind: "brief",
+      title: "مسار شباب منتدى شومان — بيان فلاش",
+      summary:
+        "بيان فلاش من مشاركي مسار الشباب في منتدى شومان للأمن والدفاع (بروكسل، 17–18 تشرين الثاني/نوفمبر 2026).",
+      body: "بيان فلاش كُتب في بروكسل في 18 تشرين الثاني/نوفمبر 2026 من مشاركي مسار الشباب في منتدى شومان.\n\nيغطي اجتماعات اليوم الأول مع مؤسسات الاتحاد الأوروبي (بما في ذلك المديرية العامة للشرق الأوسط وشمال أفريقيا، والمديرية العامة للتعليم والثقافة، والمديرية العامة للشراكات الدولية، وأقسام دائرة العمل الخارجي الأوروبي) وانخراط اليوم الثاني مع مكاتب البلدان/الأقاليم والأمين العام لدائرة العمل الخارجي الأوروبي ومجلس الشباب النيجيري وصندوق الأمم المتحدة الإنمائي ومفوضية الأمم المتحدة السامية لحقوق الإنسان في بروكسل — إضافة إلى مداخلة في الجلسة الختامية حول الشباب كبنية تحتية للصمود.\n\nيتضمن خطوات تالية عامة وأخرى خاصة بسوريا وأمريكا اللاتينية والكاريبي وأفغانستان.\n\nنزّلوا ملف PDF للبيان الكامل.\n\nراسلوا euypsnet@gmail.com إن احتجتم صيغة ميسّرة.",
+      fileHref: "/documents/Schuman_Forum_Youth_Track_Flash_Communique_17_18_Nov_2026.pdf",
     },
     {
       id: "west-africa-webinar-concept-note",
